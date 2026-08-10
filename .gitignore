@@ -15,6 +15,18 @@
 !.gitignore
 !.gitattributes
 !README.md
+# Novamira MCP client config. Safe to track: it holds no URL and no
+# credential, only ${PIT_WP_*} env-var references. See
+# _project/docs/NOVAMIRA.md.
+!.mcp.json
+
+# --- Design system (root) --------------------------------
+# design.md is the source of truth; the two CSS files are its exports.
+# Lowercase design.md only — a second DESIGN.md collides with it on
+# Windows, which is where this repo is authored.
+!design.md
+!prideinturftokens.css
+!prideinturfacss4x.css
 
 # --- Our theme code --------------------------------------
 !/themes/
@@ -46,6 +58,12 @@
 /cache/
 /novamira-sandbox/
 *.log
+
+# Credentials. The WP application password lives in shell env vars,
+# never in the repo — but block the usual accidents anyway.
+.env
+.env.*
+.mcp.local.json
 
 # OS noise
 .DS_Store

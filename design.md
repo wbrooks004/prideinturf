@@ -190,7 +190,7 @@ components:
 **Source of truth.** This file is derived from the paper.design style sheet v1.0
 (app.paper.design/file/01KY7Q7GSKA4K1A7G4QKQD23AT, frames 00–12) and its exported token files.
 Where this file and the older "Hybrid Technical-Premium" Figma spec disagree, **this file wins** —
-see [Divergences from the prior spec](#divergences-from-the-prior-spec) at the bottom for the three
+see [Divergences from the prior spec](#divergences-from-the-prior-spec) at the bottom for the six
 that matter.
 
 ## Overview
@@ -521,15 +521,16 @@ flat color.
 ## Automatic.css 4.x Mapping
 
 The build contract. Every specimen in the source sheet is labelled twice — system token, then ACSS
-alias. Load `exports/pride-in-turf-acss-4x.css` as global CSS and the system resolves under ACSS
-names.
+alias. Load `prideinturfacss4x.css` as global CSS and the system resolves under ACSS names. The
+system-token layer it aliases lives in `prideinturftokens.css`; load that one instead when you want
+the plain `--brand-*` / `--surface-*` names without ACSS.
 
 | System token | ACSS 4.x | Value |
 |---|---|---|
 | `--brand-primary` | `--primary` | `#76bc43` |
 | `--brand-primary-hover` | `--primary-hover` | `#5f9205` |
 | `--brand-primary-tint` | `--primary-ultra-light` | `#eff9e4` |
-| `--text-link` | `--primary-dark` / `--action` | `#407000` |
+| `--text-link` / `--brand-primary-active` | `--primary-dark` | `#407000` |
 | — | `--primary-ultra-dark` | `#193400` |
 | `--brand-accent` | `--accent` | `#f69622` |
 | `--brand-accent-hover` | `--accent-hover` | `#d86105` |
@@ -556,6 +557,13 @@ names.
 `--weight-bold` → `--font-weight-heading`.
 **Buttons:** primary → `.btn--primary`, accent → `.btn--accent`, outline →
 `.btn--primary.btn--outline`, ghost → `.btn--text`.
+
+**`--primary-dark` and `--action` are both `#407000`, deliberately.** `--primary-dark` is the
+deep-green ramp step. `--action` is set to the same value because the export defines action as the
+link color, with its own comment: *"Action = link color. Raw brand green fails AA on white at body
+sizes, so links read one ramp step darker."* `--action-hover` is `#2b5100`. This is an intentional
+decision in the paper.design system, not a default left unset — it does mean links and any ACSS
+action-role element read green, not orange.
 
 **ACSS 4.x dropped the `--*-trans-*` tokens.** Build transparency with
 `color-mix(in oklch, var(--primary) 20%, transparent)`. The hero scrim in ACSS terms is
@@ -602,14 +610,15 @@ files under `assets/fonts/` for production rather than depending on a CDN.
 
 ## Divergences from the prior spec
 
-Three places where this file contradicts the older "Hybrid Technical-Premium" Figma system. This
+Six places where this file contradicts the older "Hybrid Technical-Premium" Figma system. This
 file wins; the list exists so nothing gets rebuilt against the wrong rule by accident.
 
 | Decision | Prior Figma spec | paper.design v1.0 (canonical) |
 |---|---|---|
 | Corner radius | Sharp 0px default on everything | 6 / 10 / 16 / 24px; 10px is the workhorse |
 | Body typeface | Avenir Regular / Medium | Kanit 400 / 500 — Avenir is print-only per the brand book |
-| `--action` (ACSS) | CTA Orange `#f69622` | Deep green `#407000`; orange is `--accent` |
+| Deep green `#407000` | Not present | `--primary-dark` — the deep-green ramp step |
+| `--action` (ACSS) | CTA Orange `#f69622` | Deep green `#407000` (`--action-hover` `#2b5100`) — defined as the link color for AA compliance, not the CTA color |
 | Spacing base | 8px grid, fixed steps | 4px base, fluid `clamp()` ramp above 20px |
 | Type base | 16px | 17px (1.0625rem) |
 
