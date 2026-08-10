@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "bricks-mcp": {
+      "type": "http",
+      "url": "https://wordpress-1624912-6418635.cloudwaysapps.com/wp-json/bricks-mcp/v1/mcp",
+      "headers": {
+        "Authorization": "Basic ${BRICKS_MCP_AUTH}"
+      }
+    }
+  }
+}

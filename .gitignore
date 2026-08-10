@@ -1,0 +1,9 @@
+# Local secrets / env — never commit the Bricks MCP basic-auth string
+.env
+.env.*
+.mcp.local.json
+.claude/settings.local.json
+
+# OS noise
+.DS_Store
+Thumbs.db
