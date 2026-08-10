@@ -1,0 +1,376 @@
+pride in turf website rules:
+
+Surface Class	Use For
+.surface-dark-cta	dark CTA bands, guarantee sections, final quote sections
+.surface-proof	testimonials, results, trust sections, evidence blocks
+.surface-hero	hero sections and major page headers
+.surface-subtle-grid	
+process, diagnostic, explainer, or technical sections
+
+-----------------------------------
+
+For any reusable card you build from now on, use a consistent internal structure like this:
+
+.card-name
+.card-name__media
+.card-name__body
+.card-name__title
+.card-name__text
+.card-name__actions
+Examples
+
+For service cards:
+
+.service-card
+.service-card__media
+.service-card__body
+.service-card__title
+.service-card__text
+.service-card__actions
+
+For review cards:
+
+.review-card
+.review-card__text
+.review-card__avatar
+.review-card__name
+.review-card__meta
+
+For result cards:
+
+.result-card
+.result-card__media
+.result-card__labels
+.result-card__title
+.result-card__meta
+Important
+
+Do not build random card internals with inconsistent class naming.
+This is the structure standard you’ll follow in Bricks/Frames.
+
+--------------------------------------------------------------
+
+shadow usage rule
+Shadow Slot	Use For
+M	default card shadow
+L	featured cards, elevated panels, stronger CTA blocks
+XL	rare use only, large overlays or very high-emphasis elements
+
+Use this practical rule
+Component Type	Shadow
+Standard cards	M/2
+Featured cards	M
+Important CTA cards	L
+Modal / rare high emphasis	XL
+
+default card hierarchy rule
+
+This is a build rule for how your card types should differ without creating a mess.
+
+Use this as the standard:
+
+Card Type	Background	Border	Shadow	Padding
+Standard cards	white	yes	M/2	1.5rem
+Featured cards	white	yes	M	2rem
+CTA cards	white or dark surface context	yes	L	2rem
+Apply this to your classes
+.service-card = standard
+.review-card = standard
+.resource-card = standard
+.location-card = standard
+.result-card = featured
+.program-card = featured
+.diagnostic-card = featured or standard depending on layout
+.cta-card = CTA
+Important
+
+Do not invent separate styling rules for every card class unless there is a real reason.
+
+Reply with done when you’re ready for the next task.
+
+--------------------------------------------------------------
+
+button usage hierarchy rule
+
+This is a system rule for when to use each button style consistently across the redesign.
+
+Use this:
+
+Button Type	Use For
+Primary button	main conversion action
+Secondary button	important but not dominant action
+Text link	low-emphasis inline action
+Apply it like this
+Primary button (orange)
+Use for:
+Get a Quote
+Request Estimate
+Schedule Service
+any main conversion CTA
+Secondary button (green)
+Use for:
+Learn More
+View Services
+Explore Program
+secondary section CTA
+Text link
+Use for:
+inline content links
+resource links
+supporting navigation inside content
+Important
+
+Do not mix orange and green buttons randomly in the same section with equal weight.
+Each section should usually have:
+
+one primary action
+optionally one secondary action
+
+
+section background usage rule
+
+This is the layout rule for when each surface should be used so the site stays consistent.
+
+Use this standard:
+
+Section Type	Surface / Background
+Main hero sections	.surface-hero
+Trust / proof / testimonial sections	.surface-proof
+Process / diagnostic / technical explainer sections	.surface-subtle-grid
+Final CTA / guarantee / quote sections	.surface-dark-cta
+Regular content sections	default white background
+Important
+
+Do not alternate backgrounds randomly just to create variation.
+
+Use contrast with purpose:
+
+white for normal content
+proof surface for credibility blocks
+subtle-grid for technical/process sections
+dark CTA for conversion emphasis
+
+
+heading hierarchy rule
+
+This is a content-system rule so typography stays consistent across the site.
+
+Use this standard:
+
+Heading Level	Use For
+H1	page hero title only
+H2	major page sections
+H3	card titles and subsection headings
+H4	small supporting headings only
+Important
+Use one H1 per page.
+Do not use H2s just because they look bigger.
+Most card titles should be H3, not H2.
+Keep the hierarchy logical even if you adjust visual size with classes.
+
+
+body text width rule
+
+This is a layout/content rule.
+
+Use this standard:
+
+Content Type	Max Width
+Normal paragraph content	65ch to 75ch
+Hero text blocks	45ch to 55ch
+Small supporting text blocks	keep narrower if needed
+Important
+Do not let long paragraphs stretch full-width across large sections.
+Wide text blocks make the site feel cheaper and harder to read.
+This matters a lot for the premium, structured look.
+
+
+section spacing rule
+
+This is a layout rule for vertical rhythm across the redesign.
+
+Use this standard:
+
+Section Type	Vertical Spacing
+Hero sections	most generous
+Standard content sections	generous
+Dense utility sections	slightly reduced
+Final CTA sections	generous
+Practical rule
+
+When building sections:
+
+default to more space, not less
+only tighten spacing when the content is truly small or utility-driven
+keep cards, text blocks, and CTAs from feeling cramped
+Important
+
+Do not make every section the same visual density.
+The site should breathe.
+
+
+image treatment rule
+
+This is a build rule for how images should behave across the site.
+
+Use this standard:
+
+Image Type	Treatment
+Card images	inherit the global radius
+Hero/background images	covered and centered
+Testimonial avatars	circular or fully rounded
+Proof/result images	clean crop, no heavy effects
+Important
+Do not mix sharp-cornered images with rounded cards.
+Do not add fake overlays, glow effects, or random filters.
+Keep image treatment clean and consistent.
+
+
+icon usage rule
+
+This is a system rule for how icons should be used throughout the site.
+
+Use this standard:
+
+Icon Use	Rule
+Service/support icons	simple, clean, line-based or solid, but one style only
+Small UI icons	subtle and secondary to text
+CTA icons	optional, only if they improve clarity
+Decorative icons	avoid unless they serve a real purpose
+Important
+Do not mix multiple icon styles.
+Do not use oversized icons just to fill space.
+Icons should support the content, not dominate it.
+
+
+Set the form styling rule
+
+This is the system rule for all quote, contact, and diagnostic forms.
+
+Use this standard:
+
+Form Element	Rule
+Inputs	clean, bordered, easy to scan
+Input background	white
+Border	light neutral
+Radius	same as global radius
+Focus state	use your green focus style
+Submit button	primary orange button
+Labels	always visible above fields
+Important
+Do not rely on placeholder text as the label.
+Do not make forms look overly decorative.
+Keep forms practical and conversion-focused.
+
+
+clickable-card rule
+
+This is the interaction rule for cards that link somewhere.
+
+Use this standard:
+
+Rule	What to do
+Full card link behavior	make the card feel clickable without wrapping the whole card in an anchor
+Focus behavior	the parent card should show the focus treatment
+Main click target	the card heading link should be the primary interactive element
+Important
+Do not wrap the entire card in a single anchor unless you absolutely have to.
+Use the heading/title link as the main target.
+Make the whole card feel interactive through styling, hover, and focus.
+
+
+Set the hover-behavior rule
+
+This is the interaction rule for cards, buttons, and linked UI elements.
+
+Use this standard:
+
+Element	Hover Behavior
+Buttons	slightly darker background and border
+Standard cards	subtle shadow increase or slight lift
+Featured cards	slightly stronger shadow increase
+Text links	color shift only, no dramatic movement
+Important
+Keep hover effects restrained.
+Do not use big jumps, bouncy transforms, or flashy animations.
+The site should feel controlled and premium, not gimmicky.
+
+
+component consistency rule
+
+This is the final system rule before you start building actual sections.
+
+Use this standard:
+
+Rule	What it means
+Reuse before creating	use existing surfaces, card classes, button styles, and spacing rules before inventing new ones
+One-off styles are the exception	only create a custom variation when the design truly needs it
+Tokens first	prefer ACSS variables/tokens over hardcoded values
+System over improvisation	every new section should fit the design system you just set up
+Important
+Do not start making random custom classes for every section.
+Do not hardcode colors, spacing, or radius unless there is a real reason.
+Build from the system first, then customize only where needed.
+
+
+Lock the homepage CTA stack
+
+Write down the only three global CTA labels you should treat as the main site-wide conversion stack:
+
+Get a Quote
+Call Now
+Customer Portal for existing clients
+
+That CTA stack is explicitly defined in the redesign plan, and it is meant to support cleaner lead routing before operations get involved.
+
+Important
+Get a Quote = primary conversion CTA
+Call Now = immediate contact CTA
+Customer Portal = existing-customer utility CTA
+
+Do not start inventing extra primary CTAs like:
+
+Free Consultation
+Book Now
+Get Started
+Claim Offer
+
+
+Lock the location model before you build any page
+
+Before you build sections, write down the location rule you are actually following for this redesign.
+
+Use this as the working rule
+Atlanta = real branch
+Hoschton = real branch
+Duluth = service-area page only, not a branch
+
+That is the cleaner operational model from the restructure sheet: only Atlanta and Hoschton should be treated as true branch pages, while Duluth may stay live only as a service-area page and should not be treated as a branch entity in schema, footer NAP, or branch logic.
+
+Important
+
+This conflicts with the older redesign plan that framed the public model around Atlanta + Duluth.
+For build consistency, use the restructure sheet as the rule unless you intentionally decide to override it later.
+
+What this affects immediately
+footer NAP
+contact modules
+branch page strategy
+schema
+local page structure
+CTA routing
+
+
+
+homepage section order
+
+Write down this working homepage structure:
+
+Hero
+Trust / proof strip
+Core services overview
+Why choose us / differentiators
+Programs or service packages
+Results / proof / testimonials
+Service area or branch credibility
+Final CTA
