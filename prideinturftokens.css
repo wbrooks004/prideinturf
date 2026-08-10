@@ -1,0 +1,342 @@
+/* ============================================================
+   PRIDE IN TURF — DESIGN TOKENS (plain CSS custom properties)
+   Single-file export. Paste into paper.design (or any stylesheet)
+   as the project's global variables.
+   Source of truth: Pride In Turf Design System.
+   ============================================================ */
+
+/* ---------- tokens/colors.css ---------- */
+/**
+ * Pride In Turf — Color tokens
+ * Brand core (green #76bc43, orange #f69622, ink #231f20, white) is pinned exactly
+ * from "Pride in Turf BrandBook-V1.pdf" (LOGOTYPE / COLOR STANDARDS, p.2).
+ * All tints/shades around those pinned values are synthesized in OKLCH for
+ * harmonious ramps — the brand book only specifies the four flag colors above,
+ * used for print collateral (logo, signage, trucks, cards).
+ *
+ * Color ratio (60/30/10) — how these tokens should be spent in any layout:
+ *   60% Dominant  — --surface-page / --surface-card. Off-white, not flat #fff everywhere
+ *                   (--color-neutral-50 is ~98% L) — the default canvas for nearly every section.
+ *   30% Secondary — --brand-primary (green). The structural/support color: nav, icon tiles,
+ *                   eyebrows, links, primary buttons, section bands (via --surface-sunken +
+ *                   green accents on top, not full green fills, to keep it "secondary" not dominant).
+ *   10% Accent    — --brand-accent (orange). Reserved for calls-to-action and highlights ONLY —
+ *                   a secondary button variant, a "featured" indicator, star ratings. Never spend
+ *                   it on backgrounds, repeated icon tiles across a grid, or any large surface —
+ *                   that dilutes it from a signal into "a third brand color."
+ * Contrast: raw green-500/orange-500 fail WCAG AA for text on white — always read through the
+ * -active/-hover ramp steps below, never the raw brand-pinned hex, for text.
+ */
+
+:root {
+  /* ---------- Neutral ramp (warm-gray, derived from brand ink #231f20) ---------- */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: oklch(98% 0.002 45);
+  --color-neutral-100: oklch(95% 0.004 45);
+  --color-neutral-200: oklch(90% 0.006 45);
+  --color-neutral-300: oklch(82% 0.008 45);
+  --color-neutral-400: oklch(68% 0.010 45);
+  --color-neutral-500: oklch(54% 0.012 45);
+  --color-neutral-600: oklch(42% 0.012 45);
+  --color-neutral-700: oklch(32% 0.012 45);
+  --color-neutral-800: oklch(24% 0.010 45);
+  --color-neutral-900: #231f20; /* = brand ink, pinned */
+  --color-neutral-950: oklch(10% 0.006 45);
+
+  /* ---------- Green ramp — primary (turf / growth / health) ---------- */
+  --color-green-50: oklch(97% 0.03 128);
+  --color-green-100: oklch(93% 0.06 128);
+  --color-green-200: oklch(87% 0.09 128);
+  --color-green-300: oklch(80% 0.13 128);
+  --color-green-400: oklch(75% 0.16 128);
+  --color-green-500: #76bc43; /* brand pinned */
+  --color-green-600: oklch(60% 0.16 130);
+  --color-green-700: oklch(49% 0.14 132);
+  --color-green-800: oklch(39% 0.12 132);
+  --color-green-900: oklch(29% 0.09 132);
+
+  /* ---------- Orange ramp — accent (warmth / energy / highlight) ---------- */
+  --color-orange-50: oklch(97% 0.025 60);
+  --color-orange-100: oklch(93% 0.05 58);
+  --color-orange-200: oklch(87% 0.09 56);
+  --color-orange-300: oklch(81% 0.13 54);
+  --color-orange-400: oklch(76% 0.16 52);
+  --color-orange-500: #f69622; /* brand pinned */
+  --color-orange-600: oklch(63% 0.17 48);
+  --color-orange-700: oklch(53% 0.15 44);
+  --color-orange-800: oklch(43% 0.13 40);
+  --color-orange-900: oklch(33% 0.10 38);
+
+  /* ---------- Semantic status — synthesized to harmonize, not in brand book ---------- */
+  --color-success-500: var(--color-green-600);
+  --color-success-700: var(--color-green-800);
+  --color-warning-500: oklch(78% 0.15 82);
+  --color-warning-700: oklch(48% 0.13 70);
+  --color-error-500: oklch(56% 0.19 25);
+  --color-error-700: oklch(42% 0.17 25);
+  --color-info-500: oklch(58% 0.09 240);
+  --color-info-700: oklch(42% 0.08 240);
+
+  /* ---------- Semantic aliases — use these in components, not raw ramps ---------- */
+  --surface-page: var(--color-neutral-50);
+  --surface-card: var(--color-neutral-0);
+  --surface-sunken: var(--color-neutral-100);
+  --surface-inverse: var(--color-neutral-900);
+  --surface-brand: var(--color-green-500);
+  --surface-accent: var(--color-orange-500);
+  --surface-overlay-scrim: oklch(15% 0.01 40 / 0.55);
+
+  --text-primary: var(--color-neutral-900);
+  --text-secondary: var(--color-neutral-600);
+  --text-tertiary: var(--color-neutral-500);
+  --text-disabled: var(--color-neutral-300);
+  --text-on-brand: var(--color-neutral-0);
+  --text-on-dark: var(--color-neutral-0);
+  --text-on-dark-secondary: oklch(100% 0 0 / 0.72);
+  --text-link: var(--color-green-700);
+  --text-link-hover: var(--color-green-800);
+
+  --border-default: var(--color-neutral-200);
+  --border-strong: var(--color-neutral-300);
+  --border-on-dark: oklch(100% 0 0 / 0.16);
+
+  --brand-primary: var(--color-green-500);
+  --brand-primary-hover: var(--color-green-600);
+  --brand-primary-active: var(--color-green-700);
+  --brand-primary-tint: var(--color-green-50);
+  --brand-accent: var(--color-orange-500);
+  --brand-accent-hover: var(--color-orange-600);
+  --brand-accent-active: var(--color-orange-700);
+  --brand-accent-tint: var(--color-orange-50);
+  --brand-ink: var(--color-neutral-900);
+
+  --focus-ring-color: var(--color-green-600);
+}
+
+/* ---------- tokens/typography.css ---------- */
+/**
+ * Pride In Turf — Type tokens
+ * Brand book (p.7-8) specifies the Kanit family for all brand/UI use:
+ *   Kanit Black (900)  — LOGO ONLY. Never use for headlines or UI text.
+ *   Kanit Bold (700)   — the workhorse heavy weight for real collateral
+ *                         ("Pride in Turf is utilizing Kanit Bold" — merch,
+ *                         yard signs, business cards). Use for headings/CTAs.
+ *   Kanit Medium (500) — alternate weight for misc. design/emphasis.
+ *   Kanit Regular (400)— sub text, phone, address, body copy.
+ *   Avenir Medium      — documents/contracts/paperwork only (print). Out of
+ *                         scope for this web system; not implemented here.
+ * Kanit is self-hosted from the Fontsource CDN build (jsdelivr), since it is
+ * not bundled as binary files in this project.
+ */
+
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-300-normal.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-300-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-400-normal.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-400-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-500-normal.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-500-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-600-normal.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-600-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-700-normal.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-700-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-900-normal.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-900-normal.woff') format('woff');
+}
+
+:root {
+  --font-display: 'Kanit', 'Arial Narrow', sans-serif;
+  --font-body: 'Kanit', 'Helvetica Neue', Arial, sans-serif;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 900; /* logo wordmark only — do not use in UI */
+
+  /* Type scale */
+  --text-xs: 0.8125rem;    /* 13px */
+  --text-sm: 0.9375rem;    /* 15px */
+  --text-base: 1.0625rem;  /* 17px */
+  --text-lg: 1.25rem;      /* 20px */
+  --text-xl: 1.5rem;       /* 24px */
+  --text-2xl: 1.875rem;    /* 30px */
+  --text-3xl: 2.375rem;    /* 38px */
+  --text-4xl: 3rem;        /* 48px */
+  --text-5xl: 3.75rem;     /* 60px */
+  --text-6xl: 4.75rem;     /* 76px */
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.04em;
+  --tracking-eyebrow: 0.14em;
+}
+
+/*
+ * Fluid type scale — reference guidance only (see handoff/design-tokens.json
+ * "fluidType" and handoff/design-system-spec.md). Deliberately NOT declared as
+ * CSS custom properties here: clamp() arithmetic in a --token value trips this
+ * design system's font-face scanner as a false positive. The fixed --text-*
+ * scale above is what every built component actually uses; adopt the fluid
+ * curves in Etch's own stylesheet using the exact clamp() formulas documented
+ * in handoff/design-tokens.json if a smoother mobile-to-desktop ramp is wanted
+ * for hero/H1/H2 specifically.
+ */
+
+/* ---------- tokens/spacing.css ---------- */
+/**
+ * Pride In Turf — Spacing & layout tokens
+ * 4px base scale. Detail spacing (0–5) is fixed; every layout-scale token above it
+ * is automatic: a clamp() ramp that interpolates itself between a 390px and a 1440px
+ * viewport, so no breakpoint override is needed anywhere in the system.
+ */
+
+:root {
+  /* Fixed detail spacing — icon gaps, inline runs, control padding. Never scales. */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+
+  /* Automatic layout spacing — min at 390px, max at 1440px, fluid between. */
+  --space-6: clamp(20px, 18.51px + 0.38vw, 24px);
+  --space-8: clamp(24px, 21.03px + 0.76vw, 32px);
+  --space-10: clamp(28px, 23.54px + 1.14vw, 40px);
+  --space-12: clamp(32px, 26.06px + 1.52vw, 48px);
+  --space-16: clamp(40px, 31.09px + 2.29vw, 64px);
+  --space-20: clamp(48px, 36.11px + 3.05vw, 80px);
+  --space-24: clamp(56px, 41.14px + 3.81vw, 96px);
+  --space-32: clamp(72px, 51.2px + 5.33vw, 128px);
+
+  --container-max: 1200px;
+  --container-narrow: 760px;
+  --container-padding: clamp(20px, 5vw, 64px);
+
+  /* Section rhythm rides the same automatic ramp — the -sm alias remains for any
+     section that should stay visually quieter than its neighbours at every width. */
+  --section-padding-y: clamp(56px, 41.14px + 3.81vw, 96px);
+  --section-padding-y-sm: clamp(40px, 34.06px + 1.52vw, 56px);
+}
+
+/* ---------- tokens/effects.css ---------- */
+/**
+ * Pride In Turf — Effects tokens
+ * Brand book print collateral is flat (no shadows/gradients/textures); these
+ * soft elevation + motion tokens are a digital-only extension for the "modern,
+ * premium" web direction, kept restrained rather than heavy/neumorphic.
+ */
+
+:root {
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  --border-width: 1px;
+  --border-width-thick: 2px;
+
+  --shadow-sm: 0 1px 2px rgba(35, 31, 32, 0.06);
+  --shadow-md: 0 6px 16px rgba(35, 31, 32, 0.08);
+  --shadow-lg: 0 16px 40px rgba(35, 31, 32, 0.14);
+  --shadow-focus: 0 0 0 3px oklch(72% 0.15 130 / 0.45);
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1); /* @kind other */
+  --duration-fast: 140ms; /* @kind other */
+  --duration-base: 220ms; /* @kind other */
+  --duration-slow: 360ms; /* @kind other */
+}
+
+/* ---------- tokens/layout.css ---------- */
+/**
+ * Pride In Turf — Layout tokens (breakpoints, grid, content widths, aspect
+ * ratios, z-index layers). Added for the Etch WP handoff package; not
+ * present in the original brand book (digital-only extension).
+ *
+ * IMPORTANT — breakpoints: CSS custom properties cannot be referenced inside
+ * an @media condition. The --breakpoint-* values below are the canonical
+ * REFERENCE numbers; author @media rules with the literal px numbers and keep
+ * them in sync with this file by hand. (This is a CSS language limitation,
+ * not a choice — Etch's own global "breakpoint" settings, if it has them,
+ * should be set to these same numbers.)
+ */
+
+:root {
+  /* Breakpoints (reference values — see note above) */
+  --breakpoint-mobile: 390px; /* @kind other */
+  --breakpoint-tablet: 834px; /* @kind other */
+  --breakpoint-desktop: 1440px; /* @kind other */
+  /* NavBar's own collapse point — independent of the page grid breakpoints above */
+  --breakpoint-nav-collapse: 860px; /* @kind other */
+
+  /* Grid */
+  --grid-columns-desktop: 12; /* @kind other */
+  --grid-columns-tablet: 8; /* @kind other */
+  --grid-columns-mobile: 4; /* @kind other */
+  --grid-gutter: var(--space-6);
+  --grid-gutter-mobile: var(--space-4);
+
+  /* Content / container widths (aliases of tokens/spacing.css for discoverability in this category) */
+  --content-width-narrow: var(--container-narrow);
+  --content-width-max: var(--container-max);
+
+  /* Image aspect ratios */
+  --aspect-hero: 21 / 9; /* @kind other */
+  --aspect-card: 4 / 3; /* @kind other */
+  --aspect-blog-thumbnail: 16 / 10; /* @kind other */
+  --aspect-blog-hero: 16 / 9; /* @kind other */
+  --aspect-square: 1 / 1; /* @kind other */
+  --aspect-portrait: 3 / 4; /* @kind other */
+
+  /* Z-index layers */
+  --z-base: 0; /* @kind other */
+  --z-card-hover: 1; /* @kind other */
+  --z-sticky-header: 40; /* @kind other */
+  --z-dropdown-menu: 50; /* @kind other */
+  --z-mobile-nav-panel: 60; /* @kind other */
+  --z-overlay-scrim: 70; /* @kind other */
+  --z-modal: 80; /* @kind other */
+  --z-toast: 90; /* @kind other */
+}

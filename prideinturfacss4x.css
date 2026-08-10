@@ -1,0 +1,162 @@
+/* ============================================================
+   PRIDE IN TURF — ACSS 4.x NAMING LAYER
+   Maps the Pride In Turf design system onto Automatic.css 4.x
+   variable names, so the same values can be dropped into an
+   ACSS project (or paper.design) without renaming anything.
+
+   Two ways to use this file:
+   1. Dashboard route (recommended for WordPress + ACSS):
+      enter the hex values under Palette > Main Colors and
+      Typography, and let ACSS generate its own shades.
+   2. Stylesheet route (paper.design, plain CSS, prototypes):
+      load this file and use the ACSS names directly.
+
+   ACSS 4.x notes:
+   - Shade names per main color: ultra-light, light, semi-light,
+     semi-dark, dark, ultra-dark, plus a dedicated hover shade.
+   - There are no --*-trans-* tokens in 4.x. Build transparency
+     on demand: color-mix(in oklch, var(--primary) 20%, transparent).
+   - Light/dark handling in 4.x is light-dark(); the values below
+     are the light-scheme set.
+   ============================================================ */
+
+:root {
+  /* ---------- Main colors ---------- */
+  /* Primary = brand green. Structural/support color: nav, links,
+     primary buttons, icon wells. Brand-book pinned value. */
+  --primary: #76bc43;
+  --primary-hover: #5f9205;
+  --primary-ultra-light: #eff9e4;
+  --primary-light: #dcf0c6;
+  --primary-semi-light: #c3e0a0;
+  --primary-semi-dark: #5f9205;
+  --primary-dark: #407000;
+  --primary-ultra-dark: #193400;
+
+  /* Accent = brand orange. Calls-to-action and highlights only —
+     roughly 10% of any layout. Never a large surface. */
+  --accent: #f69622;
+  --accent-hover: #d86105;
+  --accent-ultra-light: #fff2e5;
+  --accent-light: #ffe0c8;
+  --accent-semi-light: #ffc59b;
+  --accent-semi-dark: #d86105;
+  --accent-dark: #af4709;
+  --accent-ultra-dark: #5e1d06;
+
+  /* Base = page surfaces and body text. Ultra-dark is brand ink. */
+  --base: #faf8f7;
+  --base-ultra-light: #ffffff;
+  --base-light: #f1eeec;
+  --base-semi-light: #e1dddb;
+  --base-semi-dark: #534b48;
+  --base-dark: #38312e;
+  --base-ultra-dark: #231f20;
+
+  /* Neutral = warm greys derived from brand ink. */
+  --neutral: #756d69;
+  --neutral-ultra-light: #f1eeec;
+  --neutral-light: #e1dddb;
+  --neutral-semi-light: #c9c2c0;
+  --neutral-semi-dark: #534b48;
+  --neutral-dark: #38312e;
+  --neutral-ultra-dark: #231e1b;
+
+  --white: #ffffff;
+  --black: #231f20; /* brand ink, not pure black */
+
+  /* Action = link color. Raw brand green fails AA on white at body
+     sizes, so links read one ramp step darker. */
+  --action: #407000;
+  --action-hover: #2b5100;
+
+  /* ---------- Semantic colors ---------- */
+  --success: #5f9205;
+  --success-dark: #2b5100;
+  --warning: #e7ac2a;
+  --warning-dark: #8a4c00;
+  --danger: #cc3336;
+  --danger-dark: #940015;
+  --info: #4381aa;
+  --info-dark: #1b5274;
+
+  /* ---------- Typography ---------- */
+  /* One family throughout: Kanit. 900 is reserved for the logo
+     wordmark — never headings or UI. */
+  --primary-font: 'Kanit', 'Helvetica Neue', Arial, sans-serif;
+  --heading-font: 'Kanit', 'Arial Narrow', sans-serif;
+
+  --font-weight-body: 400;
+  --font-weight-medium: 500;
+  --font-weight-heading: 700;
+
+  --h1: 3.75rem;   /* 60px */
+  --h2: 3rem;      /* 48px */
+  --h3: 2.375rem;  /* 38px */
+  --h4: 1.875rem;  /* 30px */
+  --h5: 1.5rem;    /* 24px */
+  --h6: 1.25rem;   /* 20px */
+  --display: 4.75rem; /* 76px — hero only */
+
+  --text-xs: 0.8125rem; /* 13px */
+  --text-s: 0.9375rem;  /* 15px */
+  --text-m: 1.0625rem;  /* 17px — body default */
+  --text-l: 1.25rem;    /* 20px */
+  --text-xl: 1.5rem;    /* 24px */
+  --text-xxl: 1.875rem; /* 30px */
+
+  --line-height-heading: 1.1;
+  --line-height-body: 1.65;
+  --letter-spacing-heading: -0.02em;
+  --letter-spacing-eyebrow: 0.14em;
+
+  /* ---------- Spacing ---------- */
+  /* Fixed detail spacing below --space-s; everything above is a
+     fluid clamp() ramp between a 390px and a 1440px viewport. */
+  --space-xxs: 8px;
+  --space-xs: 12px;
+  --space-s: 16px;
+  --space-m: clamp(24px, 21.03px + 0.76vw, 32px);
+  --space-l: clamp(32px, 26.06px + 1.52vw, 48px);
+  --space-xl: clamp(40px, 31.09px + 2.29vw, 64px);
+  --space-xxl: clamp(48px, 36.11px + 3.05vw, 80px);
+  --space-xxxl: clamp(72px, 51.2px + 5.33vw, 128px);
+
+  --section-padding-block: clamp(56px, 41.14px + 3.81vw, 96px);
+  --section-padding-block-s: clamp(40px, 34.06px + 1.52vw, 56px);
+  --section-padding-inline: clamp(20px, 5vw, 64px);
+
+  --content-width: 1200px;
+  --content-width-narrow: 760px;
+  --grid-gap: clamp(20px, 18.51px + 0.38vw, 24px);
+
+  /* ---------- Radius, borders, elevation ---------- */
+  --radius-s: 6px;
+  --radius-m: 10px;   /* buttons, inputs */
+  --radius-l: 16px;   /* cards */
+  --radius-xl: 24px;
+  --radius-round: 999px;
+
+  --border-width: 1px;
+  --border-width-thick: 2px;
+
+  --shadow-s: 0 1px 2px rgba(35, 31, 32, 0.06);
+  --shadow-m: 0 6px 16px rgba(35, 31, 32, 0.08);
+  --shadow-l: 0 16px 40px rgba(35, 31, 32, 0.14);
+  --shadow-focus: 0 0 0 3px oklch(72% 0.15 130 / 0.45);
+
+  /* ---------- Motion ---------- */
+  --transition-fast: 140ms;
+  --transition-base: 220ms;
+  --transition-slow: 360ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+  /* ---------- Breakpoints (reference values) ---------- */
+  /* Custom properties can't be used inside @media conditions —
+     author media queries with these literal numbers. */
+  --bp-mobile: 390px;
+  --bp-tablet: 834px;
+  --bp-nav-collapse: 860px;
+  --bp-desktop: 1440px;
+}
