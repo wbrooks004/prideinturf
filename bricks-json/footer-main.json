@@ -1,0 +1,342 @@
+{
+  "name": "pit-footer-main",
+  "title": "PIT — Site Footer",
+  "type": "footer",
+  "footer": [
+    {
+      "id": "ptfsec",
+      "name": "section",
+      "parent": 0,
+      "children": ["ptfgrd", "ptfbar"],
+      "label": "Site Footer",
+      "settings": {
+        "tag": "footer",
+        "_cssGlobalClasses": ["ptffoc"]
+      }
+    },
+
+    {
+      "id": "ptfgrd",
+      "name": "container",
+      "parent": "ptfsec",
+      "children": ["ptfbrd", "ptfc01", "ptfc02", "ptfc03"],
+      "label": "Footer Columns",
+      "settings": {
+        "_cssGlobalClasses": ["ptfgdc"]
+      }
+    },
+
+    {
+      "id": "ptfbrd",
+      "name": "block",
+      "parent": "ptfgrd",
+      "children": ["ptflgo", "ptfdsc", "ptfsoc"],
+      "label": "Brand",
+      "settings": { "_cssGlobalClasses": ["ptfcol"] }
+    },
+    {
+      "id": "ptflgo",
+      "name": "logo",
+      "parent": "ptfbrd",
+      "children": [],
+      "label": "Logo — replace logoText with the real logo image",
+      "settings": {
+        "logoText": "Pride In Turf",
+        "logoHeight": "36",
+        "_typography": {
+          "color": { "raw": "var(--text-light)" },
+          "font-weight": "700",
+          "font-size": "var(--text-l)",
+          "line-height": "1.1"
+        }
+      }
+    },
+    {
+      "id": "ptfdsc",
+      "name": "text",
+      "parent": "ptfbrd",
+      "children": [],
+      "label": "Brand blurb",
+      "settings": {
+        "text": "<p>Program-based lawn care and turf services across Metro Atlanta, North Georgia, and Northeast Georgia. Locally operated since 2005.</p>",
+        "_cssGlobalClasses": ["ptfmtc"],
+        "_widthMax": "34ch"
+      }
+    },
+    {
+      "id": "ptfsoc",
+      "name": "social-icons",
+      "parent": "ptfbrd",
+      "children": [],
+      "label": "Social",
+      "settings": {
+        "icons": [
+          { "id": "ptfs01", "label": "Facebook", "icon": { "library": "fontawesomeBrands", "icon": "fab fa-facebook-f" }, "link": { "type": "external", "url": "https://www.facebook.com/prideinturf/", "newTab": true, "ariaLabel": "Pride In Turf on Facebook" } },
+          { "id": "ptfs02", "label": "Instagram", "icon": { "library": "fontawesomeBrands", "icon": "fab fa-instagram" }, "link": { "type": "external", "url": "https://www.instagram.com/prideinturf/", "newTab": true, "ariaLabel": "Pride In Turf on Instagram" } },
+          { "id": "ptfs03", "label": "X (Twitter)", "icon": { "library": "fontawesomeBrands", "icon": "fab fa-x-twitter" }, "link": { "type": "external", "url": "https://twitter.com/Pride_in_Turf", "newTab": true, "ariaLabel": "Pride In Turf on X" } },
+          { "id": "ptfs04", "label": "LinkedIn", "icon": { "library": "fontawesomeBrands", "icon": "fab fa-linkedin-in" }, "link": { "type": "external", "url": "https://www.linkedin.com/company/pride-in-turf/", "newTab": true, "ariaLabel": "Pride In Turf on LinkedIn" } },
+          { "id": "ptfs05", "label": "YouTube", "icon": { "library": "fontawesomeBrands", "icon": "fab fa-youtube" }, "link": { "type": "external", "url": "https://www.youtube.com/channel/UCY4lzohrl2VzeGUgsCxUASQ", "newTab": true, "ariaLabel": "Pride In Turf on YouTube" } }
+        ],
+        "iconColor": { "raw": "var(--text-light-muted)" },
+        "iconSize": "18px",
+        "gap": "16px",
+        "_margin": { "top": "var(--space-xs)" }
+      }
+    },
+
+    {
+      "id": "ptfc01",
+      "name": "block",
+      "parent": "ptfgrd",
+      "children": ["ptfh01", "ptfl01", "ptfl02", "ptfl03", "ptfl04", "ptfl05", "ptfl06"],
+      "label": "Lawn Services",
+      "settings": { "_cssGlobalClasses": ["ptfcol"] }
+    },
+    { "id": "ptfh01", "name": "text-basic", "parent": "ptfc01", "children": [], "settings": { "text": "Lawn Services", "tag": "h3", "_cssGlobalClasses": ["ptfhdc"] } },
+    { "id": "ptfl01", "name": "text-link", "parent": "ptfc01", "children": [], "settings": { "text": "Fungicide Programs", "link": { "type": "external", "url": "/lawn-services/fungicide-programs/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfl02", "name": "text-link", "parent": "ptfc01", "children": [], "settings": { "text": "Lawn Pest Control", "link": { "type": "external", "url": "/lawn-services/lawn-pest-control/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfl03", "name": "text-link", "parent": "ptfc01", "children": [], "settings": { "text": "Aeration", "link": { "type": "external", "url": "/lawn-services/aeration/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfl04", "name": "text-link", "parent": "ptfc01", "children": [], "settings": { "text": "Tree & Shrub Program", "link": { "type": "external", "url": "/lawn-services/tree-and-shrub-program/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfl05", "name": "text-link", "parent": "ptfc01", "children": [], "settings": { "text": "Soil Testing", "link": { "type": "external", "url": "/lawn-services/soil-testing/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfl06", "name": "text-link", "parent": "ptfc01", "children": [], "settings": { "text": "Bed Pre-Emergent", "link": { "type": "external", "url": "/lawn-services/bed-pre-emergent/" }, "_cssGlobalClasses": ["ptflnc"] } },
+
+    {
+      "id": "ptfc02",
+      "name": "block",
+      "parent": "ptfgrd",
+      "children": ["ptfh02", "ptfl07", "ptfl08", "ptfl09", "ptfh03", "ptfl10", "ptfl11", "ptfl12", "ptfl13"],
+      "label": "Programs & Company",
+      "settings": { "_cssGlobalClasses": ["ptfcol"] }
+    },
+    { "id": "ptfh02", "name": "text-basic", "parent": "ptfc02", "children": [], "settings": { "text": "Programs", "tag": "h3", "_cssGlobalClasses": ["ptfhdc"] } },
+    { "id": "ptfl07", "name": "text-link", "parent": "ptfc02", "children": [], "settings": { "text": "Warm Season Lawn Care", "link": { "type": "external", "url": "/lawn-care-programs/warm-season/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfl08", "name": "text-link", "parent": "ptfc02", "children": [], "settings": { "text": "Cool Season Lawn Care", "link": { "type": "external", "url": "/lawn-care-programs/cool-season/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfl09", "name": "text-link", "parent": "ptfc02", "children": [], "settings": { "text": "Split Lawn Care", "link": { "type": "external", "url": "/lawn-care-programs/split/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfh03", "name": "text-basic", "parent": "ptfc02", "children": [], "settings": { "text": "Company", "tag": "h3", "_cssGlobalClasses": ["ptfhdc", "ptfhd2"] } },
+    { "id": "ptfl10", "name": "text-link", "parent": "ptfc02", "children": [], "settings": { "text": "About Us", "link": { "type": "external", "url": "/about-us/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfl11", "name": "text-link", "parent": "ptfc02", "children": [], "settings": { "text": "Contact", "link": { "type": "external", "url": "/contact/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfl12", "name": "text-link", "parent": "ptfc02", "children": [], "settings": { "text": "Careers", "link": { "type": "external", "url": "/careers/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfl13", "name": "text-link", "parent": "ptfc02", "children": [], "settings": { "text": "Refer a Friend", "link": { "type": "external", "url": "/refer-a-friend/" }, "_cssGlobalClasses": ["ptflnc"] } },
+
+    {
+      "id": "ptfc03",
+      "name": "block",
+      "parent": "ptfgrd",
+      "children": ["ptfh04", "ptfb01", "ptfb02", "ptfh05", "ptfa01", "ptfa02", "ptfa03", "ptfhrs"],
+      "label": "Locations",
+      "settings": { "_cssGlobalClasses": ["ptfcol"] }
+    },
+    { "id": "ptfh04", "name": "text-basic", "parent": "ptfc03", "children": [], "settings": { "text": "Locations", "tag": "h3", "_cssGlobalClasses": ["ptfhdc"] } },
+
+    {
+      "id": "ptfb01",
+      "name": "text",
+      "parent": "ptfc03",
+      "children": [],
+      "label": "NAP — Atlanta branch",
+      "settings": {
+        "text": "<p><strong>Pride In Turf Atlanta</strong><br>44 Peachtree Pl NE, Suite 821<br>Atlanta, GA 30309<br><a href=\"tel:+18333888873\">833-388-8873</a></p>",
+        "_cssGlobalClasses": ["ptfnap"]
+      }
+    },
+    {
+      "id": "ptfb02",
+      "name": "text",
+      "parent": "ptfc03",
+      "children": [],
+      "label": "NAP — Hoschton branch",
+      "settings": {
+        "text": "<p><strong>Pride In Turf Hoschton</strong><br>1900 GA Hwy 211<br>Hoschton, GA 30548<br><a href=\"tel:+18333888873\">833-388-8873</a></p>",
+        "_cssGlobalClasses": ["ptfnap"]
+      }
+    },
+
+    { "id": "ptfh05", "name": "text-basic", "parent": "ptfc03", "children": [], "settings": { "text": "Service Areas", "tag": "h3", "_cssGlobalClasses": ["ptfhdc", "ptfhd2"] } },
+    { "id": "ptfa01", "name": "text-link", "parent": "ptfc03", "children": [], "settings": { "text": "Lawn Care Atlanta", "link": { "type": "external", "url": "/lawn-care-atlanta/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfa02", "name": "text-link", "parent": "ptfc03", "children": [], "settings": { "text": "Lawn Care Hoschton", "link": { "type": "external", "url": "/lawn-care-hoschton-ga/" }, "_cssGlobalClasses": ["ptflnc"] } },
+    { "id": "ptfa03", "name": "text-link", "parent": "ptfc03", "children": [], "settings": { "text": "Lawn Care Duluth", "link": { "type": "external", "url": "/lawn-care-duluth-ga/" }, "_cssGlobalClasses": ["ptflnc"] } },
+
+    {
+      "id": "ptfhrs",
+      "name": "text",
+      "parent": "ptfc03",
+      "children": [],
+      "label": "Hours",
+      "settings": {
+        "text": "<p>Mon–Sat: 7:00 AM – 6:00 PM<br>Sunday: Closed</p>",
+        "_cssGlobalClasses": ["ptfmtc"],
+        "_margin": { "top": "var(--space-xs)" }
+      }
+    },
+
+    {
+      "id": "ptfbar",
+      "name": "container",
+      "parent": "ptfsec",
+      "children": ["ptfcpy", "ptflgl"],
+      "label": "Bottom Bar",
+      "settings": { "_cssGlobalClasses": ["ptfbac"] }
+    },
+    {
+      "id": "ptfcpy",
+      "name": "text-basic",
+      "parent": "ptfbar",
+      "children": [],
+      "label": "Copyright",
+      "settings": {
+        "text": "© {current_date:Y} Pride In Turf. All rights reserved.",
+        "tag": "p",
+        "_cssGlobalClasses": ["ptfmtc"]
+      }
+    },
+    {
+      "id": "ptflgl",
+      "name": "block",
+      "parent": "ptfbar",
+      "children": ["ptfg01", "ptfg02", "ptfg03"],
+      "label": "Legal links",
+      "settings": { "_cssGlobalClasses": ["ptflgb"] }
+    },
+    { "id": "ptfg01", "name": "text-link", "parent": "ptflgl", "children": [], "settings": { "text": "Privacy Policy", "link": { "type": "external", "url": "/privacy-policy/" }, "_cssGlobalClasses": ["ptflgc"] } },
+    { "id": "ptfg02", "name": "text-link", "parent": "ptflgl", "children": [], "settings": { "text": "Terms of Service", "link": { "type": "external", "url": "/terms-of-service/" }, "_cssGlobalClasses": ["ptflgc"] } },
+    { "id": "ptfg03", "name": "text-link", "parent": "ptflgl", "children": [], "settings": { "text": "Sitemap", "link": { "type": "external", "url": "/sitemap/" }, "_cssGlobalClasses": ["ptflgc"] } }
+  ],
+  "pageSettings": {},
+  "templateSettings": {
+    "templateConditions": [{ "main": "any" }]
+  },
+  "global_classes": [
+    {
+      "id": "ptffoc",
+      "name": "site-footer",
+      "settings": {
+        "_background": { "color": { "raw": "var(--base-ultra-dark)" } },
+        "_padding": { "top": "var(--section-space-m)", "bottom": "var(--space-m)" },
+        "_rowGap": "var(--space-l)",
+        "_typography": { "color": { "raw": "var(--text-light)" } }
+      }
+    },
+    {
+      "id": "ptfgdc",
+      "name": "site-footer__grid",
+      "settings": {
+        "_display": "grid",
+        "_gridTemplateColumns": "1.5fr 1fr 1fr 1.2fr",
+        "_gridGap": "var(--grid-gap)",
+        "_alignItems": "flex-start",
+        "_gridTemplateColumns:tablet_portrait": "repeat(2, minmax(0, 1fr))",
+        "_gridTemplateColumns:mobile_landscape": "1fr"
+      }
+    },
+    {
+      "id": "ptfcol",
+      "name": "site-footer__col",
+      "settings": {
+        "_rowGap": "var(--space-xs)",
+        "_alignItems": "flex-start",
+        "_width": "100%"
+      }
+    },
+    {
+      "id": "ptfhdc",
+      "name": "site-footer__heading",
+      "settings": {
+        "_typography": {
+          "color": { "raw": "var(--text-light)" },
+          "font-size": "var(--text-s)",
+          "font-weight": "600",
+          "letter-spacing": "0.08em",
+          "text-transform": "uppercase"
+        },
+        "_margin": { "bottom": "4px" }
+      }
+    },
+    {
+      "id": "ptfhd2",
+      "name": "site-footer__heading--stacked",
+      "settings": {
+        "_margin": { "top": "var(--space-s)", "bottom": "4px" }
+      }
+    },
+    {
+      "id": "ptflnc",
+      "name": "site-footer__link",
+      "settings": {
+        "_typography": {
+          "color": { "raw": "var(--text-light-muted)" },
+          "font-size": "var(--text-s)"
+        },
+        "_cssTransition": "color 0.2s ease",
+        "_typography:hover": { "color": { "raw": "var(--accent)" } }
+      }
+    },
+    {
+      "id": "ptfnap",
+      "name": "site-footer__nap",
+      "settings": {
+        "_typography": {
+          "color": { "raw": "var(--text-light-muted)" },
+          "font-size": "var(--text-s)",
+          "line-height": "1.6"
+        },
+        "_cssCustom": "%root% strong { color: var(--text-light); font-weight: 600; }\n%root% a { color: var(--text-light-muted); transition: color 0.2s ease; }\n%root% a:hover { color: var(--accent); }"
+      }
+    },
+    {
+      "id": "ptfmtc",
+      "name": "site-footer__muted",
+      "settings": {
+        "_typography": {
+          "color": { "raw": "var(--text-light-muted)" },
+          "font-size": "var(--text-s)",
+          "line-height": "1.6"
+        }
+      }
+    },
+    {
+      "id": "ptfbac",
+      "name": "site-footer__bar",
+      "settings": {
+        "_direction": "row",
+        "_justifyContent": "space-between",
+        "_alignItems": "center",
+        "_columnGap": "var(--space-m)",
+        "_padding": { "top": "var(--space-m)" },
+        "_border": {
+          "width": { "top": "1px" },
+          "style": "solid",
+          "color": { "raw": "var(--neutral-ultra-dark)" }
+        },
+        "_direction:mobile_landscape": "column",
+        "_alignItems:mobile_landscape": "flex-start",
+        "_rowGap:mobile_landscape": "var(--space-xs)"
+      }
+    },
+    {
+      "id": "ptflgb",
+      "name": "site-footer__legal",
+      "settings": {
+        "_direction": "row",
+        "_columnGap": "var(--space-m)",
+        "_alignItems": "center",
+        "_width": "auto",
+        "_direction:mobile_portrait": "column",
+        "_alignItems:mobile_portrait": "flex-start",
+        "_rowGap:mobile_portrait": "8px"
+      }
+    },
+    {
+      "id": "ptflgc",
+      "name": "site-footer__legal-link",
+      "settings": {
+        "_typography": {
+          "color": { "raw": "var(--text-light-muted)" },
+          "font-size": "var(--text-xs)"
+        },
+        "_cssTransition": "color 0.2s ease",
+        "_typography:hover": { "color": { "raw": "var(--accent)" } }
+      }
+    }
+  ],
+  "globalVariables": []
+}

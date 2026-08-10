@@ -1,0 +1,315 @@
+{
+  "name": "pit-header-main",
+  "title": "PIT — Site Header",
+  "type": "header",
+  "header": [
+    {
+      "id": "pthsec",
+      "name": "section",
+      "parent": 0,
+      "children": ["pthinr"],
+      "label": "Site Header",
+      "settings": {
+        "tag": "header",
+        "_cssGlobalClasses": ["pthdrc"]
+      }
+    },
+    {
+      "id": "pthinr",
+      "name": "container",
+      "parent": "pthsec",
+      "children": ["pthlgo", "pthnav", "pthact"],
+      "label": "Header Row",
+      "settings": {
+        "_cssGlobalClasses": ["pthinc"]
+      }
+    },
+    {
+      "id": "pthlgo",
+      "name": "logo",
+      "parent": "pthinr",
+      "children": [],
+      "label": "Logo — replace logoText with the real logo image",
+      "settings": {
+        "logoText": "Pride In Turf",
+        "logoHeight": "40",
+        "_typography": {
+          "color": { "raw": "var(--primary)" },
+          "font-weight": "700",
+          "font-size": "var(--text-l)",
+          "line-height": "1.1"
+        }
+      }
+    },
+    {
+      "id": "pthnav",
+      "name": "nav-nested",
+      "parent": "pthinr",
+      "children": ["pthdd1", "pthdd2", "pthdd3", "pthn01", "pthn02", "pthmob"],
+      "label": "Primary Nav",
+      "settings": {
+        "ariaLabel": "Primary navigation",
+        "mobileMenu": "tablet_portrait",
+        "_columnGap": "var(--space-xs)",
+        "dropdownBackgroundColor": { "raw": "var(--base-ultra-light)" },
+        "dropdownPadding": { "top": "8px", "right": "8px", "bottom": "8px", "left": "8px" }
+      }
+    },
+
+    {
+      "id": "pthdd1",
+      "name": "dropdown",
+      "parent": "pthnav",
+      "children": ["pthd11", "pthd12", "pthd13", "pthd14", "pthd15", "pthd16", "pthd17"],
+      "label": "Lawn Services",
+      "settings": {
+        "text": "Lawn Services",
+        "_cssGlobalClasses": ["pthlnk"]
+      }
+    },
+    { "id": "pthd11", "name": "text-link", "parent": "pthdd1", "children": [], "settings": { "text": "Fungicide Programs", "link": { "type": "external", "url": "/lawn-services/fungicide-programs/" }, "_cssGlobalClasses": ["pthsub"] } },
+    { "id": "pthd12", "name": "text-link", "parent": "pthdd1", "children": [], "settings": { "text": "Lawn Pest Control", "link": { "type": "external", "url": "/lawn-services/lawn-pest-control/" }, "_cssGlobalClasses": ["pthsub"] } },
+    { "id": "pthd13", "name": "text-link", "parent": "pthdd1", "children": [], "settings": { "text": "Aeration", "link": { "type": "external", "url": "/lawn-services/aeration/" }, "_cssGlobalClasses": ["pthsub"] } },
+    { "id": "pthd14", "name": "text-link", "parent": "pthdd1", "children": [], "settings": { "text": "Tree & Shrub Program", "link": { "type": "external", "url": "/lawn-services/tree-and-shrub-program/" }, "_cssGlobalClasses": ["pthsub"] } },
+    { "id": "pthd15", "name": "text-link", "parent": "pthdd1", "children": [], "settings": { "text": "Soil Testing", "link": { "type": "external", "url": "/lawn-services/soil-testing/" }, "_cssGlobalClasses": ["pthsub"] } },
+    { "id": "pthd16", "name": "text-link", "parent": "pthdd1", "children": [], "settings": { "text": "Bed Pre-Emergent", "link": { "type": "external", "url": "/lawn-services/bed-pre-emergent/" }, "_cssGlobalClasses": ["pthsub"] } },
+    { "id": "pthd17", "name": "text-link", "parent": "pthdd1", "children": [], "settings": { "text": "All Lawn Services", "link": { "type": "external", "url": "/lawn-services/" }, "_cssGlobalClasses": ["pthsub", "pthsba"] } },
+
+    {
+      "id": "pthdd2",
+      "name": "dropdown",
+      "parent": "pthnav",
+      "children": ["pthd21", "pthd22", "pthd23", "pthd24"],
+      "label": "Programs",
+      "settings": {
+        "text": "Programs",
+        "_cssGlobalClasses": ["pthlnk"]
+      }
+    },
+    { "id": "pthd21", "name": "text-link", "parent": "pthdd2", "children": [], "settings": { "text": "Warm Season Lawn Care", "link": { "type": "external", "url": "/lawn-care-programs/warm-season/" }, "_cssGlobalClasses": ["pthsub"] } },
+    { "id": "pthd22", "name": "text-link", "parent": "pthdd2", "children": [], "settings": { "text": "Cool Season Lawn Care", "link": { "type": "external", "url": "/lawn-care-programs/cool-season/" }, "_cssGlobalClasses": ["pthsub"] } },
+    { "id": "pthd23", "name": "text-link", "parent": "pthdd2", "children": [], "settings": { "text": "Split Lawn Care", "link": { "type": "external", "url": "/lawn-care-programs/split/" }, "_cssGlobalClasses": ["pthsub"] } },
+    { "id": "pthd24", "name": "text-link", "parent": "pthdd2", "children": [], "settings": { "text": "All Programs", "link": { "type": "external", "url": "/lawn-care-programs/" }, "_cssGlobalClasses": ["pthsub", "pthsba"] } },
+
+    {
+      "id": "pthdd3",
+      "name": "dropdown",
+      "parent": "pthnav",
+      "children": ["pthd31", "pthd32", "pthd33"],
+      "label": "Service Areas",
+      "settings": {
+        "text": "Service Areas",
+        "_cssGlobalClasses": ["pthlnk"]
+      }
+    },
+    { "id": "pthd31", "name": "text-link", "parent": "pthdd3", "children": [], "settings": { "text": "Atlanta", "link": { "type": "external", "url": "/lawn-care-atlanta/" }, "_cssGlobalClasses": ["pthsub"] } },
+    { "id": "pthd32", "name": "text-link", "parent": "pthdd3", "children": [], "settings": { "text": "Hoschton", "link": { "type": "external", "url": "/lawn-care-hoschton-ga/" }, "_cssGlobalClasses": ["pthsub"] } },
+    { "id": "pthd33", "name": "text-link", "parent": "pthdd3", "children": [], "settings": { "text": "Duluth", "link": { "type": "external", "url": "/lawn-care-duluth-ga/" }, "_cssGlobalClasses": ["pthsub"] } },
+
+    { "id": "pthn01", "name": "text-link", "parent": "pthnav", "children": [], "label": "About", "settings": { "text": "About", "link": { "type": "external", "url": "/about-us/" }, "_cssGlobalClasses": ["pthlnk"] } },
+    { "id": "pthn02", "name": "text-link", "parent": "pthnav", "children": [], "label": "Contact", "settings": { "text": "Contact", "link": { "type": "external", "url": "/contact/" }, "_cssGlobalClasses": ["pthlnk"] } },
+
+    {
+      "id": "pthmob",
+      "name": "block",
+      "parent": "pthnav",
+      "children": ["pthmb1", "pthmb2"],
+      "label": "Mobile-only CTAs",
+      "settings": {
+        "_cssGlobalClasses": ["pthmoc"]
+      }
+    },
+    {
+      "id": "pthmb1",
+      "name": "button",
+      "parent": "pthmob",
+      "children": [],
+      "label": "Call Now (mobile)",
+      "settings": {
+        "text": "Call 833-388-8873",
+        "tag": "a",
+        "link": { "type": "external", "url": "tel:+18333888873" },
+        "_cssClasses": "btn--primary btn--s"
+      }
+    },
+    {
+      "id": "pthmb2",
+      "name": "text-link",
+      "parent": "pthmob",
+      "children": [],
+      "label": "Customer Portal (mobile)",
+      "settings": {
+        "text": "Customer Portal",
+        "link": { "type": "external", "url": "https://www.lawngateway.com/PrideInTurf", "newTab": true },
+        "_cssGlobalClasses": ["pthprc"]
+      }
+    },
+
+    {
+      "id": "pthact",
+      "name": "block",
+      "parent": "pthinr",
+      "children": ["pthprt", "pthcal", "pthqte"],
+      "label": "Header Actions",
+      "settings": {
+        "_cssGlobalClasses": ["pthacc"]
+      }
+    },
+    {
+      "id": "pthprt",
+      "name": "text-link",
+      "parent": "pthact",
+      "children": [],
+      "label": "Customer Portal (utility CTA)",
+      "settings": {
+        "text": "Customer Portal",
+        "link": { "type": "external", "url": "https://www.lawngateway.com/PrideInTurf", "newTab": true },
+        "_cssGlobalClasses": ["pthprc"],
+        "_display:tablet_portrait": "none"
+      }
+    },
+    {
+      "id": "pthcal",
+      "name": "button",
+      "parent": "pthact",
+      "children": [],
+      "label": "Call Now (immediate contact CTA)",
+      "settings": {
+        "text": "Call Now",
+        "tag": "a",
+        "link": { "type": "external", "url": "tel:+18333888873" },
+        "_cssClasses": "btn--primary btn--s",
+        "_display:tablet_portrait": "none"
+      }
+    },
+    {
+      "id": "pthqte",
+      "name": "button",
+      "parent": "pthact",
+      "children": [],
+      "label": "Get a Quote (primary conversion CTA)",
+      "settings": {
+        "text": "Get a Quote",
+        "tag": "a",
+        "link": { "type": "external", "url": "/contact/" },
+        "_cssClasses": "btn--accent btn--s"
+      }
+    }
+  ],
+  "pageSettings": {},
+  "templateSettings": {
+    "templateConditions": [{ "main": "any" }],
+    "headerSticky": true,
+    "headerStickyOnScroll": true,
+    "headerStickyScrollingBackground": { "color": { "raw": "var(--base-ultra-light)" } },
+    "headerStickyScrollingBoxShadow": {
+      "values": { "offsetX": "0", "offsetY": "2", "blur": "12", "spread": "0" },
+      "color": { "rgb": "rgba(0, 0, 0, 0.08)" }
+    },
+    "headerStickyTransition": "background-color 0.2s, box-shadow 0.2s, transform 0.4s"
+  },
+  "global_classes": [
+    {
+      "id": "pthdrc",
+      "name": "site-header",
+      "settings": {
+        "_background": { "color": { "raw": "var(--base-ultra-light)" } },
+        "_padding": { "top": "var(--space-xs)", "bottom": "var(--space-xs)" },
+        "_border": {
+          "width": { "bottom": "1px" },
+          "style": "solid",
+          "color": { "raw": "var(--neutral-light)" }
+        }
+      }
+    },
+    {
+      "id": "pthinc",
+      "name": "site-header__inner",
+      "settings": {
+        "_direction": "row",
+        "_alignItems": "center",
+        "_justifyContent": "space-between",
+        "_columnGap": "var(--space-m)"
+      }
+    },
+    {
+      "id": "pthlnk",
+      "name": "site-header__link",
+      "settings": {
+        "_typography": {
+          "color": { "raw": "var(--text-dark)" },
+          "font-weight": "500",
+          "font-size": "var(--text-s)"
+        },
+        "_padding": { "top": "8px", "right": "12px", "bottom": "8px", "left": "12px" },
+        "_cssTransition": "color 0.2s ease",
+        "_typography:hover": { "color": { "raw": "var(--primary)" } }
+      }
+    },
+    {
+      "id": "pthsub",
+      "name": "site-header__sublink",
+      "settings": {
+        "_typography": {
+          "color": { "raw": "var(--text-dark)" },
+          "font-size": "var(--text-s)"
+        },
+        "_padding": { "top": "8px", "right": "16px", "bottom": "8px", "left": "16px" },
+        "_width": "100%",
+        "_cssTransition": "color 0.2s ease, background-color 0.2s ease",
+        "_typography:hover": { "color": { "raw": "var(--primary)" } },
+        "_background:hover": { "color": { "raw": "var(--neutral-ultra-light)" } }
+      }
+    },
+    {
+      "id": "pthsba",
+      "name": "site-header__sublink--all",
+      "settings": {
+        "_typography": { "font-weight": "600", "color": { "raw": "var(--primary)" } },
+        "_border": {
+          "width": { "top": "1px" },
+          "style": "solid",
+          "color": { "raw": "var(--neutral-light)" }
+        },
+        "_margin": { "top": "4px" }
+      }
+    },
+    {
+      "id": "pthacc",
+      "name": "site-header__actions",
+      "settings": {
+        "_direction": "row",
+        "_alignItems": "center",
+        "_justifyContent": "flex-end",
+        "_columnGap": "var(--space-xs)",
+        "_width": "auto"
+      }
+    },
+    {
+      "id": "pthprc",
+      "name": "site-header__portal",
+      "settings": {
+        "_typography": {
+          "color": { "raw": "var(--text-dark-muted)" },
+          "font-size": "var(--text-xs)",
+          "font-weight": "500"
+        },
+        "_cssTransition": "color 0.2s ease",
+        "_typography:hover": { "color": { "raw": "var(--primary)" } }
+      }
+    },
+    {
+      "id": "pthmoc",
+      "name": "site-header__mobile-actions",
+      "settings": {
+        "_display": "none",
+        "_display:tablet_portrait": "flex",
+        "_direction:tablet_portrait": "column",
+        "_alignItems:tablet_portrait": "flex-start",
+        "_rowGap:tablet_portrait": "var(--space-xs)",
+        "_padding:tablet_portrait": { "top": "var(--space-s)" }
+      }
+    }
+  ],
+  "globalVariables": []
+}
