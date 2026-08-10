@@ -1,0 +1,71 @@
+<!-- @dsCard group="Components" viewport="700x760" name="Core" subtitle="Button, Badge, Icon, SectionHeading, Accordion, Breadcrumbs" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js?v=1783866616149"></script>
+<style>
+  body { margin:0; padding:20px 24px; background: var(--surface-card); box-sizing:border-box; }
+  * { box-sizing:border-box; }
+  .row { display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-bottom:16px; }
+  .lbl { font-family:var(--font-body); font-size:11px; color:var(--text-tertiary); width:76px; flex-shrink:0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Button, Badge, Icon, SectionHeading, Accordion, Breadcrumbs } = window.PrideInTurfDesignSystem_2d4922;
+
+function Demo() {
+  return (
+    <div>
+      <div className="row"><span className="lbl">Buttons</span>
+        <Button variant="primary">Request a Quote</Button>
+        <Button variant="accent">Start Quote Request</Button>
+        <Button variant="outline" icon={<Icon name="arrow-right" size={16} />}>View program</Button>
+        <Button variant="ghost" size="sm">Cancel</Button>
+        <Button variant="primary" disabled>Disabled</Button>
+      </div>
+      <div className="row" style={{ background:'var(--surface-inverse)', padding:'14px', borderRadius:'var(--radius-lg)' }}>
+        <span className="lbl" style={{ color:'var(--text-on-dark-secondary)' }}>On dark</span>
+        <Button variant="inverse" icon={<Icon name="arrow-right" size={16}/>}>Request Quote</Button>
+      </div>
+      <div className="row"><span className="lbl">Badges</span>
+        <Badge variant="neutral">Est. 2005</Badge>
+        <Badge variant="primary" icon={<Icon name="leaf" size={13} />}>Warm season</Badge>
+        <Badge variant="accent" icon={<Icon name="shield-check" size={13} />}>Program</Badge>
+      </div>
+      <div className="row"><span className="lbl">Icons</span>
+        {['leaf','droplet','bug','trees','sprout','flask-conical','shield-check','map-pin','phone','mail','clock','calendar','arrow-right','check','menu','x','chevron-down','sun','cloud','layers','sliders-horizontal'].map(n => (
+          <span key={n} style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:'4px' }}>
+            <Icon name={n} size={22} color="var(--brand-ink)" />
+            <span style={{ fontFamily:'var(--font-body)', fontSize:'9px', color:'var(--text-tertiary)' }}>{n}</span>
+          </span>
+        ))}
+      </div>
+      <div className="row" style={{ flexDirection:'column', alignItems:'flex-start' }}>
+        <span className="lbl" style={{ marginBottom:'8px' }}>Section heading</span>
+        <SectionHeading eyebrow="Lawn Care Programs" heading="Choose the right program for your turf type." subhead="Three program options for warm weather, cool weather, and mixed lawn care needs." />
+      </div>
+      <div className="row" style={{ flexDirection:'column', alignItems:'stretch' }}>
+        <span className="lbl" style={{ marginBottom:'8px' }}>Breadcrumbs</span>
+        <Breadcrumbs items={[{ href:'/', label:'Home' }, { href:'/lawn-services/', label:'Lawn Services' }, { label:'Aeration' }]} />
+      </div>
+      <div className="row" style={{ flexDirection:'column', alignItems:'stretch' }}>
+        <span className="lbl" style={{ marginBottom:'8px' }}>Accordion</span>
+        <Accordion items={[
+          { question: 'How often is my lawn treated?', answer: 'Most programs run several applications per year, timed to your grass type and the season.' },
+          { question: 'Do you serve my area?', answer: 'We serve Northeast Georgia and Metro Atlanta.' },
+        ]} />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

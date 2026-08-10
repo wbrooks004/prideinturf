@@ -1,0 +1,50 @@
+/**
+ * Pride In Turf — Layout tokens (breakpoints, grid, content widths, aspect
+ * ratios, z-index layers). Added for the Etch WP handoff package; not
+ * present in the original brand book (digital-only extension).
+ *
+ * IMPORTANT — breakpoints: CSS custom properties cannot be referenced inside
+ * an @media condition. The --breakpoint-* values below are the canonical
+ * REFERENCE numbers; author @media rules with the literal px numbers and keep
+ * them in sync with this file by hand. (This is a CSS language limitation,
+ * not a choice — Etch's own global "breakpoint" settings, if it has them,
+ * should be set to these same numbers.)
+ */
+
+:root {
+  /* Breakpoints (reference values — see note above) */
+  --breakpoint-mobile: 390px; /* @kind other */
+  --breakpoint-tablet: 834px; /* @kind other */
+  --breakpoint-desktop: 1440px; /* @kind other */
+  /* NavBar's own collapse point — independent of the page grid breakpoints above */
+  --breakpoint-nav-collapse: 860px; /* @kind other */
+
+  /* Grid */
+  --grid-columns-desktop: 12; /* @kind other */
+  --grid-columns-tablet: 8; /* @kind other */
+  --grid-columns-mobile: 4; /* @kind other */
+  --grid-gutter: var(--space-6);
+  --grid-gutter-mobile: var(--space-4);
+
+  /* Content / container widths (aliases of tokens/spacing.css for discoverability in this category) */
+  --content-width-narrow: var(--container-narrow);
+  --content-width-max: var(--container-max);
+
+  /* Image aspect ratios */
+  --aspect-hero: 21 / 9; /* @kind other */
+  --aspect-card: 4 / 3; /* @kind other */
+  --aspect-blog-thumbnail: 16 / 10; /* @kind other */
+  --aspect-blog-hero: 16 / 9; /* @kind other */
+  --aspect-square: 1 / 1; /* @kind other */
+  --aspect-portrait: 3 / 4; /* @kind other */
+
+  /* Z-index layers */
+  --z-base: 0; /* @kind other */
+  --z-card-hover: 1; /* @kind other */
+  --z-sticky-header: 40; /* @kind other */
+  --z-dropdown-menu: 50; /* @kind other */
+  --z-mobile-nav-panel: 60; /* @kind other */
+  --z-overlay-scrim: 70; /* @kind other */
+  --z-modal: 80; /* @kind other */
+  --z-toast: 90; /* @kind other */
+}

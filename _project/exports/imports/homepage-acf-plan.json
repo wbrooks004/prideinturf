@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "name": "Homepage ACF Reference",
+  "intent": "page",
+  "confidence": 0.95,
+  "rationale": "Full homepage markup with confirmed ACF bindings. Live Home Page (ID 2) was remapped in-place rather than duplicated; this plan documents ACSS-styled semantic selectors for the HTML source at imports/homepage-acf.html.",
+  "collisionPolicy": "error",
+  "allowRawHtml": false,
+  "scriptsReviewed": false,
+  "placement": {
+    "mode": "root",
+    "selectedBehavior": "auto",
+    "fallbackToRoot": true
+  },
+  "nodes": [
+    {
+      "key": "home-hero",
+      "kind": "element",
+      "tag": "section",
+      "name": "Home Hero",
+      "attributes": {
+        "data-etch-element": "section",
+        "aria-label": "Hero"
+      },
+      "classes": ["home-hero"],
+      "children": [
+        {
+          "key": "home-hero-container",
+          "kind": "element",
+          "tag": "div",
+          "name": "Container",
+          "attributes": {
+            "data-etch-element": "container"
+          },
+          "classes": [],
+          "children": [
+            {
+              "key": "home-hero-content",
+              "kind": "element",
+              "tag": "div",
+              "name": "Content",
+              "classes": ["home-hero__content"],
+              "children": [
+                {
+                  "key": "home-hero-eyebrow",
+                  "kind": "element",
+                  "tag": "p",
+                  "name": "Eyebrow",
+                  "classes": ["home-hero__eyebrow"],
+                  "children": [
+                    {
+                      "key": "home-hero-eyebrow-text",
+                      "kind": "text",
+                      "text": "{this.acf.hero_eyebrow}"
+                    }
+                  ]
+                },
+                {
+                  "key": "home-hero-title",
+                  "kind": "element",
+                  "tag": "h1",
+                  "name": "Title",
+                  "classes": ["home-hero__title"],
+                  "children": [
+                    {
+                      "key": "home-hero-title-text",
+                      "kind": "text",
+                      "text": "{this.acf.hero_heading_override}"
+                    }
+                  ]
+                },
+                {
+                  "key": "home-hero-summary",
+                  "kind": "element",
+                  "tag": "p",
+                  "name": "Summary",
+                  "classes": ["home-hero__text"],
+                  "children": [
+                    {
+                      "key": "home-hero-summary-text",
+                      "kind": "text",
+                      "text": "{this.acf.hero_summary}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "styles": [
+    {
+      "selector": ".home-hero",
+      "css": "position: relative; isolation: isolate; min-block-size: min(72vh, 44rem); display: grid; align-items: end; background: var(--primary-dark); color: var(--text-light);"
+    },
+    {
+      "selector": ".home-hero__content",
+      "css": "display: flex; flex-direction: column; gap: var(--content-gap); max-inline-size: var(--width-70); padding-block: var(--section-space-l);"
+    },
+    {
+      "selector": ".home-hero__eyebrow",
+      "css": "font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--primary-light);"
+    },
+    {
+      "selector": ".home-hero__title",
+      "css": "font-size: var(--h1); color: var(--text-light);"
+    },
+    {
+      "selector": ".home-hero__text",
+      "css": "color: var(--text-light-muted); max-inline-size: 40rem;"
+    }
+  ],
+  "variables": [],
+  "stylesheets": [],
+  "assets": [],
+  "interactions": [],
+  "classMap": {},
+  "warnings": [
+    "Live Home Page already implements full sections with pit-* classes; bindings were remapped in place. Do not apply this plan as a duplicate page unless explicitly replacing content.",
+    "Homepage Content is page-scoped (this.acf), not options. Company Updates / Business Info / Global CTAs remain options.acf."
+  ]
+}

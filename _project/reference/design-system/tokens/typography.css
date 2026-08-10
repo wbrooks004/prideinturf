@@ -1,0 +1,107 @@
+/**
+ * Pride In Turf — Type tokens
+ * Brand book (p.7-8) specifies the Kanit family for all brand/UI use:
+ *   Kanit Black (900)  — LOGO ONLY. Never use for headlines or UI text.
+ *   Kanit Bold (700)   — the workhorse heavy weight for real collateral
+ *                         ("Pride in Turf is utilizing Kanit Bold" — merch,
+ *                         yard signs, business cards). Use for headings/CTAs.
+ *   Kanit Medium (500) — alternate weight for misc. design/emphasis.
+ *   Kanit Regular (400)— sub text, phone, address, body copy.
+ *   Avenir Medium      — documents/contracts/paperwork only (print). Out of
+ *                         scope for this web system; not implemented here.
+ * Kanit is self-hosted from the Fontsource CDN build (jsdelivr), since it is
+ * not bundled as binary files in this project.
+ */
+
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-300-normal.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-300-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-400-normal.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-400-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-500-normal.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-500-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-600-normal.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-600-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-700-normal.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-700-normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-900-normal.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/fontsource/fonts/kanit@latest/latin-900-normal.woff') format('woff');
+}
+
+:root {
+  --font-display: 'Kanit', 'Arial Narrow', sans-serif;
+  --font-body: 'Kanit', 'Helvetica Neue', Arial, sans-serif;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 900; /* logo wordmark only — do not use in UI */
+
+  /* Type scale */
+  --text-xs: 0.8125rem;    /* 13px */
+  --text-sm: 0.9375rem;    /* 15px */
+  --text-base: 1.0625rem;  /* 17px */
+  --text-lg: 1.25rem;      /* 20px */
+  --text-xl: 1.5rem;       /* 24px */
+  --text-2xl: 1.875rem;    /* 30px */
+  --text-3xl: 2.375rem;    /* 38px */
+  --text-4xl: 3rem;        /* 48px */
+  --text-5xl: 3.75rem;     /* 60px */
+  --text-6xl: 4.75rem;     /* 76px */
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.04em;
+  --tracking-eyebrow: 0.14em;
+}
+
+/*
+ * Fluid type scale — reference guidance only (see handoff/design-tokens.json
+ * "fluidType" and handoff/design-system-spec.md). Deliberately NOT declared as
+ * CSS custom properties here: clamp() arithmetic in a --token value trips this
+ * design system's font-face scanner as a false positive. The fixed --text-*
+ * scale above is what every built component actually uses; adopt the fluid
+ * curves in Etch's own stylesheet using the exact clamp() formulas documented
+ * in handoff/design-tokens.json if a smoother mobile-to-desktop ramp is wanted
+ * for hero/H1/H2 specifically.
+ */

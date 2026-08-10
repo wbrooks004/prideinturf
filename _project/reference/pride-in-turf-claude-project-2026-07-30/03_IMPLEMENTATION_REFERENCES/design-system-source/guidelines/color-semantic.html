@@ -1,0 +1,50 @@
+<!-- @dsCard group="Colors" viewport="700x300" name="Semantic aliases" subtitle="Use these in components — never raw ramp values" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin:0; padding:20px 24px; background: var(--surface-card); box-sizing:border-box; }
+  * { box-sizing: border-box; }
+  .swatch-label { font-family: var(--font-body); font-size:11px; color: var(--text-secondary); line-height:1.4; }
+  .swatch-label b { color: var(--text-primary); display:block; font-weight:var(--weight-semibold); }
+  
+</style>
+</head>
+<body>
+
+  <div style="display:flex; flex-direction:column; gap:14px; height:100%;">
+    <div style="display:flex; gap:10px;">
+      
+      <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+        <div style="height:52px; border-radius:var(--radius-md); background:var(--surface-page); border:1px solid var(--border-default);"></div>
+        <div class="swatch-label" style="text-align:center;">--surface-page</div>
+      </div>
+      <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+        <div style="height:52px; border-radius:var(--radius-md); background:var(--surface-card); border:1px solid var(--border-default);"></div>
+        <div class="swatch-label" style="text-align:center;">--surface-card</div>
+      </div>
+      <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+        <div style="height:52px; border-radius:var(--radius-md); background:var(--surface-sunken); border:1px solid var(--border-default);"></div>
+        <div class="swatch-label" style="text-align:center;">--surface-sunken</div>
+      </div>
+      <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+        <div style="height:52px; border-radius:var(--radius-md); background:var(--surface-inverse); border:1px solid var(--border-default);"></div>
+        <div class="swatch-label" style="text-align:center;">--surface-inverse</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:24px; align-items:baseline;">
+      <span style="font-family:var(--font-body); color:var(--text-primary); font-weight:var(--weight-semibold);">text-primary</span>
+      <span style="font-family:var(--font-body); color:var(--text-secondary);">text-secondary</span>
+      <span style="font-family:var(--font-body); color:var(--text-tertiary);">text-tertiary</span>
+      <a href="#" onclick="return false" style="font-family:var(--font-body);">text-link</a>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <div style="flex:1; height:44px; border-radius:var(--radius-md); border:1px solid var(--border-default); display:flex; align-items:center; justify-content:center; font-family:var(--font-body); font-size:12px; color:var(--text-secondary);">border-default</div>
+      <div style="flex:1; height:44px; border-radius:var(--radius-md); border:2px solid var(--border-strong); display:flex; align-items:center; justify-content:center; font-family:var(--font-body); font-size:12px; color:var(--text-secondary);">border-strong</div>
+    </div>
+  </div>
+  
+</body>
+</html>

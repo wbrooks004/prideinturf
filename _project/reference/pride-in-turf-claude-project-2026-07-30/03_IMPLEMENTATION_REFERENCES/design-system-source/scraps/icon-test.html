@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"></head>
+<body style="background:#eee; padding:20px; font-family:sans-serif;">
+<p>img tag test:</p>
+<img src="https://unpkg.com/lucide-static@0.453.0/icons/leaf.svg" style="width:48px;height:48px;background:#fff;" onerror="this.nextSibling.textContent='IMG LOAD ERROR'">
+<span></span>
+<p>mask test (black bg):</p>
+<div style="width:48px;height:48px;background-color:#000; -webkit-mask-image:url(https://unpkg.com/lucide-static@0.453.0/icons/leaf.svg); mask-image:url(https://unpkg.com/lucide-static@0.453.0/icons/leaf.svg); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;"></div>
+<p>mask-type alpha test:</p>
+<div style="width:48px;height:48px;background-color:#000; mask-type:alpha; -webkit-mask-image:url(https://unpkg.com/lucide-static@0.453.0/icons/leaf.svg); mask-image:url(https://unpkg.com/lucide-static@0.453.0/icons/leaf.svg); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;"></div>
+<p>raw fetch test:</p>
+<div id="out">loading...</div>
+<script>
+fetch('https://unpkg.com/lucide-static@0.453.0/icons/leaf.svg').then(r=>r.text()).then(t=>{document.getElementById('out').textContent = t.slice(0,300);}).catch(e=>{document.getElementById('out').textContent = 'FETCH ERROR: '+e.message;});
+</script>
+</body></html>

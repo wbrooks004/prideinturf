@@ -1,0 +1,6 @@
+# Disable ALL line-ending conversion.
+# Authoring on Windows, deploying to Linux (Cloudways). Without this, Git
+# rewrites CRLF/LF on checkout — corrupting binaries (fonts, images, archives)
+# and turning every diff into whole-file noise.
+# Do not replace with `text=auto`.
+* -text

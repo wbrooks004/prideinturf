@@ -1,0 +1,28 @@
+<!-- @dsCard group="Spacing" viewport="700x260" name="Spacing in use" subtitle="Card padding = space-6, internal gap = space-3" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin:0; padding:20px 24px; background: var(--surface-card); box-sizing:border-box; }
+  * { box-sizing: border-box; }
+  .swatch-label { font-family: var(--font-body); font-size:11px; color: var(--text-secondary); line-height:1.4; }
+  .swatch-label b { color: var(--text-primary); display:block; font-weight:var(--weight-semibold); }
+  
+</style>
+</head>
+<body>
+
+  <div style="height:100%; display:flex; align-items:center; justify-content:center; background:var(--surface-sunken); border-radius:var(--radius-lg);">
+    <div style="background:var(--surface-card); border:1px solid var(--border-default); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); padding:var(--space-6); width:320px; outline:2px dashed var(--color-orange-300); outline-offset:-1px;">
+      <div style="display:flex; flex-direction:column; gap:var(--space-3);">
+        <div style="font-family:var(--font-display); font-weight:var(--weight-medium); font-size:var(--text-xs); letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--brand-primary-active);">Program</div>
+        <div style="font-family:var(--font-display); font-weight:var(--weight-bold); font-size:var(--text-xl); color:var(--text-primary);">Warm Weather</div>
+        <div style="font-family:var(--font-body); font-size:var(--text-sm); color:var(--text-secondary); line-height:var(--leading-snug);">padding: var(--space-6) · gap: var(--space-3)</div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

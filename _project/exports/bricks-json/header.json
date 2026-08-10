@@ -1,0 +1,24 @@
+{
+  "content": [
+    { "id": "h00001", "name": "section", "parent": 0, "children": ["h00002"], "settings": { "tag": "header", "_cssGlobalClasses": ["ghHeader"] }, "label": "Site Header" },
+    { "id": "h00002", "name": "container", "parent": "h00001", "children": ["h00003", "h00004", "h00005"], "settings": { "_display": "flex", "_alignItems": "center", "_justifyContent": "space-between", "_gap": "1.5rem" }, "label": "Header Inner" },
+    { "id": "h00003", "name": "image", "parent": "h00002", "children": [], "settings": { "image": { "external": true, "url": "{acf_logo}" }, "altText": "{acf_business_name}", "_cssGlobalClasses": ["ghLogo"] }, "label": "Logo (Business Info)" },
+    { "id": "h00004", "name": "nav-menu", "parent": "h00002", "children": [], "settings": { "menu": "", "_cssGlobalClasses": ["ghNav"] }, "label": "Primary Nav — select WP menu in builder" },
+    { "id": "h00005", "name": "block", "parent": "h00002", "children": ["h00006", "h00007", "h00008"], "settings": { "_display": "flex", "_alignItems": "center", "_gap": "1rem" }, "label": "Header Actions" },
+    { "id": "h00006", "name": "text-link", "parent": "h00005", "children": [], "settings": { "text": "{acf_main_phone_number}", "link": { "type": "external", "url": "tel:{acf_main_phone_number}" }, "_cssGlobalClasses": ["ghPhone"] }, "label": "Phone (Business Info)" },
+    { "id": "h00007", "name": "text-link", "parent": "h00005", "children": [], "settings": { "text": "Client Portal", "link": { "type": "external", "url": "{acf_client_portal_url}" }, "_cssGlobalClasses": ["ghPortal"], "_conditions": [[{ "id": "hcnd01", "name": "dynamicData", "value": "{acf_client_portal_url}", "compare": "!=", "compareValue": "" }]] }, "label": "Client Portal (Business Info)" },
+    { "id": "h00008", "name": "button", "parent": "h00005", "children": [], "settings": { "text": "{acf_main_cta_label}", "link": { "type": "external", "url": "{acf_main_cta_link}" }, "_cssGlobalClasses": ["ghBtnPri"] }, "label": "Header CTA (Business Info)" }
+  ],
+  "source": "bricksCopiedElements",
+  "sourceUrl": "https://www.prideinturf.com",
+  "version": "1.12.4",
+  "globalClasses": [
+    { "id": "ghHeader", "name": "site-header", "settings": { "_background": { "color": { "raw": "#ffffff" } }, "_padding": { "top": "0.75rem", "bottom": "0.75rem", "left": "var(--content-gap)", "right": "var(--content-gap)" }, "_borderBottom": { "width": "1px", "style": "solid", "color": { "raw": "#e3e1dd" } }, "_position": "sticky", "_top": "0", "_zIndex": "40" } },
+    { "id": "ghLogo", "name": "site-header__logo", "settings": { "_width": "160px", "_height": "auto", "_objectFit": "contain" } },
+    { "id": "ghNav", "name": "site-header__nav", "settings": { "_typography": { "font-weight": "500", "font-size": "var(--text-sm)", "color": { "raw": "var(--base)" } } } },
+    { "id": "ghPhone", "name": "site-header__phone", "settings": { "_typography": { "font-weight": "600", "font-size": "var(--text-sm)", "color": { "raw": "var(--primary-dark)" } } } },
+    { "id": "ghPortal", "name": "site-header__portal", "settings": { "_typography": { "font-size": "var(--text-xs)", "font-weight": "600", "color": { "raw": "#8a8783" } } } },
+    { "id": "ghBtnPri", "name": "btn--primary", "settings": { "_background": { "color": { "raw": "var(--accent)" } }, "_typography": { "color": { "hex": "#3a2408" }, "font-weight": "600" }, "_padding": { "top": "0.75rem", "right": "1.25rem", "bottom": "0.75rem", "left": "1.25rem" }, "_borderRadius": { "top": "999px", "right": "999px", "bottom": "999px", "left": "999px" }, "_background:hover": { "color": { "raw": "#e4820f" } } } }
+  ],
+  "globalElements": []
+}

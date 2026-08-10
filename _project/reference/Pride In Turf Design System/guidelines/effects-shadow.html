@@ -1,0 +1,34 @@
+<!-- @dsCard group="Effects" viewport="700x190" name="Elevation / shadow" subtitle="Soft only — brand book print collateral has no shadow at all" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin:0; padding:20px 24px; background: var(--surface-card); box-sizing:border-box; }
+  * { box-sizing: border-box; }
+  .swatch-label { font-family: var(--font-body); font-size:11px; color: var(--text-secondary); line-height:1.4; }
+  .swatch-label b { color: var(--text-primary); display:block; font-weight:var(--weight-semibold); }
+  
+</style>
+</head>
+<body>
+
+  <div style="display:flex; gap:28px; height:100%; align-items:center; justify-content:center; background:var(--surface-sunken); border-radius:var(--radius-lg); padding:0 20px;">
+    
+    <div style="display:flex; flex-direction:column; gap:10px; align-items:center;">
+      <div style="width:100px; height:64px; background:var(--surface-card); border-radius:var(--radius-lg); box-shadow:var(--shadow-sm);"></div>
+      <div class="swatch-label" style="text-align:center;">--shadow-sm<br>Resting</div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; align-items:center;">
+      <div style="width:100px; height:64px; background:var(--surface-card); border-radius:var(--radius-lg); box-shadow:var(--shadow-md);"></div>
+      <div class="swatch-label" style="text-align:center;">--shadow-md<br>Card / hover</div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; align-items:center;">
+      <div style="width:100px; height:64px; background:var(--surface-card); border-radius:var(--radius-lg); box-shadow:var(--shadow-lg);"></div>
+      <div class="swatch-label" style="text-align:center;">--shadow-lg<br>Modal / popover</div>
+    </div>
+  </div>
+  
+</body>
+</html>

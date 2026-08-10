@@ -1,0 +1,2057 @@
+{
+  "content": [
+    {
+      "id": "n00000",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00001"
+      ],
+      "settings": {
+        "tag": "aside",
+        "_cssGlobalClasses": [
+          "gcUpd"
+        ],
+        "_conditions": [
+          [
+            {
+              "id": "cndup1",
+              "name": "dynamicData",
+              "value": "{acf_enable_company_updates}",
+              "compare": "==",
+              "compareValue": "1"
+            }
+          ]
+        ]
+      },
+      "label": "Company Update Bar"
+    },
+    {
+      "id": "n00001",
+      "name": "container",
+      "parent": "n00000",
+      "children": [
+        "n00002",
+        "n00003"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_alignItems": "center",
+        "_justifyContent": "space-between",
+        "_gap": "1.5rem"
+      },
+      "label": "Update Inner"
+    },
+    {
+      "id": "n00002",
+      "name": "text-basic",
+      "parent": "n00001",
+      "children": [],
+      "settings": {
+        "text": "{acf_company_update_message}",
+        "tag": "p"
+      }
+    },
+    {
+      "id": "n00003",
+      "name": "button",
+      "parent": "n00001",
+      "children": [],
+      "settings": {
+        "text": "{acf_company_update_cta_label}",
+        "link": {
+          "type": "external",
+          "url": "{acf_company_update_cta_link}"
+        },
+        "_cssGlobalClasses": [
+          "gcBtnSec"
+        ]
+      }
+    },
+    {
+      "id": "n00004",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00005"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "gcHero"
+        ]
+      },
+      "label": "Hero"
+    },
+    {
+      "id": "n00005",
+      "name": "container",
+      "parent": "n00004",
+      "children": [
+        "n00006",
+        "n00015"
+      ],
+      "settings": {
+        "_display": "grid",
+        "_gridTemplateColumns": "1.1fr 0.9fr",
+        "_alignItems": "center",
+        "_gap": "4rem"
+      },
+      "label": "Hero Grid"
+    },
+    {
+      "id": "n00006",
+      "name": "block",
+      "parent": "n00005",
+      "children": [
+        "n00007",
+        "n00008",
+        "n00009",
+        "n00010",
+        "n00013"
+      ],
+      "settings": {},
+      "label": "Hero Copy"
+    },
+    {
+      "id": "n00007",
+      "name": "text-basic",
+      "parent": "n00006",
+      "children": [],
+      "settings": {
+        "text": "{acf_hero_eyebrow}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcEyebrow"
+        ]
+      }
+    },
+    {
+      "id": "n00008",
+      "name": "heading",
+      "parent": "n00006",
+      "children": [],
+      "settings": {
+        "text": "{acf_hero_heading_override}",
+        "tag": "h1",
+        "_cssGlobalClasses": [
+          "gcH1"
+        ]
+      }
+    },
+    {
+      "id": "n00009",
+      "name": "text-basic",
+      "parent": "n00006",
+      "children": [],
+      "settings": {
+        "text": "{acf_hero_summary}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcLeadOnDark"
+        ]
+      }
+    },
+    {
+      "id": "n00010",
+      "name": "block",
+      "parent": "n00006",
+      "children": [
+        "n00011",
+        "n00012"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_gap": "0.75rem",
+        "_flexWrap": "wrap"
+      },
+      "label": "Hero CTAs"
+    },
+    {
+      "id": "n00011",
+      "name": "button",
+      "parent": "n00010",
+      "children": [],
+      "settings": {
+        "text": "{acf_primary_cta_label}",
+        "link": {
+          "type": "external",
+          "url": "{acf_primary_cta_link}"
+        },
+        "_cssGlobalClasses": [
+          "gcBtnPri"
+        ]
+      }
+    },
+    {
+      "id": "n00012",
+      "name": "button",
+      "parent": "n00010",
+      "children": [],
+      "settings": {
+        "text": "{acf_secondary_cta_label}",
+        "link": {
+          "type": "external",
+          "url": "{acf_secondary_cta_link}"
+        },
+        "_cssGlobalClasses": [
+          "gcBtnGhost"
+        ]
+      }
+    },
+    {
+      "id": "n00013",
+      "name": "block",
+      "parent": "n00006",
+      "children": [
+        "n00014"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_selling_point"
+        },
+        "_display": "flex",
+        "_flexDirection": "column",
+        "_gap": "0.5rem"
+      },
+      "label": "Selling Points (repeater)"
+    },
+    {
+      "id": "n00014",
+      "name": "text-basic",
+      "parent": "n00013",
+      "children": [],
+      "settings": {
+        "text": "{acf_selling_point_point}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcTickOnDark"
+        ]
+      }
+    },
+    {
+      "id": "n00015",
+      "name": "image",
+      "parent": "n00005",
+      "children": [],
+      "settings": {
+        "image": {
+          "external": true,
+          "url": "{acf_hero_image}"
+        },
+        "altText": "North Georgia lawn",
+        "_cssGlobalClasses": [
+          "gcHeroImg"
+        ],
+        "loading": "eager"
+      }
+    },
+    {
+      "id": "n00016",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00017"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "gcTrust"
+        ]
+      },
+      "label": "Trust Strip"
+    },
+    {
+      "id": "n00017",
+      "name": "container",
+      "parent": "n00016",
+      "children": [
+        "n00018"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_justifyContent": "space-between",
+        "_alignItems": "center",
+        "_gap": "1.75rem"
+      },
+      "label": "Trust Inner"
+    },
+    {
+      "id": "n00018",
+      "name": "block",
+      "parent": "n00017",
+      "children": [
+        "n00019"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_trust_points"
+        },
+        "_display": "flex",
+        "_alignItems": "center",
+        "_gap": "0.625rem"
+      },
+      "label": "Trust Points (repeater)"
+    },
+    {
+      "id": "n00019",
+      "name": "text-basic",
+      "parent": "n00018",
+      "children": [],
+      "settings": {
+        "text": "{acf_trust_points_trust_point_title}",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "gcTick"
+        ]
+      }
+    },
+    {
+      "id": "n00020",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00021"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "gcSection"
+        ],
+        "_background": {
+          "color": {
+            "raw": "#f3f4ee"
+          }
+        }
+      },
+      "label": "Intro + Video"
+    },
+    {
+      "id": "n00021",
+      "name": "container",
+      "parent": "n00020",
+      "children": [
+        "n00022",
+        "n00028"
+      ],
+      "settings": {
+        "_display": "grid",
+        "_gridTemplateColumns": "1fr 1fr",
+        "_alignItems": "center",
+        "_gap": "4rem"
+      },
+      "label": "Intro Grid"
+    },
+    {
+      "id": "n00022",
+      "name": "block",
+      "parent": "n00021",
+      "children": [
+        "n00023",
+        "n00024",
+        "n00025",
+        "n00026"
+      ],
+      "settings": {},
+      "label": "Intro Copy"
+    },
+    {
+      "id": "n00023",
+      "name": "text-basic",
+      "parent": "n00022",
+      "children": [],
+      "settings": {
+        "text": "The Right Plan",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcEyebrow"
+        ]
+      }
+    },
+    {
+      "id": "n00024",
+      "name": "heading",
+      "parent": "n00022",
+      "children": [],
+      "settings": {
+        "text": "{acf_home_intro_heading}",
+        "tag": "h2",
+        "_cssGlobalClasses": [
+          "gcH2"
+        ]
+      }
+    },
+    {
+      "id": "n00025",
+      "name": "text-basic",
+      "parent": "n00022",
+      "children": [],
+      "settings": {
+        "text": "{acf_home_intro_text}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcLead"
+        ]
+      }
+    },
+    {
+      "id": "n00026",
+      "name": "block",
+      "parent": "n00022",
+      "children": [
+        "n00027"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_home_services_bullets"
+        },
+        "_display": "grid",
+        "_gridTemplateColumns": "1fr 1fr",
+        "_gap": "0.75rem 1.75rem"
+      },
+      "label": "Services Bullets (repeater)"
+    },
+    {
+      "id": "n00027",
+      "name": "text-basic",
+      "parent": "n00026",
+      "children": [],
+      "settings": {
+        "text": "{acf_home_services_bullets_bullet_text}",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "gcTick"
+        ]
+      }
+    },
+    {
+      "id": "n00028",
+      "name": "video",
+      "parent": "n00021",
+      "children": [],
+      "settings": {
+        "_cssGlobalClasses": [
+          "gcVideo"
+        ],
+        "_aspectRatio": "16/9"
+      },
+      "label": "Treatment Video (replace: new ACF video field)"
+    },
+    {
+      "id": "n00029",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00030"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "gcSection"
+        ]
+      },
+      "label": "Lawn Services"
+    },
+    {
+      "id": "n00030",
+      "name": "container",
+      "parent": "n00029",
+      "children": [
+        "n00031",
+        "n00032"
+      ],
+      "settings": {},
+      "label": "Services Inner"
+    },
+    {
+      "id": "n00031",
+      "name": "heading",
+      "parent": "n00030",
+      "children": [],
+      "settings": {
+        "text": "Lawn Treatment Services for Healthier Turf",
+        "tag": "h2",
+        "_cssGlobalClasses": [
+          "gcH2",
+          "gcCenter"
+        ]
+      }
+    },
+    {
+      "id": "n00032",
+      "name": "block",
+      "parent": "n00030",
+      "children": [
+        "n00033"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "post",
+          "post_type": [
+            "lawn-services"
+          ],
+          "posts_per_page": 6,
+          "orderby": "post__in",
+          "acf_relationship_field": "featured_lawn_services"
+        },
+        "_display": "grid",
+        "_gridTemplateColumns": "repeat(3, 1fr)",
+        "_gridTemplateColumns:mobile_portrait": "1fr",
+        "_gap": "1.25rem"
+      },
+      "label": "Service Cards (query loop: featured_lawn_services)"
+    },
+    {
+      "id": "n00033",
+      "name": "block",
+      "parent": "n00032",
+      "children": [
+        "n00034",
+        "n00035",
+        "n00036",
+        "n00037"
+      ],
+      "settings": {
+        "tag": "article",
+        "_cssGlobalClasses": [
+          "gcCard"
+        ]
+      },
+      "label": "Service Card"
+    },
+    {
+      "id": "n00034",
+      "name": "image",
+      "parent": "n00033",
+      "children": [],
+      "settings": {
+        "image": {
+          "external": true,
+          "url": "{acf_service_image}"
+        },
+        "altText": "{acf_featured_service_image_alt}",
+        "_cssGlobalClasses": [
+          "gcCardMedia"
+        ],
+        "loading": "lazy"
+      }
+    },
+    {
+      "id": "n00035",
+      "name": "heading",
+      "parent": "n00033",
+      "children": [],
+      "settings": {
+        "text": "{acf_public_service_name}",
+        "tag": "h3",
+        "_cssGlobalClasses": [
+          "gcH3"
+        ]
+      }
+    },
+    {
+      "id": "n00036",
+      "name": "text-basic",
+      "parent": "n00033",
+      "children": [],
+      "settings": {
+        "text": "{acf_service_summary}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcCardText"
+        ]
+      }
+    },
+    {
+      "id": "n00037",
+      "name": "text-link",
+      "parent": "n00033",
+      "children": [],
+      "settings": {
+        "text": "Explore {post_title}",
+        "link": {
+          "type": "post",
+          "postId": "{post_id}"
+        },
+        "_cssGlobalClasses": [
+          "gcLink"
+        ]
+      }
+    },
+    {
+      "id": "n00038",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00039"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "gcSection"
+        ],
+        "_background": {
+          "color": {
+            "raw": "#eef7e6"
+          }
+        }
+      },
+      "label": "Lawn Care Programs"
+    },
+    {
+      "id": "n00039",
+      "name": "container",
+      "parent": "n00038",
+      "children": [
+        "n00040",
+        "n00041"
+      ],
+      "settings": {},
+      "label": "Programs Inner"
+    },
+    {
+      "id": "n00040",
+      "name": "heading",
+      "parent": "n00039",
+      "children": [],
+      "settings": {
+        "text": "Ongoing Lawn Care Programs",
+        "tag": "h2",
+        "_cssGlobalClasses": [
+          "gcH2",
+          "gcCenter"
+        ]
+      }
+    },
+    {
+      "id": "n00041",
+      "name": "block",
+      "parent": "n00039",
+      "children": [
+        "n00042"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "post",
+          "post_type": [
+            "lawn-care-programs"
+          ],
+          "posts_per_page": 4,
+          "meta_query": [
+            {
+              "key": "featured_on_homepage",
+              "value": "1",
+              "compare": "=="
+            }
+          ],
+          "orderby": "meta_value_num",
+          "meta_key": "display_priority",
+          "order": "ASC"
+        },
+        "_display": "grid",
+        "_gridTemplateColumns": "repeat(4, 1fr)",
+        "_gridTemplateColumns:mobile_portrait": "1fr",
+        "_gap": "1.25rem"
+      },
+      "label": "Program Cards (query loop: lawn-care-programs)"
+    },
+    {
+      "id": "n00042",
+      "name": "block",
+      "parent": "n00041",
+      "children": [
+        "n00043",
+        "n00044",
+        "n00045",
+        "n00046"
+      ],
+      "settings": {
+        "tag": "article",
+        "_cssGlobalClasses": [
+          "gcCard"
+        ]
+      },
+      "label": "Program Card"
+    },
+    {
+      "id": "n00043",
+      "name": "text-basic",
+      "parent": "n00042",
+      "children": [],
+      "settings": {
+        "text": "{acf_card_eyebrow}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcEyebrow"
+        ]
+      }
+    },
+    {
+      "id": "n00044",
+      "name": "heading",
+      "parent": "n00042",
+      "children": [],
+      "settings": {
+        "text": "{acf_card_heading}",
+        "tag": "h3",
+        "_cssGlobalClasses": [
+          "gcH3"
+        ]
+      }
+    },
+    {
+      "id": "n00045",
+      "name": "text-basic",
+      "parent": "n00042",
+      "children": [],
+      "settings": {
+        "text": "{acf_card_summary}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcCardText"
+        ]
+      }
+    },
+    {
+      "id": "n00046",
+      "name": "text-link",
+      "parent": "n00042",
+      "children": [],
+      "settings": {
+        "text": "Explore {post_title}",
+        "link": {
+          "type": "post",
+          "postId": "{post_id}"
+        },
+        "_cssGlobalClasses": [
+          "gcLink"
+        ]
+      }
+    },
+    {
+      "id": "n00047",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00048"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "gcSection"
+        ],
+        "_background": {
+          "color": {
+            "raw": "#f3f4ee"
+          }
+        }
+      },
+      "label": "Location Coverage"
+    },
+    {
+      "id": "n00048",
+      "name": "container",
+      "parent": "n00047",
+      "children": [
+        "n00049",
+        "n00050"
+      ],
+      "settings": {},
+      "label": "Locations Inner"
+    },
+    {
+      "id": "n00049",
+      "name": "heading",
+      "parent": "n00048",
+      "children": [],
+      "settings": {
+        "text": "Local Lawn Care From the Team Serving Your Area",
+        "tag": "h2",
+        "_cssGlobalClasses": [
+          "gcH2",
+          "gcCenter"
+        ]
+      }
+    },
+    {
+      "id": "n00050",
+      "name": "block",
+      "parent": "n00048",
+      "children": [
+        "n00051",
+        "n00055"
+      ],
+      "settings": {
+        "_display": "grid",
+        "_gridTemplateColumns": "1fr 1fr",
+        "_gridTemplateColumns:mobile_portrait": "1fr",
+        "_gap": "2rem"
+      },
+      "label": "Location Cards"
+    },
+    {
+      "id": "n00051",
+      "name": "block",
+      "parent": "n00050",
+      "children": [
+        "n00052",
+        "n00053",
+        "n00054"
+      ],
+      "settings": {
+        "tag": "article",
+        "_cssGlobalClasses": [
+          "gcCard"
+        ],
+        "_conditions": [
+          [
+            {
+              "id": "cndlc1",
+              "name": "dynamicData",
+              "value": "{acf_atlanta_location_link}",
+              "compare": "!=",
+              "compareValue": ""
+            }
+          ]
+        ]
+      },
+      "label": "Atlanta Card"
+    },
+    {
+      "id": "n00052",
+      "name": "heading",
+      "parent": "n00051",
+      "children": [],
+      "settings": {
+        "text": "Atlanta",
+        "tag": "h3",
+        "_cssGlobalClasses": [
+          "gcH3"
+        ]
+      }
+    },
+    {
+      "id": "n00053",
+      "name": "text-basic",
+      "parent": "n00051",
+      "children": [],
+      "settings": {
+        "text": "Fertilization and weed-control programs across the Metro Atlanta area.",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcCardText"
+        ]
+      }
+    },
+    {
+      "id": "n00054",
+      "name": "text-link",
+      "parent": "n00051",
+      "children": [],
+      "settings": {
+        "text": "Explore Atlanta lawn care",
+        "link": {
+          "type": "external",
+          "url": "{acf_atlanta_location_link}"
+        },
+        "_cssGlobalClasses": [
+          "gcLink"
+        ]
+      }
+    },
+    {
+      "id": "n00055",
+      "name": "block",
+      "parent": "n00050",
+      "children": [
+        "n00056",
+        "n00057",
+        "n00058"
+      ],
+      "settings": {
+        "tag": "article",
+        "_cssGlobalClasses": [
+          "gcCard"
+        ],
+        "_conditions": [
+          [
+            {
+              "id": "cndlc2",
+              "name": "dynamicData",
+              "value": "{acf_hoschton_location_link}",
+              "compare": "!=",
+              "compareValue": ""
+            }
+          ]
+        ]
+      },
+      "label": "Hoschton Card"
+    },
+    {
+      "id": "n00056",
+      "name": "heading",
+      "parent": "n00055",
+      "children": [],
+      "settings": {
+        "text": "Hoschton",
+        "tag": "h3",
+        "_cssGlobalClasses": [
+          "gcH3"
+        ]
+      }
+    },
+    {
+      "id": "n00057",
+      "name": "text-basic",
+      "parent": "n00055",
+      "children": [],
+      "settings": {
+        "text": "The branch serving Braselton, Hoschton and surrounding Northeast Georgia communities.",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcCardText"
+        ]
+      }
+    },
+    {
+      "id": "n00058",
+      "name": "text-link",
+      "parent": "n00055",
+      "children": [],
+      "settings": {
+        "text": "Explore Hoschton lawn care",
+        "link": {
+          "type": "external",
+          "url": "{acf_hoschton_location_link}"
+        },
+        "_cssGlobalClasses": [
+          "gcLink"
+        ]
+      }
+    },
+    {
+      "id": "n00059",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00060"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "gcSection"
+        ]
+      },
+      "label": "Service Area Map (needs new ACF map field)"
+    },
+    {
+      "id": "n00060",
+      "name": "container",
+      "parent": "n00059",
+      "children": [
+        "n00061",
+        "n00062"
+      ],
+      "settings": {
+        "_display": "grid",
+        "_gridTemplateColumns": "1fr 1fr",
+        "_alignItems": "center",
+        "_gap": "3.5rem"
+      },
+      "label": "Map Inner"
+    },
+    {
+      "id": "n00061",
+      "name": "image",
+      "parent": "n00060",
+      "children": [],
+      "settings": {
+        "altText": "North Georgia service area map",
+        "_cssGlobalClasses": [
+          "gcMap"
+        ],
+        "loading": "lazy"
+      },
+      "label": "Map image (new ACF field)"
+    },
+    {
+      "id": "n00062",
+      "name": "block",
+      "parent": "n00060",
+      "children": [
+        "n00063",
+        "n00064"
+      ],
+      "settings": {},
+      "label": "Map Copy"
+    },
+    {
+      "id": "n00063",
+      "name": "heading",
+      "parent": "n00062",
+      "children": [],
+      "settings": {
+        "text": "Serving North Georgia",
+        "tag": "h2",
+        "_cssGlobalClasses": [
+          "gcH2"
+        ]
+      }
+    },
+    {
+      "id": "n00064",
+      "name": "text-basic",
+      "parent": "n00062",
+      "children": [],
+      "settings": {
+        "text": "Fertilization and weed-control programs across North Georgia including Gainesville, Cumming, Dawsonville, Dahlonega, Canton, Jasper, Cleveland, Flowery Branch, Blue Ridge, and surrounding communities.",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcLead"
+        ]
+      }
+    },
+    {
+      "id": "n00065",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00066"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "gcSection"
+        ],
+        "_background": {
+          "color": {
+            "raw": "#eef7e6"
+          }
+        }
+      },
+      "label": "Why Choose Us"
+    },
+    {
+      "id": "n00066",
+      "name": "container",
+      "parent": "n00065",
+      "children": [
+        "n00067",
+        "n00068"
+      ],
+      "settings": {},
+      "label": "Why Inner"
+    },
+    {
+      "id": "n00067",
+      "name": "heading",
+      "parent": "n00066",
+      "children": [],
+      "settings": {
+        "text": "{acf_why_choose_us_heading}",
+        "tag": "h2",
+        "_cssGlobalClasses": [
+          "gcH2",
+          "gcCenter"
+        ]
+      }
+    },
+    {
+      "id": "n00068",
+      "name": "block",
+      "parent": "n00066",
+      "children": [
+        "n00069"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_why_choose_us_points"
+        },
+        "_display": "grid",
+        "_gridTemplateColumns": "repeat(3, 1fr)",
+        "_gridTemplateColumns:mobile_portrait": "1fr",
+        "_gap": "2rem"
+      },
+      "label": "Why Points (repeater)"
+    },
+    {
+      "id": "n00069",
+      "name": "block",
+      "parent": "n00068",
+      "children": [
+        "n00070",
+        "n00071",
+        "n00072"
+      ],
+      "settings": {
+        "tag": "article"
+      },
+      "label": "Why Point"
+    },
+    {
+      "id": "n00070",
+      "name": "image",
+      "parent": "n00069",
+      "children": [],
+      "settings": {
+        "image": {
+          "external": true,
+          "url": "{acf_why_choose_us_points_icon}"
+        },
+        "altText": "",
+        "_width": "48px",
+        "loading": "lazy"
+      }
+    },
+    {
+      "id": "n00071",
+      "name": "heading",
+      "parent": "n00069",
+      "children": [],
+      "settings": {
+        "text": "{acf_why_choose_us_points_point_title}",
+        "tag": "h3",
+        "_cssGlobalClasses": [
+          "gcH3"
+        ]
+      }
+    },
+    {
+      "id": "n00072",
+      "name": "text-basic",
+      "parent": "n00069",
+      "children": [],
+      "settings": {
+        "text": "{acf_why_choose_us_points_point_text}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcCardText"
+        ]
+      }
+    },
+    {
+      "id": "n00073",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00074"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "gcSection"
+        ]
+      },
+      "label": "Reviews"
+    },
+    {
+      "id": "n00074",
+      "name": "container",
+      "parent": "n00073",
+      "children": [
+        "n00075",
+        "n00076"
+      ],
+      "settings": {},
+      "label": "Reviews Inner"
+    },
+    {
+      "id": "n00075",
+      "name": "heading",
+      "parent": "n00074",
+      "children": [],
+      "settings": {
+        "text": "What Lawn Care Customers Say",
+        "tag": "h2",
+        "_cssGlobalClasses": [
+          "gcH2",
+          "gcCenter"
+        ]
+      }
+    },
+    {
+      "id": "n00076",
+      "name": "block",
+      "parent": "n00074",
+      "children": [
+        "n00077"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "post",
+          "post_type": [
+            "reviews"
+          ],
+          "posts_per_page": 3,
+          "orderby": "post__in",
+          "acf_relationship_field": "featured_reviews"
+        },
+        "_display": "grid",
+        "_gridTemplateColumns": "repeat(3, 1fr)",
+        "_gridTemplateColumns:mobile_portrait": "1fr",
+        "_gap": "1.25rem"
+      },
+      "label": "Review Cards (query loop: featured_reviews)"
+    },
+    {
+      "id": "n00077",
+      "name": "block",
+      "parent": "n00076",
+      "children": [
+        "n00078",
+        "n00079",
+        "n00080"
+      ],
+      "settings": {
+        "tag": "blockquote",
+        "_cssGlobalClasses": [
+          "gcCard"
+        ]
+      },
+      "label": "Review Card"
+    },
+    {
+      "id": "n00078",
+      "name": "text-basic",
+      "parent": "n00077",
+      "children": [],
+      "settings": {
+        "text": "{acf_review_text}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcQuote"
+        ]
+      }
+    },
+    {
+      "id": "n00079",
+      "name": "text-basic",
+      "parent": "n00077",
+      "children": [],
+      "settings": {
+        "text": "{acf_reviewer_name}",
+        "tag": "cite",
+        "_cssGlobalClasses": [
+          "gcName"
+        ]
+      }
+    },
+    {
+      "id": "n00080",
+      "name": "text-basic",
+      "parent": "n00077",
+      "children": [],
+      "settings": {
+        "text": "{acf_reviewer_location} · {acf_review_source}",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "gcMeta"
+        ]
+      }
+    },
+    {
+      "id": "n00081",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00082"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "gcSection"
+        ],
+        "_background": {
+          "color": {
+            "raw": "#e9ebe1"
+          }
+        }
+      },
+      "label": "Before / After (needs new ACF gallery field)"
+    },
+    {
+      "id": "n00082",
+      "name": "container",
+      "parent": "n00081",
+      "children": [
+        "n00083",
+        "n00084"
+      ],
+      "settings": {},
+      "label": "Before/After Inner"
+    },
+    {
+      "id": "n00083",
+      "name": "heading",
+      "parent": "n00082",
+      "children": [],
+      "settings": {
+        "text": "See the Difference a Season Makes",
+        "tag": "h2",
+        "_cssGlobalClasses": [
+          "gcH2",
+          "gcCenter"
+        ]
+      }
+    },
+    {
+      "id": "n00084",
+      "name": "block",
+      "parent": "n00082",
+      "children": [
+        "n00085",
+        "n00086"
+      ],
+      "settings": {
+        "_display": "grid",
+        "_gridTemplateColumns": "1fr 1fr",
+        "_gap": "1.25rem"
+      },
+      "label": "Before/After Pair (new ACF field)"
+    },
+    {
+      "id": "n00085",
+      "name": "image",
+      "parent": "n00084",
+      "children": [],
+      "settings": {
+        "altText": "Lawn before treatment",
+        "_cssGlobalClasses": [
+          "gcBaImg"
+        ],
+        "loading": "lazy"
+      },
+      "label": "Before (new ACF field)"
+    },
+    {
+      "id": "n00086",
+      "name": "image",
+      "parent": "n00084",
+      "children": [],
+      "settings": {
+        "altText": "Lawn after one season on program",
+        "_cssGlobalClasses": [
+          "gcBaImg"
+        ],
+        "loading": "lazy"
+      },
+      "label": "After (new ACF field)"
+    },
+    {
+      "id": "n00087",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00088"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "gcSection"
+        ]
+      },
+      "label": "FAQ (needs new ACF FAQ repeater)"
+    },
+    {
+      "id": "n00088",
+      "name": "container",
+      "parent": "n00087",
+      "children": [
+        "n00089",
+        "n00090"
+      ],
+      "settings": {
+        "_width": "760px",
+        "_maxWidth": "100%",
+        "_margin": {
+          "left": "auto",
+          "right": "auto"
+        }
+      },
+      "label": "FAQ Inner"
+    },
+    {
+      "id": "n00089",
+      "name": "heading",
+      "parent": "n00088",
+      "children": [],
+      "settings": {
+        "text": "{acf_homepage_faq_heading}",
+        "tag": "h2",
+        "_cssGlobalClasses": [
+          "gcH2",
+          "gcCenter"
+        ]
+      }
+    },
+    {
+      "id": "n00090",
+      "name": "accordion",
+      "parent": "n00088",
+      "children": [],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_homepage_faqs"
+        },
+        "title": "{acf_homepage_faqs_question}",
+        "content": "{acf_homepage_faqs_answer}"
+      },
+      "label": "FAQ Accordion (query loop: new faq_items repeater)"
+    },
+    {
+      "id": "n00091",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "n00092"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "gcCtaBanner"
+        ]
+      },
+      "label": "Final CTA"
+    },
+    {
+      "id": "n00092",
+      "name": "container",
+      "parent": "n00091",
+      "children": [
+        "n00093",
+        "n00094",
+        "n00095",
+        "n00098"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_flexDirection": "column",
+        "_alignItems": "center",
+        "_textAlign": "center",
+        "_gap": "1.5rem"
+      },
+      "label": "CTA Inner"
+    },
+    {
+      "id": "n00093",
+      "name": "heading",
+      "parent": "n00092",
+      "children": [],
+      "settings": {
+        "text": "{acf_bottom_cta_heading}",
+        "tag": "h2",
+        "_cssGlobalClasses": [
+          "gcH2OnDark"
+        ]
+      }
+    },
+    {
+      "id": "n00094",
+      "name": "text-basic",
+      "parent": "n00092",
+      "children": [],
+      "settings": {
+        "text": "{acf_bottom_cta_text}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "gcLeadOnDark"
+        ]
+      }
+    },
+    {
+      "id": "n00095",
+      "name": "block",
+      "parent": "n00092",
+      "children": [
+        "n00096",
+        "n00097"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_gap": "0.75rem",
+        "_flexWrap": "wrap",
+        "_justifyContent": "center"
+      },
+      "label": "CTA Buttons"
+    },
+    {
+      "id": "n00096",
+      "name": "button",
+      "parent": "n00095",
+      "children": [],
+      "settings": {
+        "text": "{acf_main_cta_label}",
+        "link": {
+          "type": "external",
+          "url": "{acf_main_cta_link}"
+        },
+        "_cssGlobalClasses": [
+          "gcBtnPri"
+        ]
+      }
+    },
+    {
+      "id": "n00097",
+      "name": "button",
+      "parent": "n00095",
+      "children": [],
+      "settings": {
+        "text": "Call {acf_main_phone_number}",
+        "link": {
+          "type": "external",
+          "url": "tel:{acf_main_phone_number}"
+        },
+        "_cssGlobalClasses": [
+          "gcBtnGhost"
+        ]
+      }
+    },
+    {
+      "id": "n00098",
+      "name": "block",
+      "parent": "n00092",
+      "children": [
+        "n00099"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_bottom_cta_benefits"
+        },
+        "_display": "flex",
+        "_gap": "1.5rem",
+        "_flexWrap": "wrap",
+        "_justifyContent": "center"
+      },
+      "label": "CTA Benefits (repeater)"
+    },
+    {
+      "id": "n00099",
+      "name": "text-basic",
+      "parent": "n00098",
+      "children": [],
+      "settings": {
+        "text": "{acf_bottom_cta_benefits_benefit}",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "gcTickOnDark"
+        ]
+      }
+    }
+  ],
+  "source": "bricksCopiedElements",
+  "sourceUrl": "https://www.prideinturf.com",
+  "version": "1.12.4",
+  "globalClasses": [
+    {
+      "id": "gcUpd",
+      "name": "u-update-bar",
+      "settings": {
+        "_background": {
+          "color": {
+            "raw": "var(--color-brand-accent-tint)"
+          }
+        },
+        "_padding": {
+          "top": "0.75rem",
+          "bottom": "0.75rem",
+          "left": "var(--content-gap)",
+          "right": "var(--content-gap)"
+        }
+      }
+    },
+    {
+      "id": "gcHero",
+      "name": "home-hero",
+      "settings": {
+        "_background": {
+          "color": {
+            "raw": "#1c4114"
+          }
+        },
+        "_padding": {
+          "top": "var(--section-space-m)",
+          "bottom": "var(--section-space-m)"
+        }
+      }
+    },
+    {
+      "id": "gcHeroImg",
+      "name": "home-hero__media",
+      "settings": {
+        "_borderRadius": {
+          "top": "24px",
+          "right": "24px",
+          "bottom": "24px",
+          "left": "24px"
+        },
+        "_objectFit": "cover",
+        "_aspectRatio": "4/5"
+      }
+    },
+    {
+      "id": "gcSection",
+      "name": "section",
+      "settings": {
+        "_padding": {
+          "top": "var(--section-space-m)",
+          "bottom": "var(--section-space-m)"
+        }
+      }
+    },
+    {
+      "id": "gcTrust",
+      "name": "trust-strip",
+      "settings": {
+        "_background": {
+          "color": {
+            "raw": "#e9ebe1"
+          }
+        },
+        "_padding": {
+          "top": "1.75rem",
+          "bottom": "1.75rem",
+          "left": "var(--content-gap)",
+          "right": "var(--content-gap)"
+        },
+        "_borderTop": {
+          "width": "1px",
+          "style": "solid",
+          "color": {
+            "raw": "#e3e1dd"
+          }
+        },
+        "_borderBottom": {
+          "width": "1px",
+          "style": "solid",
+          "color": {
+            "raw": "#e3e1dd"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcVideo",
+      "name": "intro__video",
+      "settings": {
+        "_borderRadius": {
+          "top": "20px",
+          "right": "20px",
+          "bottom": "20px",
+          "left": "20px"
+        },
+        "_aspectRatio": "16/9"
+      }
+    },
+    {
+      "id": "gcMap",
+      "name": "area__map",
+      "settings": {
+        "_borderRadius": {
+          "top": "20px",
+          "right": "20px",
+          "bottom": "20px",
+          "left": "20px"
+        },
+        "_aspectRatio": "4/3",
+        "_objectFit": "cover"
+      }
+    },
+    {
+      "id": "gcCard",
+      "name": "card",
+      "settings": {
+        "_background": {
+          "color": {
+            "raw": "#ffffff"
+          }
+        },
+        "_borderRadius": {
+          "top": "16px",
+          "right": "16px",
+          "bottom": "16px",
+          "left": "16px"
+        },
+        "_border": {
+          "width": "1px",
+          "style": "solid",
+          "color": {
+            "raw": "#e3e1dd"
+          }
+        },
+        "_padding": {
+          "top": "1.5rem",
+          "right": "1.5rem",
+          "bottom": "1.5rem",
+          "left": "1.5rem"
+        },
+        "_boxShadow": {
+          "values": {
+            "offsetX": "0",
+            "offsetY": "6px",
+            "blur": "16px",
+            "spread": "0",
+            "color": {
+              "hex": "#231f20",
+              "rgba": "rgba(35,31,32,0.08)"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "gcCardMedia",
+      "name": "card__media",
+      "settings": {
+        "_aspectRatio": "4/3",
+        "_objectFit": "cover",
+        "_borderRadius": {
+          "top": "10px",
+          "right": "10px",
+          "bottom": "10px",
+          "left": "10px"
+        }
+      }
+    },
+    {
+      "id": "gcBaImg",
+      "name": "before-after__img",
+      "settings": {
+        "_aspectRatio": "4/3",
+        "_objectFit": "cover",
+        "_borderRadius": {
+          "top": "16px",
+          "right": "16px",
+          "bottom": "16px",
+          "left": "16px"
+        }
+      }
+    },
+    {
+      "id": "gcCtaBanner",
+      "name": "cta-banner",
+      "settings": {
+        "_background": {
+          "color": {
+            "raw": "var(--primary-hover)"
+          }
+        },
+        "_padding": {
+          "top": "var(--section-space-m)",
+          "bottom": "var(--section-space-m)"
+        }
+      }
+    },
+    {
+      "id": "gcH1",
+      "name": "u-h1",
+      "settings": {
+        "_typography": {
+          "font-family": "var(--font-display)",
+          "font-size": "clamp(2.5rem, 1.5rem + 3vw, 4rem)",
+          "font-weight": "700",
+          "line-height": "1.08",
+          "letter-spacing": "-0.03em",
+          "color": {
+            "raw": "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcH2",
+      "name": "u-h2",
+      "settings": {
+        "_typography": {
+          "font-family": "var(--font-display)",
+          "font-size": "var(--h2)",
+          "font-weight": "700",
+          "line-height": "1.12",
+          "letter-spacing": "-0.02em",
+          "color": {
+            "raw": "var(--base)"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcH2OnDark",
+      "name": "u-h2--on-dark",
+      "settings": {
+        "_typography": {
+          "font-family": "var(--font-display)",
+          "font-size": "var(--h2)",
+          "font-weight": "700",
+          "line-height": "1.12",
+          "letter-spacing": "-0.02em",
+          "color": {
+            "raw": "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcH3",
+      "name": "u-h3",
+      "settings": {
+        "_typography": {
+          "font-family": "var(--font-display)",
+          "font-size": "var(--h4)",
+          "font-weight": "600",
+          "color": {
+            "raw": "var(--base)"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcEyebrow",
+      "name": "u-eyebrow",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-sm)",
+          "font-weight": "600",
+          "letter-spacing": "var(--tracking-eyebrow)",
+          "text-transform": "uppercase",
+          "color": {
+            "raw": "var(--primary-dark)"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcLead",
+      "name": "u-lead",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-lg)",
+          "line-height": "1.65",
+          "color": {
+            "raw": "#5b5954"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcLeadOnDark",
+      "name": "u-lead--on-dark",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-lg)",
+          "line-height": "1.65",
+          "color": {
+            "raw": "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcTick",
+      "name": "u-tick",
+      "settings": {
+        "_typography": {
+          "color": {
+            "raw": "var(--base)"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcTickOnDark",
+      "name": "u-tick--on-dark",
+      "settings": {
+        "_typography": {
+          "color": {
+            "raw": "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcCardText",
+      "name": "card__text",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-sm)",
+          "line-height": "1.6",
+          "color": {
+            "raw": "#5b5954"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcQuote",
+      "name": "review__text",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-lg)",
+          "line-height": "1.6",
+          "color": {
+            "raw": "var(--base)"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcName",
+      "name": "review__name",
+      "settings": {
+        "_typography": {
+          "font-weight": "600",
+          "font-size": "var(--text-sm)",
+          "font-style": "normal",
+          "color": {
+            "raw": "var(--base)"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcMeta",
+      "name": "review__meta",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-xs)",
+          "color": {
+            "raw": "#8a8783"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcCenter",
+      "name": "u-text-center",
+      "settings": {
+        "_typography": {
+          "text-align": "center"
+        }
+      }
+    },
+    {
+      "id": "gcLink",
+      "name": "u-link",
+      "settings": {
+        "_typography": {
+          "font-weight": "600",
+          "color": {
+            "raw": "var(--primary-dark)"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcBtnPri",
+      "name": "btn--primary",
+      "settings": {
+        "_background": {
+          "color": {
+            "raw": "var(--accent)"
+          }
+        },
+        "_typography": {
+          "color": {
+            "hex": "#3a2408"
+          },
+          "font-weight": "600"
+        },
+        "_padding": {
+          "top": "1rem",
+          "right": "1.5rem",
+          "bottom": "1rem",
+          "left": "1.5rem"
+        },
+        "_borderRadius": {
+          "top": "999px",
+          "right": "999px",
+          "bottom": "999px",
+          "left": "999px"
+        },
+        "_background:hover": {
+          "color": {
+            "raw": "#e4820f"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcBtnSec",
+      "name": "btn--secondary",
+      "settings": {
+        "_background": {
+          "color": {
+            "raw": "var(--primary)"
+          }
+        },
+        "_typography": {
+          "color": {
+            "hex": "#0f2408"
+          },
+          "font-weight": "600"
+        },
+        "_padding": {
+          "top": "1rem",
+          "right": "1.5rem",
+          "bottom": "1rem",
+          "left": "1.5rem"
+        },
+        "_borderRadius": {
+          "top": "999px",
+          "right": "999px",
+          "bottom": "999px",
+          "left": "999px"
+        },
+        "_background:hover": {
+          "color": {
+            "raw": "var(--primary-hover)"
+          }
+        }
+      }
+    },
+    {
+      "id": "gcBtnGhost",
+      "name": "btn--ghost",
+      "settings": {
+        "_background": {
+          "color": {
+            "raw": "transparent"
+          }
+        },
+        "_border": {
+          "width": "2px",
+          "style": "solid",
+          "color": {
+            "raw": "rgba(255,255,255,0.25)"
+          }
+        },
+        "_typography": {
+          "color": {
+            "raw": "#ffffff"
+          },
+          "font-weight": "600"
+        },
+        "_padding": {
+          "top": "1rem",
+          "right": "1.5rem",
+          "bottom": "1rem",
+          "left": "1.5rem"
+        },
+        "_borderRadius": {
+          "top": "999px",
+          "right": "999px",
+          "bottom": "999px",
+          "left": "999px"
+        }
+      }
+    }
+  ],
+  "globalElements": []
+}

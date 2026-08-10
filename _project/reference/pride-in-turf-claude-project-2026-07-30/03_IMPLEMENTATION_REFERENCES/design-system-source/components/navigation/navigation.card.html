@@ -1,0 +1,72 @@
+<!-- @dsCard group="Components" viewport="700x620" name="Navigation" subtitle="NavBar (dropdowns + mobile hamburger-as-CTA), Footer" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js?v=1783859219073"></script>
+<style>
+  body { margin:0; padding:0; background: var(--surface-page); }
+  * { box-sizing:border-box; }
+  .label { font-family: var(--font-body); font-size:11px; color:var(--text-tertiary); padding:10px 16px 0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { NavBar, Footer } = window.PrideInTurfDesignSystem_2d4922;
+
+const links = [
+  { href: '/about/', label: 'About' },
+  { href: '/lawn-care/', label: 'Lawn Care', children: [
+    { href: '/lawn-care/warm-weather/', label: 'Warm Weather' },
+    { href: '/lawn-care/cool-weather/', label: 'Cool Weather' },
+    { href: '/lawn-care/mixed/', label: 'Mixed Lawn' },
+  ]},
+  { href: '/lawn-services/', label: 'Lawn Services', children: [
+    { href: '/lawn-services/aeration/', label: 'Aeration' },
+    { href: '/lawn-services/fungicide-treatments/', label: 'Fungicide Treatments' },
+    { href: '/lawn-services/pest-control/', label: 'Pest Control' },
+    { href: '/lawn-services/weed-control/', label: 'Weed Control' },
+    { href: '/lawn-services/soil-testing/', label: 'Soil Testing' },
+  ]},
+  { href: '/client-portal/', label: 'Client Portal' },
+];
+
+const logo = <img src="../../assets/logo/pride-in-turf-logo.png" alt="Pride In Turf" style={{ height: '34px' }} />;
+
+function Demo() {
+  return (
+    <div>
+      <div className="label">Desktop — hover "Lawn Care" / "Lawn Services" for dropdowns</div>
+      <div style={{ width: '900px', maxWidth: 'none', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-md)', overflow: 'visible', margin: '8px 16px 20px' }}>
+        <NavBar logo={logo} links={links} activeHref="/lawn-care/warm-weather/" />
+      </div>
+
+      <div className="label">Mobile — CTA button becomes the menu toggle (shown open)</div>
+      <div style={{ width: '360px', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-md)', overflow: 'hidden', margin: '8px 16px 24px' }}>
+        <NavBar logo={logo} links={links} activeHref="/lawn-services/aeration/" defaultMobileOpen />
+      </div>
+
+      <Footer
+        logo={<span style={{ fontFamily:'var(--font-display)', fontWeight:'var(--weight-bold)', fontSize:'var(--text-xl)', color:'var(--text-on-dark)' }}>PRIDE <span style={{color:'var(--brand-accent)'}}>in</span> TURF</span>}
+        programLinks={[
+          { href: '/lawn-care/', label: 'Lawn Care' },
+          { href: '/lawn-care/warm-weather/', label: 'Warm Weather' },
+          { href: '/lawn-care/cool-weather/', label: 'Cool Weather' },
+          { href: '/lawn-care/mixed/', label: 'Mixed Lawn' },
+        ]}
+        phone="+1 833-388-8873"
+        email="info@prideinturf.com"
+        address="1900 GA Hwy 211, Hoschton, GA 30548"
+      />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

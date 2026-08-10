@@ -1,0 +1,38 @@
+<!-- @dsCard group="Effects" viewport="700x220" name="Layout tokens" subtitle="Breakpoints (reference), grid, aspect ratios, z-index" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin:0; padding:20px 24px; background: var(--surface-card); box-sizing:border-box; font-family: var(--font-body); }
+  * { box-sizing: border-box; }
+  .row { display:flex; gap:10px; margin-bottom:10px; font-size:11px; color:var(--text-secondary); }
+  .row b { color:var(--text-primary); width:190px; flex-shrink:0; font-family:var(--font-display); font-weight:var(--weight-medium); }
+  .cols { display:flex; gap:20px; }
+  .col { flex:1; }
+</style>
+</head>
+<body>
+  <div class="cols">
+    <div class="col">
+      <div class="row"><b>--breakpoint-mobile</b>390px</div>
+      <div class="row"><b>--breakpoint-tablet</b>834px</div>
+      <div class="row"><b>--breakpoint-desktop</b>1440px</div>
+      <div class="row"><b>--breakpoint-nav-collapse</b>860px</div>
+      <div class="row"><b>--grid-columns-desktop</b>12</div>
+      <div class="row"><b>--grid-columns-tablet</b>8</div>
+      <div class="row"><b>--grid-columns-mobile</b>4</div>
+    </div>
+    <div class="col">
+      <div class="row"><b>--aspect-hero</b>21 / 9</div>
+      <div class="row"><b>--aspect-card</b>4 / 3</div>
+      <div class="row"><b>--aspect-blog-thumbnail</b>16 / 10</div>
+      <div class="row"><b>--z-sticky-header</b>40</div>
+      <div class="row"><b>--z-dropdown-menu</b>50</div>
+      <div class="row"><b>--z-mobile-nav-panel</b>60</div>
+      <div class="row"><b>--z-modal</b>80</div>
+    </div>
+  </div>
+</body>
+</html>

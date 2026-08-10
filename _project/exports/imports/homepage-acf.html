@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pride In Turf — Homepage (ACF-bound)</title>
+    <!--
+      Source of truth for ACF bindings (acf-export-2026-07-12.json):
+      - Page Hero → front page (this.acf.*)
+      - Homepage Content → Page ID 2 / Home Page (this.acf.*) — NOT an options page
+      - Company Updates → options page `updates` (options.acf.*)
+      - Business Info → options page `business-info` (options.acf.*)
+      - Global CTAs → options page `global-ctas` (options.acf.*)
+      - Trust Content → options page `trust-content` (options.acf.*)
+
+      Styling: ACSS tokens (var(--primary), var(--space-*), var(--text-light), btn--*).
+      Etch: section + container structure; Dynamic Image for hero mediaId.
+    -->
+    <style>
+      /* Semantic homepage styles — ACSS variables only (confirmed live tokens) */
+      .home-hero {
+        position: relative;
+        isolation: isolate;
+        min-block-size: min(72vh, 44rem);
+        display: grid;
+        align-items: end;
+        background: var(--primary-dark);
+        color: var(--text-light);
+      }
+      .home-hero__media,
+      .home-hero__scrim {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+      }
+      .home-hero__image {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+      .home-hero__scrim {
+        background: color-mix(in srgb, var(--base) 55%, transparent);
+      }
+      .home-hero__content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--content-gap);
+        max-inline-size: var(--width-70);
+        padding-block: var(--section-space-l);
+      }
+      .home-hero__eyebrow {
+        font-size: var(--text-xs);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--primary-light);
+      }
+      .home-hero__title {
+        font-size: var(--h1);
+        color: var(--text-light);
+      }
+      .home-hero__text {
+        color: var(--text-light-muted);
+        max-inline-size: 40rem;
+      }
+      .home-hero__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-s);
+      }
+      .home-hero__points {
+        display: grid;
+        gap: var(--space-xs);
+      }
+      .home-section-head {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-s);
+        max-inline-size: var(--width-70);
+      }
+      .home-section-head--center {
+        text-align: center;
+        margin-inline: auto;
+        align-items: center;
+      }
+      .home-bullets {
+        display: grid;
+        gap: var(--space-s);
+        margin-block-start: var(--space-m);
+      }
+      .home-programs-grid,
+      .home-services-grid,
+      .home-reviews-grid,
+      .home-why-grid {
+        display: grid;
+        gap: var(--grid-gap);
+        margin-block-start: var(--space-l);
+      }
+      @media (min-width: 48rem) {
+        .home-programs-grid {
+          grid-template-columns: var(--grid-3);
+        }
+        .home-why-grid {
+          grid-template-columns: var(--grid-3);
+        }
+        .home-reviews-grid {
+          grid-template-columns: var(--grid-3);
+        }
+        .home-services-grid {
+          grid-template-columns: var(--grid-5);
+        }
+      }
+      .home-quote {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-m);
+        padding: var(--space-l);
+        background: var(--base-ultra-light);
+        border-radius: var(--radius);
+      }
+      .home-locations {
+        display: grid;
+        gap: var(--grid-gap);
+      }
+      @media (min-width: 48rem) {
+        .home-locations {
+          grid-template-columns: var(--grid-2);
+        }
+      }
+      .home-cta {
+        background: var(--primary);
+        color: var(--text-light);
+      }
+      .home-cta__layout {
+        display: grid;
+        gap: var(--space-l);
+        align-items: center;
+      }
+      @media (min-width: 48rem) {
+        .home-cta__layout {
+          grid-template-columns: var(--grid-2-1);
+        }
+      }
+      .home-cta__benefits {
+        display: grid;
+        gap: var(--space-xs);
+      }
+      .home-update {
+        padding: var(--space-m);
+        border: 1px solid var(--neutral-light);
+        border-radius: var(--radius);
+        background: var(--base-ultra-light);
+      }
+      .home-update--important {
+        background: var(--accent-ultra-light);
+        border-color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main id="main">
+      <!-- ========== PAGE HERO (Page Hero field group → this.acf.*) ========== -->
+      <section class="home-hero" data-etch-element="section" aria-label="Hero">
+        <div data-etch-element="container">
+          {#if this.acf.hero_image}
+          <div class="home-hero__media">
+            <etch:img
+              class="home-hero__image"
+              mediaId="{this.acf.hero_image.id}"
+              useSrcSet="true"
+              alt="{this.acf.hero_image.alt}"
+            ></etch:img>
+          </div>
+          {/if}
+          <div class="home-hero__scrim" aria-hidden="true"></div>
+          <div class="home-hero__content">
+            {#if this.acf.hero_eyebrow}
+            <p class="home-hero__eyebrow">{this.acf.hero_eyebrow}</p>
+            {/if}
+
+            <h1 class="home-hero__title">
+              {#if this.acf.hero_heading_override}
+              {this.acf.hero_heading_override}
+              {#else}
+              {this.title}
+              {/if}
+            </h1>
+
+            {#if this.acf.hero_summary}
+            <p class="home-hero__text">{this.acf.hero_summary}</p>
+            {/if}
+
+            <div class="home-hero__actions">
+              {#if this.acf.primary_cta_link.url}
+              <a class="btn--primary" href="{this.acf.primary_cta_link.url}">
+                {#if this.acf.primary_cta_label}{this.acf.primary_cta_label}{#else}Request a Free Quote{/if}
+              </a>
+              {/if}
+              {#if this.acf.secondary_cta_link.url}
+              <a class="btn--outline" href="{this.acf.secondary_cta_link.url}">
+                {#if this.acf.secondary_cta_label}{this.acf.secondary_cta_label}{#else}View Programs{/if}
+              </a>
+              {/if}
+              {#if options.acf.main_phone_number}
+              <a class="btn--outline" href="tel:{options.acf.main_phone_number}">
+                {options.acf.main_phone_number}
+              </a>
+              {/if}
+            </div>
+
+            {#if this.acf.selling_point}
+            <ul class="home-hero__points" role="list">
+              {#loop this.acf.selling_point as item}
+              <li>{item.point}</li>
+              {/loop}
+            </ul>
+            {/if}
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== COMPANY UPDATES (options `updates`) ========== -->
+      {#if options.acf.enable_company_updates}
+      <section data-etch-element="section" aria-label="Company update">
+        <div data-etch-element="container">
+          <aside class="home-update">
+            {#if options.acf.company_update_label}
+            <p class="home-hero__eyebrow">{options.acf.company_update_label}</p>
+            {/if}
+            {#if options.acf.company_update_heading}
+            <h2>{options.acf.company_update_heading}</h2>
+            {/if}
+            {#if options.acf.company_update_message}
+            <p>{options.acf.company_update_message}</p>
+            {/if}
+            {#if options.acf.company_update_cta_link.url}
+            <a class="btn--primary" href="{options.acf.company_update_cta_link.url}">
+              {#if options.acf.company_update_cta_label}{options.acf.company_update_cta_label}{#else}Learn more{/if}
+            </a>
+            {/if}
+          </aside>
+        </div>
+      </section>
+      {/if}
+
+      <!-- ========== LAWN CARE PROGRAMS (CPT loop → featured_on_homepage, limit 3) ========== -->
+      <section
+        id="programs"
+        class="home-programs"
+        data-etch-element="section"
+        aria-labelledby="home-programs-heading"
+      >
+        <div data-etch-element="container">
+          <header class="home-section-head home-section-head--center">
+            <p class="home-hero__eyebrow">Lawn Care Programs</p>
+            <h2 id="home-programs-heading">
+              Choose the right program for your turf type and conditions.
+            </h2>
+            <p>
+              Three program options for warm weather, cool weather, and mixed lawn care needs.
+            </p>
+          </header>
+
+          <div class="home-programs-grid">
+            {#loop featured_programs as item}
+            <article
+              data-component="ProgramCard"
+              data-eyebrow="{item.acf.card_eyebrow}"
+              data-heading="{item.acf.public_program_name}"
+              data-summary="{item.acf.card_summary}"
+              data-image="{item.acf.card_image.id}"
+              data-image-alt="{item.acf.card_image.alt}"
+              data-permalink="{item.permalink.relative}"
+              data-cta-label="Explore program"
+            ></article>
+            {/loop}
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== INTRO + SERVICES (Homepage Content → this.acf.*) ========== -->
+      <section data-etch-element="section" aria-labelledby="home-intro-heading">
+        <div data-etch-element="container">
+          <header class="home-section-head home-section-head--center">
+            {#if this.acf.home_intro_heading}
+            <h2 id="home-intro-heading">{this.acf.home_intro_heading}</h2>
+            {/if}
+            {#if this.acf.home_intro_text}
+            <p>{this.acf.home_intro_text}</p>
+            {/if}
+          </header>
+
+          {#if this.acf.home_services_bullets}
+          <ul class="home-bullets" role="list">
+            {#loop this.acf.home_services_bullets as item}
+            <li>{item.bullet_text}</li>
+            {/loop}
+          </ul>
+          {/if}
+
+          {#if this.acf.featured_lawn_services}
+          <div class="home-services-grid">
+            {#loop this.acf.featured_lawn_services as item}
+            <!-- Service Card component bindings -->
+            <article
+              data-component="ServiceCard"
+              data-title="{item.title}"
+              data-summary="{item.acf.service_summary}"
+              data-permalink="{item.permalink.relative}"
+              data-icon="{item.acf.service_category}"
+            ></article>
+            {/loop}
+          </div>
+          {/if}
+        </div>
+      </section>
+
+      <!-- ========== MID QUOTE (Global CTAs options) ========== -->
+      <section data-etch-element="section">
+        <div data-etch-element="container">
+          <div class="home-quote">
+            <div>
+              {#if options.acf.default_quote_cta_heading}
+              <h2>{options.acf.default_quote_cta_heading}</h2>
+              {/if}
+              {#if options.acf.default_quote_cta_text}
+              <p>{options.acf.default_quote_cta_text}</p>
+              {/if}
+            </div>
+            {#if options.acf.default_quote_cta_button_link.url}
+            <a class="btn--primary" href="{options.acf.default_quote_cta_button_link.url}">
+              {#if options.acf.default_quote_cta_button_label}{options.acf.default_quote_cta_button_label}{#else}Start Quote Request{/if}
+            </a>
+            {/if}
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== WHY CHOOSE US (Homepage Content repeater) ========== -->
+      <section data-etch-element="section">
+        <div data-etch-element="container">
+          <header class="home-section-head home-section-head--center">
+            {#if this.acf.why_choose_us_heading}
+            <h2>{this.acf.why_choose_us_heading}</h2>
+            {/if}
+          </header>
+          {#if this.acf.why_choose_us_points}
+          <div class="home-why-grid">
+            {#loop this.acf.why_choose_us_points as item}
+            <article>
+              {#if item.icon.id}
+              <etch:img mediaId="{item.icon.id}" alt="" useSrcSet="true"></etch:img>
+              {/if}
+              <h3>{item.point_title}</h3>
+              <p>{item.point_text}</p>
+            </article>
+            {/loop}
+          </div>
+          {/if}
+        </div>
+      </section>
+
+      <!-- ========== LOCATIONS (Homepage Content page_link fields) ========== -->
+      <section data-etch-element="section">
+        <div data-etch-element="container">
+          <div class="home-locations">
+            {#if this.acf.hoschton_location_link}
+            <a href="{this.acf.hoschton_location_link}">Hoschton</a>
+            {/if}
+            {#if this.acf.atlanta_location_link}
+            <a href="{this.acf.atlanta_location_link}">Atlanta</a>
+            {/if}
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== FEATURED REVIEWS (Homepage Content relationship) ========== -->
+      {#if this.acf.featured_reviews}
+      <section data-etch-element="section">
+        <div data-etch-element="container">
+          <div class="home-reviews-grid">
+            {#loop this.acf.featured_reviews as item}
+            <article
+              data-component="ReviewCard"
+              data-rating="{item.acf.star_rating}"
+              data-text="{item.acf.review_text}"
+              data-name="{item.acf.reviewer_name}"
+              data-location="{item.acf.reviewer_location}"
+              data-source="{item.acf.review_source}"
+            ></article>
+            {/loop}
+          </div>
+        </div>
+      </section>
+      {/if}
+
+      <!-- ========== BOTTOM CTA (Homepage Content) ========== -->
+      <section class="home-cta" data-etch-element="section">
+        <div data-etch-element="container">
+          <div class="home-cta__layout">
+            <div>
+              {#if this.acf.bottom_cta_heading}
+              <h2>{this.acf.bottom_cta_heading}</h2>
+              {/if}
+              {#if this.acf.bottom_cta_text}
+              <p>{this.acf.bottom_cta_text}</p>
+              {/if}
+              {#if this.acf.bottom_cta_benefits}
+              <ul class="home-cta__benefits" role="list">
+                {#loop this.acf.bottom_cta_benefits as item}
+                <li>{item.benefit}</li>
+                {/loop}
+              </ul>
+              {/if}
+            </div>
+            <div>
+              {#if options.acf.default_quote_cta_button_link.url}
+              <a class="btn--base btn--outline" href="{options.acf.default_quote_cta_button_link.url}">
+                {#if options.acf.default_quote_cta_button_label}{options.acf.default_quote_cta_button_label}{#else}Request Quote{/if}
+              </a>
+              {/if}
+              {#if options.acf.main_phone_number}
+              <a class="btn--outline" href="tel:{options.acf.main_phone_number}">
+                {options.acf.main_phone_number}
+              </a>
+              {/if}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

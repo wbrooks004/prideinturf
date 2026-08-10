@@ -1,0 +1,53 @@
+<!-- @dsCard group="Components" viewport="700x620" name="Cards" subtitle="ProgramCard, ServiceCard, InfoList, ReviewCard, TrustPointCard, LocationCard" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js?v=1783866616149"></script>
+<style>
+  body { margin:0; padding:20px 24px; background: var(--surface-page); box-sizing:border-box; }
+  * { box-sizing:border-box; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Icon, ProgramCard, ServiceCard, InfoList, ReviewCard, TrustPointCard, LocationCard } = window.PrideInTurfDesignSystem_2d4922;
+
+function Demo() {
+  return (
+    <div style={{ display:'flex', flexDirection:'column', gap:'20px' }}>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:'16px' }}>
+        <ProgramCard icon={<Icon name="sun" size={22} />} title="Warm Weather" description="For warm-season turf that needs season-timed care through active growing periods." href="#" />
+        <ProgramCard icon={<Icon name="cloud" size={22} />} title="Cool Weather" description="For cool-season lawns that need a different timing approach than warm-season turf." href="#" />
+      </div>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(5, 1fr)', gap:'16px', background:'var(--surface-card)', padding:'20px', borderRadius:'var(--radius-lg)' }}>
+        <ServiceCard icon={<Icon name="sprout" size={20} />} title="Aeration" description="Support stronger root growth and help compacted lawns breathe." href="#" />
+        <ServiceCard icon={<Icon name="droplet" size={20} />} title="Fungicide Treatments" description="Program options for disease pressure on Georgia turf." href="#" />
+        <ServiceCard icon={<Icon name="bug" size={20} />} title="Pest Control" description="Control options for mosquitoes, fleas, ticks, fire ants, grubs, and more." href="#" />
+        <ServiceCard icon={<Icon name="leaf" size={20} />} title="Weed Control" description="Annual and broadleaf weed control matched to your turf type." href="#" />
+        <ServiceCard icon={<Icon name="flask-conical" size={20} />} title="Soil Testing" description="Soil-based recommendations before we recommend a program or treatment." href="#" />
+      </div>
+      <div style={{ background:'var(--surface-inverse)', padding:'20px', borderRadius:'var(--radius-lg)' }}>
+        <InfoList onDark items={[
+          'Warm weather, cool weather, and mixed lawn care programs',
+          'Services focused on turf health, weeds, pests, disease, and root-zone support',
+          'Serving Metro Atlanta and Northeast Georgia',
+        ]} />
+      </div>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:'16px' }}>
+        <ReviewCard authorName="Karen S." rating={5} source="Google" date="March 2026" text="Our lawn has never looked better after switching to their warm-season program." />
+        <TrustPointCard align="center" icon="calendar" title="Serving Georgia since 2005" />
+        <LocationCard isPrimary label="Hoschton" address="1900 GA Hwy 211, Hoschton, GA 30548" phone="+1 833-388-8873" />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

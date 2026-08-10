@@ -1,0 +1,43 @@
+<!-- @dsCard group="Effects" viewport="700x170" name="Motion" subtitle="Short + functional only — no bounce, no decorative loops" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin:0; padding:20px 24px; background: var(--surface-card); box-sizing:border-box; }
+  * { box-sizing: border-box; }
+  .swatch-label { font-family: var(--font-body); font-size:11px; color: var(--text-secondary); line-height:1.4; }
+  .swatch-label b { color: var(--text-primary); display:block; font-weight:var(--weight-semibold); }
+  
+</style>
+</head>
+<body>
+
+  <div style="height:100%; display:flex; flex-direction:column; justify-content:center; gap:12px;">
+    
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span style="font-family:var(--font-body); font-size:11px; color:var(--text-tertiary); width:130px;">--duration-fast (140ms)</span>
+      <div style="flex:1; height:6px; background:var(--color-neutral-100); border-radius:3px; position:relative; overflow:hidden;">
+        <div style="position:absolute; left:0; top:0; bottom:0; width:40%; background:var(--brand-primary); border-radius:3px;"></div>
+      </div>
+      <span style="font-family:var(--font-body); font-size:11px; color:var(--text-secondary);">Hover color changes</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span style="font-family:var(--font-body); font-size:11px; color:var(--text-tertiary); width:130px;">--duration-base (220ms)</span>
+      <div style="flex:1; height:6px; background:var(--color-neutral-100); border-radius:3px; position:relative; overflow:hidden;">
+        <div style="position:absolute; left:0; top:0; bottom:0; width:40%; background:var(--brand-primary); border-radius:3px;"></div>
+      </div>
+      <span style="font-family:var(--font-body); font-size:11px; color:var(--text-secondary);">Fades, small translates</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span style="font-family:var(--font-body); font-size:11px; color:var(--text-tertiary); width:130px;">--duration-slow (360ms)</span>
+      <div style="flex:1; height:6px; background:var(--color-neutral-100); border-radius:3px; position:relative; overflow:hidden;">
+        <div style="position:absolute; left:0; top:0; bottom:0; width:40%; background:var(--brand-primary); border-radius:3px;"></div>
+      </div>
+      <span style="font-family:var(--font-body); font-size:11px; color:var(--text-secondary);">Scroll-in reveals</span>
+    </div>
+  </div>
+  
+</body>
+</html>

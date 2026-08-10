@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pride In Turf — Homepage comp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   PRIDE IN TURF — Homepage comp
+   Token contract (maps 1:1 to the ACSS/Bricks port — see design-comps/README):
+     --pit-green-500 #76bc43  -> ACSS --primary        (FILLS / large only)
+     --pit-green-700          -> ACSS --primary-hover / text-safe green
+     --pit-orange-500 #f69622 -> ACSS --secondary/--accent (FILLS / icons only)
+     --pit-orange-700         -> text-safe orange (links/labels)
+     --pit-ink-900 #231f20    -> ACSS --base / text-primary
+   Contrast law (brand book): raw green/orange FAIL AA as text on white.
+   Text uses green-700 / orange-700; raw 500s are fills, icons, large UI only.
+   ===================================================================== */
+
+/* ---- Brand ramp (pinned + OKLCH-synthesized, from design-tokens.json) ---- */
+:root{
+  --green-50:oklch(97% .03 128); --green-100:oklch(93% .06 128); --green-200:oklch(87% .09 128);
+  --green-300:oklch(80% .13 128); --green-400:oklch(75% .16 128); --green-500:#76bc43;
+  --green-600:oklch(60% .16 130); --green-700:oklch(49% .14 132); --green-800:oklch(39% .12 132); --green-900:oklch(29% .09 132);
+  --orange-100:oklch(93% .05 58); --orange-200:oklch(87% .09 56); --orange-400:#f6b04d;
+  --orange-500:#f69622; --orange-600:oklch(63% .17 48); --orange-700:oklch(53% .15 44); --orange-800:oklch(43% .13 40);
+  --n-0:#ffffff; --n-50:oklch(98% .002 45); --n-100:oklch(95% .004 45); --n-200:oklch(90% .006 45);
+  --n-300:oklch(82% .008 45); --n-400:oklch(68% .010 45); --n-500:oklch(54% .012 45);
+  --n-600:oklch(42% .012 45); --n-700:oklch(32% .012 45); --n-800:oklch(24% .010 45); --n-900:#231f20; --n-950:oklch(10% .006 45);
+
+  --brand:var(--green-500); --brand-hover:var(--green-600); --brand-active:var(--green-700);
+  --accent:var(--orange-500); --accent-hover:var(--orange-600);
+  --text-green:var(--green-700); --text-orange:var(--orange-700);
+  --ink:var(--n-900); --text-2:var(--n-600); --text-3:var(--n-500);
+  --surface-page:var(--n-50); --surface-card:var(--n-0); --surface-sunken:var(--n-100); --surface-inverse:var(--n-900);
+  --border:var(--n-200); --border-strong:var(--n-300); --border-dark:oklch(100% 0 0 / .16);
+  --on-dark:var(--n-0); --on-dark-2:oklch(100% 0 0 / .72);
+  --focus:var(--green-600);
+
+  --font:'Kanit','Helvetica Neue',Arial,sans-serif;
+  --t-xs:.8125rem; --t-sm:.9375rem; --t-base:1.0625rem; --t-lg:1.25rem; --t-xl:1.5rem;
+  --t-2xl:1.875rem; --t-3xl:2.375rem; --t-4xl:3rem;
+  --t-hero:clamp(2.5rem,1.5rem + 4vw,4.5rem);
+  --t-h2:clamp(1.875rem,1.4rem + 2vw,3rem);
+  --lh-tight:1.08; --lh-snug:1.22; --lh-normal:1.55; --lh-relaxed:1.65;
+
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:20px; --s6:24px; --s8:32px; --s10:40px;
+  --s12:48px; --s16:64px; --s20:80px; --s24:96px; --s32:128px;
+  --section-y:clamp(64px,9vw,120px);
+  --content:1200px; --content-narrow:760px; --pad:clamp(20px,5vw,64px);
+
+  --r-sm:6px; --r-md:10px; --r-lg:16px; --r-xl:24px; --r-full:999px;
+  --sh-sm:0 1px 2px rgba(35,31,32,.06);
+  --sh-m:0 6px 16px rgba(35,31,32,.08);
+  --sh-l:0 16px 40px rgba(35,31,32,.14);
+  --sh-xl:0 28px 70px rgba(35,31,32,.20);
+  --focus-ring:0 0 0 3px oklch(72% .15 130 / .45);
+  --dur-fast:140ms; --dur-base:220ms; --dur-slow:360ms;
+  --ease:cubic-bezier(.4,0,.2,1); --ease-out:cubic-bezier(0,0,.2,1);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;font-family:var(--font);font-weight:400;font-size:var(--t-base);
+  line-height:var(--lh-normal);color:var(--ink);background:var(--surface-page);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+h1,h2,h3,h4,p{margin:0}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:none;box-shadow:var(--focus-ring);border-radius:var(--r-sm)}
+
+.wrap{width:min(100% - var(--pad)*2,var(--content));margin-inline:auto}
+.wrap-narrow{width:min(100% - var(--pad)*2,var(--content-narrow));margin-inline:auto}
+.section{padding-block:var(--section-y)}
+.stack-sm>*+*{margin-top:var(--s3)}
+.measure{max-width:70ch}
+.measure-hero{max-width:52ch}
+
+.surface-hero{background:
+  radial-gradient(120% 80% at 85% -10%,color-mix(in oklab,var(--green-500) 12%,transparent),transparent 60%),
+  var(--n-0);}
+.surface-proof{background:var(--n-900);color:var(--on-dark)}
+.surface-subtle-grid{
+  background:
+   linear-gradient(var(--n-100) 1px,transparent 1px) 0 0/100% 40px,
+   linear-gradient(90deg,var(--n-100) 1px,transparent 1px) 0 0/40px 100%,
+   var(--n-50);
+}
+.surface-dark-cta{background:
+  radial-gradient(90% 120% at 15% 10%,color-mix(in oklab,var(--green-700) 55%,var(--n-950)),var(--n-950));
+  color:var(--on-dark)}
+
+.h1{font-size:var(--t-hero);font-weight:700;line-height:var(--lh-tight);letter-spacing:-.03em}
+.h2{font-size:var(--t-h2);font-weight:700;line-height:1.12;letter-spacing:-.02em}
+.h3{font-size:var(--t-xl);font-weight:600;line-height:var(--lh-snug);letter-spacing:-.01em}
+.lead{font-size:var(--t-lg);color:var(--text-2);line-height:var(--lh-relaxed)}
+.section-head{max-width:60ch;margin-bottom:var(--s12)}
+.section-head .h2 + p{margin-top:var(--s4)}
+.label{font-size:var(--t-sm);font-weight:600;letter-spacing:.02em;color:var(--text-green)}
+.on-dark .label{color:var(--green-300)}
+
+.btn{display:inline-flex;align-items:center;gap:var(--s2);font-family:inherit;font-weight:600;
+  font-size:var(--t-base);line-height:1;padding:var(--s4) var(--s6);border-radius:var(--r-full);
+  border:2px solid transparent;cursor:pointer;transition:background var(--dur-fast) var(--ease),
+  border-color var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease),transform var(--dur-fast) var(--ease);
+  white-space:nowrap}
+.btn svg{width:1.15em;height:1.15em}
+.btn--primary{background:var(--accent);color:#3a2408;border-color:var(--accent)}
+.btn--primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn--secondary{background:var(--brand);color:#0f2408;border-color:var(--brand)}
+.btn--secondary:hover{background:var(--brand-hover);border-color:var(--brand-hover)}
+.btn--ghost{background:transparent;color:var(--text-green);border-color:var(--border-strong)}
+.btn--ghost:hover{border-color:var(--green-500);background:var(--green-50)}
+.on-dark .btn--ghost{color:var(--on-dark);border-color:var(--border-dark)}
+.on-dark .btn--ghost:hover{border-color:var(--green-300);background:oklch(100% 0 0 / .06)}
+.btn--lg{font-size:var(--t-lg);padding:var(--s5) var(--s8)}
+.btn:active{transform:translateY(1px)}
+.textlink{color:var(--text-green);font-weight:600;display:inline-flex;align-items:center;gap:var(--s2);
+  transition:gap var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease)}
+.textlink:hover{color:var(--green-800);gap:calc(var(--s2) + 3px)}
+.textlink svg{width:1em;height:1em}
+
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:40;background:oklch(100% 0 0 / .82);
+  backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--border)}
+.site-header__inner{display:flex;align-items:center;gap:var(--s6);
+  min-height:74px;width:min(100% - var(--pad)*2,var(--content));margin-inline:auto}
+.brandmark{display:flex;align-items:baseline;font-weight:900;font-size:1.55rem;letter-spacing:-.02em;line-height:1}
+.brandmark .b1{color:var(--green-500)}
+.brandmark .bin{color:var(--orange-500);font-style:italic;font-weight:900;font-size:1.05rem;margin-inline:2px;transform:translateY(-1px)}
+.brandmark .b2{color:var(--green-500)}
+.site-header__nav{display:flex;gap:var(--s6);margin-inline:auto;font-weight:500;font-size:var(--t-sm)}
+.site-header__nav a{color:var(--n-700);padding-block:var(--s2);position:relative}
+.site-header__nav a:hover{color:var(--ink)}
+.site-header__nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;
+  background:var(--brand);transition:right var(--dur-base) var(--ease-out)}
+.site-header__nav a:hover::after{right:0}
+.site-header__cta{display:flex;align-items:center;gap:var(--s3)}
+.portal-link{font-size:var(--t-xs);font-weight:600;color:var(--text-3);border-left:1px solid var(--border);padding-left:var(--s4)}
+.portal-link:hover{color:var(--ink)}
+.navtoggle{display:none;width:44px;height:44px;border:1px solid var(--border);border-radius:var(--r-md);
+  background:var(--n-0);align-items:center;justify-content:center;cursor:pointer}
+.navtoggle svg{width:22px;height:22px}
+
+/* HERO */
+.hero{position:relative;overflow:hidden}
+.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,64px);align-items:center;
+  padding-block:clamp(48px,7vw,96px)}
+.hero__eye{display:inline-flex;align-items:center;gap:var(--s2);font-weight:600;font-size:var(--t-sm);
+  color:var(--text-green);background:var(--green-50);border:1px solid var(--green-200);
+  padding:var(--s2) var(--s4);border-radius:var(--r-full);margin-bottom:var(--s5)}
+.hero__eye .dot{width:8px;height:8px;border-radius:50%;background:var(--green-500)}
+.hero h1{margin-bottom:var(--s5)}
+.hero h1 em{font-style:normal;color:var(--text-green);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.28em;
+  background:color-mix(in oklab,var(--orange-500) 42%,transparent);z-index:-1}
+.hero__sub{margin-bottom:var(--s8)}
+.hero__actions{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:center;margin-bottom:var(--s6)}
+.hero__micro{display:flex;flex-wrap:wrap;gap:var(--s5);font-size:var(--t-sm);color:var(--text-2)}
+.hero__micro span{display:inline-flex;align-items:center;gap:var(--s2)}
+.hero__micro svg{width:16px;height:16px;color:var(--green-600)}
+
+.reveal-card{position:relative;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-l);
+  border:1px solid var(--border);background:var(--n-900);aspect-ratio:4/5}
+.reveal-card figcaption{position:absolute;left:var(--s4);bottom:var(--s4);right:var(--s4);
+  display:flex;justify-content:space-between;align-items:end;gap:var(--s3);color:var(--on-dark);z-index:3}
+.pill{font-size:var(--t-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:var(--s1) var(--s3);border-radius:var(--r-full);backdrop-filter:blur(4px)}
+.pill--before{background:oklch(100% 0 0 / .18);color:#fff}
+.pill--after{background:var(--green-500);color:#0f2408}
+
+/* PROOF STRIP */
+.proof{padding-block:var(--s10)}
+.proof__inner{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,72px);align-items:center}
+.proof__rating{display:flex;flex-direction:column;gap:var(--s2)}
+.stars{display:flex;gap:2px;color:var(--orange-500)}
+.stars svg{width:20px;height:20px}
+.proof__rating b{font-size:var(--t-2xl);font-weight:700;line-height:1}
+.proof__rating span{color:var(--on-dark-2);font-size:var(--t-sm)}
+.proof__facts{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6);
+  border-left:1px solid var(--border-dark);padding-left:clamp(24px,5vw,72px)}
+.fact b{display:block;font-size:var(--t-xl);font-weight:700;color:var(--on-dark);letter-spacing:-.01em}
+.fact span{color:var(--on-dark-2);font-size:var(--t-sm)}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5)}
+.service-card{position:relative;background:var(--surface-card);border:1px solid var(--border);border-radius:var(--r-lg);
+  overflow:hidden;box-shadow:var(--sh-sm);display:flex;flex-direction:column;
+  transition:box-shadow var(--dur-base) var(--ease),transform var(--dur-base) var(--ease),border-color var(--dur-base) var(--ease)}
+.service-card:hover{box-shadow:var(--sh-m);transform:translateY(-4px);border-color:var(--green-200)}
+.service-card__media{aspect-ratio:4/3;position:relative}
+.service-card__badge{position:absolute;top:var(--s3);left:var(--s3);font-size:var(--t-xs);font-weight:700;
+  background:var(--n-0);color:var(--text-green);padding:var(--s1) var(--s3);border-radius:var(--r-full);box-shadow:var(--sh-sm)}
+.service-card__body{padding:var(--s6);display:flex;flex-direction:column;gap:var(--s3);flex:1}
+.service-card__title{font-size:var(--t-lg);font-weight:600;letter-spacing:-.01em}
+.service-card__title a{display:inline-flex;align-items:center;gap:var(--s2)}
+.service-card__title a::after{content:"";position:absolute;inset:0}
+.service-card__text{color:var(--text-2);font-size:var(--t-sm);flex:1}
+.service-card__meta{font-size:var(--t-xs);font-weight:600;color:var(--text-orange);
+  display:inline-flex;align-items:center;gap:var(--s2)}
+
+/* DIFFERENTIATORS */
+.diff{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,80px);align-items:center}
+.diff__list{display:grid;gap:var(--s5);margin-top:var(--s8)}
+.diff__item{display:grid;grid-template-columns:auto 1fr;gap:var(--s4);align-items:start}
+.diff__num{width:40px;height:40px;flex:none;display:grid;place-items:center;border-radius:var(--r-full);
+  background:var(--green-500);color:#0f2408;font-weight:700}
+.diff__item h3{font-size:var(--t-lg);font-weight:600;margin-bottom:var(--s1)}
+.diff__item p{color:var(--text-2);font-size:var(--t-sm);max-width:52ch}
+.calendar{background:var(--n-0);border:1px solid var(--border);border-radius:var(--r-lg);
+  box-shadow:var(--sh-m);padding:var(--s6)}
+.calendar h4{font-size:var(--t-sm);font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--text-3);margin:0 0 var(--s5)}
+.cal-row{display:grid;grid-template-columns:96px 1fr;align-items:center;gap:var(--s4);margin-bottom:var(--s4)}
+.cal-row span{font-size:var(--t-sm);font-weight:600}
+.cal-track{position:relative;height:14px;border-radius:var(--r-full);background:var(--n-100);overflow:hidden}
+.cal-fill{position:absolute;top:0;bottom:0;border-radius:var(--r-full)}
+.cal-fill--warm{left:22%;right:8%;background:linear-gradient(90deg,var(--green-400),var(--green-600))}
+.cal-fill--cool{left:2%;right:42%;background:linear-gradient(90deg,var(--green-500),var(--green-700))}
+.cal-fill--fung{left:34%;right:18%;background:linear-gradient(90deg,var(--orange-400),var(--orange-600))}
+.cal-fill--pest{left:26%;right:4%;background:repeating-linear-gradient(90deg,var(--orange-500),var(--orange-500) 8px,var(--orange-600) 8px,var(--orange-600) 16px)}
+.cal-months{display:grid;grid-template-columns:96px 1fr;gap:var(--s4);margin-top:var(--s5);
+  font-size:.7rem;color:var(--text-3);font-weight:600}
+.cal-months .m{display:grid;grid-template-columns:repeat(12,1fr);text-align:center}
+
+/* PROGRAMS */
+.prog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5)}
+.program-card{position:relative;background:var(--surface-card);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:var(--s8) var(--s6);box-shadow:var(--sh-m);display:flex;flex-direction:column;gap:var(--s4);
+  transition:box-shadow var(--dur-base) var(--ease),transform var(--dur-base) var(--ease)}
+.program-card:hover{box-shadow:var(--sh-l);transform:translateY(-4px)}
+.program-card--featured{border-color:var(--green-500);box-shadow:var(--sh-l)}
+.program-card__flag{position:absolute;top:-12px;left:var(--s6);font-size:var(--t-xs);font-weight:700;
+  background:var(--green-500);color:#0f2408;padding:var(--s1) var(--s3);border-radius:var(--r-full)}
+.program-card__code{font-size:var(--t-xs);font-weight:700;letter-spacing:.08em;color:var(--text-orange)}
+.program-card__title{font-size:var(--t-lg);font-weight:600;letter-spacing:-.01em}
+.program-card__apps{display:flex;align-items:baseline;gap:var(--s2)}
+.program-card__apps b{font-size:var(--t-3xl);font-weight:700;line-height:1;color:var(--ink)}
+.program-card__apps span{font-size:var(--t-sm);color:var(--text-2)}
+.program-card__text{font-size:var(--t-sm);color:var(--text-2);flex:1}
+.program-card ul.chk{display:grid;gap:var(--s2);font-size:var(--t-sm)}
+.program-card ul.chk li{display:grid;grid-template-columns:auto 1fr;gap:var(--s2);align-items:start;color:var(--n-700)}
+.program-card ul.chk svg{width:18px;height:18px;color:var(--green-600);margin-top:2px}
+
+/* RESULTS */
+.results{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);align-items:center}
+.ba{position:relative;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-l);
+  border:1px solid var(--border);aspect-ratio:16/11;background:var(--n-800);touch-action:none;user-select:none}
+.ba__layer{position:absolute;inset:0}
+.ba__after{clip-path:inset(0 0 0 var(--split,50%))}
+.ba__before{clip-path:inset(0 calc(100% - var(--split,50%)) 0 0)}
+.ba__tag{position:absolute;top:var(--s4);z-index:4;font-size:var(--t-xs);font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;padding:var(--s1) var(--s3);border-radius:var(--r-full);color:#fff}
+.ba__tag--before{left:var(--s4);background:oklch(0% 0 0 / .45)}
+.ba__tag--after{right:var(--s4);background:var(--green-600);color:#0f2408}
+.ba__handle{position:absolute;top:0;bottom:0;left:var(--split,50%);width:3px;background:#fff;
+  transform:translateX(-50%);z-index:5;box-shadow:0 0 0 1px oklch(0% 0 0 / .15)}
+.ba__grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;
+  border-radius:50%;background:#fff;box-shadow:var(--sh-m);display:grid;place-items:center;color:var(--green-700);cursor:ew-resize}
+.ba__grip svg{width:22px;height:22px}
+.ba input[type=range]{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;z-index:6}
+.ba input[type=range]:focus-visible + .ba__handle{box-shadow:var(--focus-ring)}
+.results__copy .h2{margin:var(--s2) 0 var(--s4)}
+.results__copy .lead{margin-bottom:var(--s6)}
+.review-card{background:var(--n-0);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:var(--s6);box-shadow:var(--sh-sm);margin-top:var(--s6)}
+.review-card__text{font-size:var(--t-lg);line-height:var(--lh-relaxed);letter-spacing:-.01em}
+.review-card__meta{display:flex;align-items:center;gap:var(--s3);margin-top:var(--s5)}
+.review-card__avatar{width:44px;height:44px;border-radius:50%;background:var(--green-100);
+  display:grid;place-items:center;font-weight:700;color:var(--green-800);flex:none}
+.review-card__name{font-weight:600;font-size:var(--t-sm)}
+.review-card__loc{font-size:var(--t-xs);color:var(--text-3)}
+
+/* SERVICE AREA */
+.area{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.area__map{border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh-m);background:var(--green-50)}
+.branch-list{display:grid;gap:var(--s4);margin-top:var(--s8)}
+.branch{display:grid;grid-template-columns:auto 1fr auto;gap:var(--s4);align-items:center;
+  background:var(--n-0);border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s5) var(--s6);box-shadow:var(--sh-sm)}
+.branch__pin{width:40px;height:40px;border-radius:var(--r-md);display:grid;place-items:center;flex:none;
+  background:var(--green-500);color:#0f2408}
+.branch__pin svg{width:22px;height:22px}
+.branch--area .branch__pin{background:var(--n-200);color:var(--n-700)}
+.branch h3{font-size:var(--t-base);font-weight:600}
+.branch p{font-size:var(--t-sm);color:var(--text-2)}
+.branch__tag{font-size:var(--t-xs);font-weight:700;padding:var(--s1) var(--s3);border-radius:var(--r-full);
+  background:var(--green-50);color:var(--text-green)}
+.branch--area .branch__tag{background:var(--n-100);color:var(--text-3)}
+
+/* FINAL CTA */
+.finalcta{text-align:center;display:grid;justify-items:center;gap:var(--s6)}
+.finalcta .h2{color:var(--on-dark);max-width:20ch}
+.finalcta p{color:var(--on-dark-2);max-width:48ch}
+.finalcta__actions{display:flex;flex-wrap:wrap;gap:var(--s3);justify-content:center}
+.finalcta__re{font-size:var(--t-sm);color:var(--on-dark-2);display:flex;gap:var(--s5);flex-wrap:wrap;justify-content:center}
+.finalcta__re span{display:inline-flex;align-items:center;gap:var(--s2)}
+.finalcta__re svg{width:16px;height:16px;color:var(--green-300)}
+
+/* FOOTER */
+.site-footer{background:var(--n-950);color:var(--on-dark-2);padding-block:var(--s20) var(--s10)}
+.site-footer__top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--s10)}
+.site-footer h4{color:var(--on-dark);font-size:var(--t-sm);font-weight:700;letter-spacing:.04em;
+  text-transform:uppercase;margin:0 0 var(--s5)}
+.site-footer a{color:var(--on-dark-2);font-size:var(--t-sm);display:block;padding-block:var(--s1)}
+.site-footer a:hover{color:var(--on-dark)}
+.site-footer .brandmark{margin-bottom:var(--s5)}
+.site-footer__nap{font-size:var(--t-sm);line-height:var(--lh-relaxed)}
+.ph{color:var(--orange-400);font-weight:600}
+.site-footer__bottom{border-top:1px solid var(--border-dark);margin-top:var(--s16);padding-top:var(--s6);
+  display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;font-size:var(--t-xs)}
+.placeholder-note{font-size:var(--t-xs);color:var(--n-500)}
+
+/* REVEAL MOTION */
+.reveal{opacity:0;transform:translateY(18px)}
+.reveal.is-in{opacity:1;transform:none;transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out)}
+
+/* RESPONSIVE */
+@media (max-width:1024px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .prog-grid{grid-template-columns:repeat(2,1fr)}
+  .diff,.results,.area{grid-template-columns:1fr}
+  .hero__grid{grid-template-columns:1fr;gap:var(--s10)}
+  .reveal-card{aspect-ratio:16/10;max-width:560px}
+}
+@media (max-width:860px){
+  .site-header__nav{display:none}
+  .navtoggle{display:flex;margin-left:auto}
+  .site-header__cta .portal-link,.site-header__cta .btn--ghost{display:none}
+}
+@media (max-width:680px){
+  .proof__inner{grid-template-columns:1fr;gap:var(--s6)}
+  .proof__facts{grid-template-columns:1fr;border-left:0;padding-left:0;border-top:1px solid var(--border-dark);padding-top:var(--s6)}
+  .svc-grid,.prog-grid{grid-template-columns:1fr}
+  .site-footer__top{grid-template-columns:1fr 1fr;gap:var(--s8)}
+  .hero__actions .btn{flex:1 1 auto;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  .service-card:hover,.program-card:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<!--
+  DIRECTION CONTRACT - Pride In Turf homepage - seed 5171a948 (surface/persuade, candidate 4/7)
+  THESIS: The homepage is evidence, not a brochure - a Pride In Turf lawn proven in the first
+    viewport. It refuses the icon-card services grid as the page's spine.
+  OWN-WORLD: Pride In Turf brand. Turf green #76bc43 and signal orange #f69622 as FILLS only
+    (text uses green-700 / orange-700), ink #231f20, white/neutral-50 grounds; Kanit throughout;
+    mowing-stripe field motif; measured motion (no bounce); surface bands hero/proof/subtle-grid/dark-cta.
+  STORY: A Metro Atlanta homeowner sees a real lawn transform, trusts the proof strip, understands
+    the season-long application programs that produce it, and clicks Get a Quote.
+  FIRST VIEWPORT: Full-bleed authored striped-turf scene; oversized Kanit headline left; primary
+    orange "Get a Quote" + secondary green "View Services"; a live before/after peek right; Call Now in header.
+  FORM: Before/after results-led spine (candidate 4 of 7); seed key 5171a948.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brandmark" href="#" aria-label="Pride In Turf home">
+      <span class="b1">PRIDE</span><span class="bin">in</span><span class="b2">TURF</span>
+    </a>
+    <nav class="site-header__nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#programs">Programs</a>
+      <a href="#results">Results</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#">About</a>
+    </nav>
+    <div class="site-header__cta">
+      <a class="portal-link" href="#">Customer Portal</a>
+      <a class="btn btn--ghost" href="tel:+10000000000">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        Call Now
+      </a>
+      <a class="btn btn--primary" href="#quote">Get a Quote</a>
+      <button class="navtoggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero surface-hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <span class="hero__eye"><span class="dot"></span> Metro Atlanta lawn care</span>
+      <h1 class="h1">The lawn you want,<br>built <em>season by season</em>.</h1>
+      <p class="lead hero__sub measure-hero">Pride In Turf runs structured, multi-application programs, not one-off visits, so your turf gets the right treatment at the right week, all year.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="#quote">Get a Quote</a>
+        <a class="btn btn--secondary btn--lg" href="#services">View Services</a>
+      </div>
+      <div class="hero__micro">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Warm &amp; cool season programs</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Licensed applicators</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Locally owned</span>
+      </div>
+    </div>
+
+    <figure class="reveal-card" aria-label="A Pride In Turf lawn after a season of care">
+      <!-- AUTHORED PLACEHOLDER: replace with a real property photo. -->
+      <svg viewBox="0 0 400 500" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration of striped healthy turf">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe8f6"/><stop offset="1" stop-color="#eaf5fb"/></linearGradient>
+          <filter id="soil"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n"/><feColorMatrix in="n" type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feComposite operator="over" in2="SourceGraphic"/></filter>
+        </defs>
+        <rect width="400" height="220" fill="url(#sky)"/>
+        <g>
+          <polygon points="0,220 400,220 400,500 0,500" fill="#3f8f2f"/>
+          <polygon points="40,220 90,220 30,500 -60,500" fill="#4fa838" opacity=".9"/>
+          <polygon points="140,220 190,220 190,500 70,500" fill="#4fa838" opacity=".9"/>
+          <polygon points="240,220 290,220 350,500 230,500" fill="#4fa838" opacity=".9"/>
+          <polygon points="340,220 390,220 470,500 350,500" fill="#4fa838" opacity=".9"/>
+          <rect width="400" height="280" y="220" filter="url(#soil)" opacity=".5"/>
+        </g>
+      </svg>
+      <figcaption>
+        <span class="pill pill--before">Spring: before</span>
+        <span class="pill pill--after">Late summer: after</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- PROOF STRIP -->
+<section class="proof surface-proof">
+  <div class="wrap proof__inner">
+    <div class="proof__rating">
+      <div class="stars" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.9L12 18l-6.1 3.1L7 14.2l-5-4.9 6.9-1z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.9L12 18l-6.1 3.1L7 14.2l-5-4.9 6.9-1z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.9L12 18l-6.1 3.1L7 14.2l-5-4.9 6.9-1z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.9L12 18l-6.1 3.1L7 14.2l-5-4.9 6.9-1z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.9L12 18l-6.1 3.1L7 14.2l-5-4.9 6.9-1z"/></svg>
+      </div>
+      <b>4.9<span style="font-size:var(--t-base);color:var(--on-dark-2);font-weight:400"> / 5</span></b>
+      <span>Google reviews · <em style="font-style:normal;color:var(--green-300)">[placeholder — pull real rating]</em></span>
+    </div>
+    <div class="proof__facts">
+      <div class="fact"><b>2 branches</b><span>Atlanta &amp; Hoschton, GA</span></div>
+      <div class="fact"><b>8-app programs</b><span>Season-long, not one-off visits</span></div>
+      <div class="fact"><b>Turf specialists</b><span>Warm &amp; cool season lawns</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="h2">The treatments behind a healthy lawn</h2>
+      <p class="lead">Targeted programs for the problems Georgia lawns actually face, matched to your grass type and the season.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="service-card reveal">
+        <div class="service-card__media" style="background:linear-gradient(135deg,var(--green-200),var(--green-500))">
+          <span class="service-card__badge">Soil &amp; root</span>
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title"><a href="#">Aeration</a></h3>
+          <p class="service-card__text">Core and liquid aeration to relieve compaction, open the soil, and let water, air, and nutrients reach the roots.</p>
+          <span class="service-card__meta">Spring &amp; fall <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-card__media" style="background:linear-gradient(135deg,var(--green-300),var(--green-600))">
+          <span class="service-card__badge">Disease</span>
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title"><a href="#">Fungicide Program</a></h3>
+          <p class="service-card__text">Preventative fungicide rounds timed to your turf (Bermuda, Fescue, or Zoysia) through the disease-pressure months.</p>
+          <span class="service-card__meta">4–5 apps · Mar–Oct <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-card__media" style="background:linear-gradient(135deg,#f6c46b,var(--orange-500))">
+          <span class="service-card__badge">Pests</span>
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title"><a href="#">Lawn Pest Control</a></h3>
+          <p class="service-card__text">Control for the insects that damage turf and disrupt your yard: mosquitoes, fleas &amp; ticks, army worms, grubs, and fire ants.</p>
+          <span class="service-card__meta">Program &amp; add-ons <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-card__media" style="background:linear-gradient(135deg,var(--green-400),var(--green-700))">
+          <span class="service-card__badge">Ornamentals</span>
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title"><a href="#">Tree &amp; Shrub Program</a></h3>
+          <p class="service-card__text">Eight rounds a year of feeding and protection for the trees and shrubs under 15 feet that frame your landscape.</p>
+          <span class="service-card__meta">8 apps / year <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATORS -->
+<section class="section surface-subtle-grid">
+  <div class="wrap diff">
+    <div class="diff__copy reveal">
+      <h2 class="h2">A program, not a one-off mow</h2>
+      <p class="lead measure">The difference between a lawn that looks good once and one that stays healthy is timing. We treat yours on a schedule tuned to Georgia's seasons.</p>
+      <div class="diff__list">
+        <div class="diff__item">
+          <span class="diff__num">1</span>
+          <div><h3>Right treatment, right week</h3><p>Warm- and cool-season lawns need different products at different times. Your program is built around your grass.</p></div>
+        </div>
+        <div class="diff__item">
+          <span class="diff__num">2</span>
+          <div><h3>Licensed applicators</h3><p>The products that actually fix disease and pest pressure are applied by trained, licensed technicians.</p></div>
+        </div>
+        <div class="diff__item">
+          <span class="diff__num">3</span>
+          <div><h3>Local, season-long accountability</h3><p>Based in Metro Atlanta with branches in Atlanta and Hoschton. The same team, all year.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="calendar reveal" aria-label="Example application windows across the year">
+      <h4>Your year on a program</h4>
+      <div class="cal-row"><span>Lawn care</span><div class="cal-track"><div class="cal-fill cal-fill--warm"></div></div></div>
+      <div class="cal-row"><span>Cool season</span><div class="cal-track"><div class="cal-fill cal-fill--cool"></div></div></div>
+      <div class="cal-row"><span>Fungicide</span><div class="cal-track"><div class="cal-fill cal-fill--fung"></div></div></div>
+      <div class="cal-row"><span>Pest control</span><div class="cal-track"><div class="cal-fill cal-fill--pest"></div></div></div>
+      <div class="cal-months"><span></span><div class="m"><i>J</i><i>F</i><i>M</i><i>A</i><i>M</i><i>J</i><i>J</i><i>A</i><i>S</i><i>O</i><i>N</i><i>D</i></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="section" id="programs">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="h2">Choose your lawn care program</h2>
+      <p class="lead">Every program is 8 scheduled applications across the year. Pick the one that fits your grass, and we'll confirm the details in your quote.</p>
+    </div>
+    <div class="prog-grid">
+      <article class="program-card program-card--featured reveal">
+        <span class="program-card__flag">Most popular</span>
+        <span class="program-card__code">L8</span>
+        <h3 class="program-card__title">Warm Season Lawn Care</h3>
+        <p class="program-card__apps"><b>8</b><span>applications / year</span></p>
+        <p class="program-card__text">For Bermuda, Zoysia, and other warm-season turf, with fertilization and weed control timed to the growing season.</p>
+        <ul class="chk">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Season-long feeding</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Pre- &amp; post-emergent weed control</li>
+        </ul>
+        <a class="btn btn--primary" href="#quote">Get a Quote</a>
+      </article>
+      <article class="program-card reveal">
+        <span class="program-card__code">CLC</span>
+        <h3 class="program-card__title">Cool Season Lawn Care</h3>
+        <p class="program-card__apps"><b>8</b><span>applications / year</span></p>
+        <p class="program-card__text">For Fescue and other cool-season lawns, built around fall and spring growth peaks.</p>
+        <ul class="chk">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Fall &amp; spring focus</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Weed &amp; nutrient management</li>
+        </ul>
+        <a class="btn btn--secondary" href="#quote">Get a Quote</a>
+      </article>
+      <article class="program-card reveal">
+        <span class="program-card__code">SLC</span>
+        <h3 class="program-card__title">Split Lawn Care</h3>
+        <p class="program-card__apps"><b>8</b><span>applications / year</span></p>
+        <p class="program-card__text">For mixed lawns: a blended schedule that covers both warm- and cool-season areas of your property.</p>
+        <ul class="chk">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Blended treatment plan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Whole-property coverage</li>
+        </ul>
+        <a class="btn btn--secondary" href="#quote">Get a Quote</a>
+      </article>
+      <article class="program-card reveal">
+        <span class="program-card__code">LS</span>
+        <h3 class="program-card__title">Select Customer Lawn Care</h3>
+        <p class="program-card__apps"><b>Custom</b><span>tailored plan</span></p>
+        <p class="program-card__text">A tailored plan for properties with specific needs, built with you and adjusted through the year.</p>
+        <ul class="chk">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Built around your lawn</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Add fungicide, pest &amp; more</li>
+        </ul>
+        <a class="btn btn--ghost" href="#quote">Talk to us</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS (spine peak) -->
+<section class="section" id="results">
+  <div class="wrap results">
+    <figure class="ba reveal" id="ba" aria-label="Drag to compare a lawn before and after a Pride In Turf program">
+      <!-- AUTHORED PLACEHOLDERS: swap both layers for a real before/after photo pair -->
+      <div class="ba__layer ba__before">
+        <svg viewBox="0 0 640 440" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Patchy, stressed lawn (before)">
+          <defs><filter id="dry"><feTurbulence type="fractalNoise" baseFrequency="0.05 0.12" numOctaves="3" seed="7"/><feColorMatrix type="matrix" values="0 0 0 0 0.42  0 0 0 0 0.40  0 0 0 0 0.20  0 0 0 1 0"/></filter></defs>
+          <rect width="640" height="440" fill="#8a8144"/>
+          <rect width="640" height="440" filter="url(#dry)" opacity=".55"/>
+          <ellipse cx="180" cy="150" rx="90" ry="46" fill="#a9925a" opacity=".7"/>
+          <ellipse cx="430" cy="300" rx="120" ry="60" fill="#b6a267" opacity=".6"/>
+          <ellipse cx="520" cy="120" rx="60" ry="34" fill="#9c8b4f" opacity=".7"/>
+        </svg>
+      </div>
+      <div class="ba__layer ba__after">
+        <svg viewBox="0 0 640 440" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Lush, striped lawn (after)">
+          <defs><filter id="lush"><feTurbulence type="fractalNoise" baseFrequency="0.03 0.14" numOctaves="3" seed="4"/><feColorMatrix type="matrix" values="0 0 0 0 0.20  0 0 0 0 0.55  0 0 0 0 0.18  0 0 0 1 0"/></filter></defs>
+          <rect width="640" height="440" fill="#3f9a2e"/>
+          <g opacity=".5"><rect x="0" width="80" height="440" fill="#54ad3d"/><rect x="160" width="80" height="440" fill="#54ad3d"/><rect x="320" width="80" height="440" fill="#54ad3d"/><rect x="480" width="80" height="440" fill="#54ad3d"/></g>
+          <rect width="640" height="440" filter="url(#lush)" opacity=".4"/>
+        </svg>
+      </div>
+      <span class="ba__tag ba__tag--before">Before</span>
+      <span class="ba__tag ba__tag--after">After one season</span>
+      <div class="ba__handle" id="baHandle"><span class="ba__grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7 3 12l5 5M16 7l5 5-5 5"/></svg></span></div>
+      <input type="range" min="0" max="100" value="50" id="baRange" aria-label="Reveal before or after">
+    </figure>
+
+    <div class="results__copy reveal">
+      <span class="label">Real results</span>
+      <h2 class="h2">Drag the line. See the season.</h2>
+      <p class="lead">This is what a full program does to a struggling lawn: thicker turf, even color, and the weeds and disease gone. Your quote comes with the plan to get there.</p>
+      <a class="btn btn--primary btn--lg" href="#quote">Get a Quote</a>
+      <blockquote class="review-card">
+        <p class="review-card__text">“Our Bermuda was thin and full of weeds. One season on their program and it's the best lawn on the street.”</p>
+        <div class="review-card__meta">
+          <span class="review-card__avatar">RJ</span>
+          <div>
+            <div class="review-card__name">R. Jameson <span class="placeholder-note">· placeholder review</span></div>
+            <div class="review-card__loc">Homeowner · Metro Atlanta</div>
+          </div>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="section surface-subtle-grid" id="areas">
+  <div class="wrap area">
+    <div class="area__map reveal" aria-hidden="true">
+      <svg viewBox="0 0 500 380" width="100%" height="100%" role="img" aria-label="Stylized Metro Atlanta service map">
+        <rect width="500" height="380" fill="#eaf5e4"/>
+        <path d="M60 210 Q120 120 210 150 T400 130 Q470 160 440 250 T300 330 Q180 350 110 300 T60 210Z" fill="#d3ead0" stroke="#9ccf8a" stroke-width="2"/>
+        <path d="M150 240 L250 180 L360 220" fill="none" stroke="#bcd9b0" stroke-width="6" stroke-linecap="round"/>
+        <g><circle cx="235" cy="205" r="10" fill="#76bc43" stroke="#fff" stroke-width="3"/><text x="235" y="234" text-anchor="middle" font-family="Kanit" font-size="15" font-weight="600" fill="#231f20">Atlanta</text></g>
+        <g><circle cx="360" cy="150" r="10" fill="#76bc43" stroke="#fff" stroke-width="3"/><text x="360" y="138" text-anchor="middle" font-family="Kanit" font-size="15" font-weight="600" fill="#231f20">Hoschton</text></g>
+        <g><circle cx="300" cy="235" r="8" fill="#fff" stroke="#f69622" stroke-width="3"/><text x="300" y="262" text-anchor="middle" font-family="Kanit" font-size="14" font-weight="500" fill="#6b5f3a">Duluth</text></g>
+      </svg>
+    </div>
+    <div class="area__copy reveal">
+      <h2 class="h2">Serving Metro Atlanta</h2>
+      <p class="lead measure">Two full branches and a growing service area. Not sure if you're covered? Ask for a quote and we'll confirm.</p>
+      <div class="branch-list">
+        <div class="branch">
+          <span class="branch__pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><h3>Atlanta</h3><p>Branch · full local service &amp; office</p></div>
+          <span class="branch__tag">Branch</span>
+        </div>
+        <div class="branch">
+          <span class="branch__pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><h3>Hoschton</h3><p>Branch · full local service &amp; office</p></div>
+          <span class="branch__tag">Branch</span>
+        </div>
+        <div class="branch branch--area">
+          <span class="branch__pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><h3>Duluth</h3><p>Service area, covered by our nearest branch</p></div>
+          <span class="branch__tag">Service area</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section surface-dark-cta on-dark" id="quote">
+  <div class="wrap-narrow finalcta">
+    <span class="label">Ready when you are</span>
+    <h2 class="h2">Get a quote for your lawn</h2>
+    <p class="lead" style="color:var(--on-dark-2)">Tell us about your property and we'll build the right program for your grass and your season.</p>
+    <div class="finalcta__actions">
+      <a class="btn btn--primary btn--lg" href="#">Get a Quote</a>
+      <a class="btn btn--ghost btn--lg" href="tel:+10000000000">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        Call Now
+      </a>
+    </div>
+    <div class="finalcta__re">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> No obligation</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Local, licensed team</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Season-long plan</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div>
+        <a class="brandmark" href="#" aria-label="Pride In Turf">
+          <span class="b1">PRIDE</span><span class="bin">in</span><span class="b2">TURF</span>
+        </a>
+        <p class="site-footer__nap">
+          Metro Atlanta lawn care<br>
+          <span class="placeholder-note">[NAP placeholder — confirm real address &amp; phone]</span><br>
+          <a class="ph" href="tel:+10000000000">(000) 000-0000</a>
+        </p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#">Aeration</a><a href="#">Fungicide Program</a><a href="#">Lawn Pest Control</a><a href="#">Tree &amp; Shrub</a>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <a href="#">Warm Season</a><a href="#">Cool Season</a><a href="#">Split Lawn Care</a><a href="#">Select Customer</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#">About</a><a href="#">Service Areas</a><a href="#">Careers</a><a href="#">Customer Portal</a>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© Pride In Turf. Branches: Atlanta &amp; Hoschton, GA · Duluth service area.</span>
+      <span class="placeholder-note">Comp — placeholder reviews, rating, NAP &amp; imagery pending real assets.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Before/after slider — the page's one authored interaction */
+(function(){
+  var ba=document.getElementById('ba');
+  if(!ba) return;
+  var range=document.getElementById('baRange');
+  function set(v){ba.style.setProperty('--split',v+'%');}
+  range.addEventListener('input',function(){set(range.value);});
+  set(range.value);
+  function fromEvent(e){
+    var r=ba.getBoundingClientRect();
+    var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+    var pct=Math.max(0,Math.min(100,(x/r.width)*100));
+    range.value=pct;set(pct);
+  }
+  var dragging=false;
+  ba.addEventListener('pointerdown',function(e){dragging=true;fromEvent(e);});
+  window.addEventListener('pointermove',function(e){if(dragging)fromEvent(e);});
+  window.addEventListener('pointerup',function(){dragging=false;});
+})();
+
+/* Measured scroll reveals */
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver'in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){
+    els.forEach(function(el){el.classList.add('is-in');});return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('is-in');io.unobserve(en.target);}});
+  },{rootMargin:'0px 0px -8% 0px',threshold:.12});
+  els.forEach(function(el){io.observe(el);});
+})();
+
+/* Mobile nav toggle (comp stub) */
+(function(){
+  var t=document.querySelector('.navtoggle');var n=document.querySelector('.site-header__nav');
+  if(!t||!n)return;
+  t.addEventListener('click',function(){
+    var open=t.getAttribute('aria-expanded')==='true';
+    t.setAttribute('aria-expanded',String(!open));
+    if(open){n.removeAttribute('style');return;}
+    n.style.cssText='display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;'+
+      'background:#fff;padding:16px var(--pad);border-bottom:1px solid var(--border);margin:0;gap:8px';
+  });
+})();
+</script>
+</body>
+</html>

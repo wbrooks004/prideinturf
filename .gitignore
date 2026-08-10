@@ -1,0 +1,52 @@
+# ==========================================================
+# AI-context repo — NOT a deploy target.
+# The site is deployed on Cloudways staging via AIO import.
+# This repo exists so an AI assistant can read OUR work
+# without wading through vendor code.
+#
+# Strategy: ignore everything, then explicitly un-ignore.
+# Anything not whitelisted below stays out by default.
+# ==========================================================
+
+# Ignore everything
+/*
+
+# --- Repo config -----------------------------------------
+!.gitignore
+!.gitattributes
+!README.md
+
+# --- Our theme code --------------------------------------
+!/themes/
+/themes/*
+!/themes/bricks-child/
+
+# --- Our plugins (vendor stays out) ----------------------
+# Whitelist first-party plugins here as they appear, e.g.:
+# !/plugins/
+# /plugins/*
+# !/plugins/pride-in-turf-functionality/
+
+# --- Project docs & exports ------------------------------
+# design docs, Bricks JSON, ACF field groups,
+# WPCodeBox snippet exports
+!/_project/
+
+# --- Never, under any circumstance -----------------------
+# Licensed vendor code (Bricks core, ACF Pro, Automatic.css,
+# Bricksfusion, WS Form Pro, WPCodeBox, BulkPress) and the
+# media library are already excluded by /* above.
+# Re-stated here so intent survives future edits:
+/uploads/
+/plugins/
+/themes/bricks/
+/upgrade/
+/upgrade-temp-backup/
+/ai1wm-backups/
+/cache/
+/novamira-sandbox/
+*.log
+
+# OS noise
+.DS_Store
+Thumbs.db
