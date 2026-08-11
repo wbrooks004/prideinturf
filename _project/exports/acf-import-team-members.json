@@ -1,0 +1,266 @@
+[
+    {
+        "key": "group_pit_team_member_details",
+        "title": "Team Member Details",
+        "fields": [
+            {
+                "key": "field_pit_tm_job_title",
+                "label": "Job Title",
+                "name": "job_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Rendered as plain text under the name. Never rendered as a heading.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 1,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_pit_tm_headshot",
+                "label": "Headshot",
+                "name": "headshot",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "Square crop, minimum 800x800. Keep framing and background consistent across the whole team.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "allow_in_bindings": 1,
+                "preview_size": "medium",
+                "uploader": "",
+                "upload_folder": ""
+            },
+            {
+                "key": "field_pit_tm_short_bio",
+                "label": "Short Bio",
+                "name": "short_bio",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "One or two sentences of real credibility. Max 280 characters.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": 280,
+                "allow_in_bindings": 1,
+                "rows": 3,
+                "placeholder": "",
+                "new_lines": "br"
+            },
+            {
+                "key": "field_pit_tm_branch",
+                "label": "Branch",
+                "name": "branch",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "Atlanta and Hoschton are the only branches. Duluth is a service area and is never a branch.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "atlanta": "Atlanta",
+                    "hoschton": "Hoschton"
+                },
+                "default_value": "",
+                "return_format": "value",
+                "multiple": 1,
+                "allow_null": 0,
+                "allow_in_bindings": 1,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_pit_tm_team_group",
+                "label": "Team Group",
+                "name": "team_group",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "Controls which group this person appears under in the Meet the Team section.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "leadership": "Leadership",
+                    "office": "Office Staff",
+                    "consultant": "Lawn Care Consultant",
+                    "technician": "Technician"
+                },
+                "default_value": "",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "allow_in_bindings": 1,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_pit_tm_credentials",
+                "label": "Credentials or Specialty",
+                "name": "credentials",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "Verified credentials only. Do not enter licensing claims that cannot be evidenced.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "pagination": 0,
+                "min": 0,
+                "max": 4,
+                "collapsed": "",
+                "button_label": "Add Credential",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_pit_tm_credential",
+                        "label": "Credential",
+                        "name": "credential",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 1,
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_pit_tm_credentials"
+                    }
+                ]
+            },
+            {
+                "key": "field_pit_tm_display_priority",
+                "label": "Display Priority",
+                "name": "display_priority",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "Lower numbers appear first.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 10,
+                "min": 1,
+                "max": "",
+                "allow_in_bindings": 1,
+                "placeholder": "",
+                "step": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_pit_tm_is_active",
+                "label": "Active",
+                "name": "is_active",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "Turn off to hide this person from the site without deleting the record.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "allow_in_bindings": 1,
+                "ui": 1,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_pit_tm_featured_on_about",
+                "label": "Featured On About",
+                "name": "featured_on_about",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "Optional. Used as a fallback when the About page has no curated team selection.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "allow_in_bindings": 1,
+                "ui": 1,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "team-members"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Team member records for the About page Meet the Team section and future branch/careers reuse.",
+        "show_in_rest": 1,
+        "display_title": "",
+        "allow_ai_access": false,
+        "ai_description": ""
+    }
+]
