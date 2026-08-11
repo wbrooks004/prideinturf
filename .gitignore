@@ -50,3 +50,7 @@
 # OS noise
 .DS_Store
 Thumbs.db
+
+# Python bytecode from the template builders
+__pycache__/
+*.pyc
