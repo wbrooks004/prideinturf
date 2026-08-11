@@ -270,16 +270,12 @@ Add in this order:
 | 9. Careers bridge | Careers CTA Label | `careers_cta_label` | Text | |
 | 9. Careers bridge | Careers CTA Link | `careers_cta_link` | Link | |
 
-On section 4 (Owner and leadership): the existing `owner_heading` / `owner_text` / `owner_image`
-single-owner model is fine **if there is one owner**. If leadership is more than one person, don't
-duplicate those fields — instead add:
+**Section 4 (Owner and leadership) needs no new fields — confirmed single owner.** The existing
+`owner_heading` / `owner_text` / `owner_image` fields cover it, and the template will bind to them
+directly. No `leadership_team` relationship is being added.
 
-| Label | Name | Type | Settings |
-|---|---|---|---|
-| Leadership Team | `leadership_team` | Relationship | Post Type: Team Members. Max 4. |
-
-and the template will render the relationship when it's populated and fall back to the single-owner
-fields when it isn't. Tell me which model is real and I'll build to it.
+If that ever changes to multiple owners, the fix is one relationship field (`leadership_team`,
+Team Members, max 4) plus a template fallback — not duplicated owner fields. Flag it if it changes.
 
 Section 7 pulls global licensing from **Trust Content** (`certification_licensing_text`,
 `years_in_business_text`, `guarantee_statement`, `trust_points`) — those already exist and don't need
@@ -455,15 +451,25 @@ These groups are bound to hardcoded page IDs:
 If a page is ever deleted and recreated — including by a staging-to-live promotion that doesn't
 preserve IDs — the fields silently detach and the page renders empty.
 
+**Confirmed branch mapping:**
+
+| Page ID | Branch |
+|---|---|
+| `291` | **Atlanta** |
+| `292` | **Hoschton** |
+
 **No change required now**, but do two things:
 
-1. **Verify the IDs are still correct.** Open each page and confirm the expected field group appears:
-   286 = About, 287 = Contact, 291 and 292 = the Atlanta and Hoschton branch pages. Note which of 291
-   and 292 is which and tell me — the About and Contact templates both need to pull the right branch
-   card into the right slot.
+1. **Verify the remaining IDs.** Open each page and confirm the expected field group appears:
+   286 = About, 287 = Contact.
 2. **Confirm no third page carries Location Page Details.** Duluth must not have branch fields,
    because the presence of that group is what would let a NAP block and LocalBusiness schema render on
    a non-branch page. This is the location-model guardrail, enforced at the data layer.
+
+Note on how the templates will use this: branch cards resolve off the location record's own
+`location_display_name` / `city` values, **not** off hardcoded page IDs. The mapping above sets card
+order (Atlanta first, Hoschton second) and nothing more, so a page ID change during a staging-to-live
+promotion won't silently empty the branch sections.
 
 ## P3.7 Groups are not exposed to REST
 
@@ -488,7 +494,7 @@ P1.6  Reviews → related_program ....................... [ ]
 P1.7  Product decision: A / B / C / defer ............. [ ]
 
 P2.1  About Page Content additions .................... [ ]
-      Leadership model: single owner / leadership_team  [    ]
+      Leadership model: SINGLE OWNER ................... [x] confirmed
 P2.2  Contact Page Content additions .................. [ ]
       Verified response-time promise, or none?         [    ]
 P2.3  Service Details outcome + before_after ........... [ ]
@@ -499,7 +505,8 @@ P3.2  common_lawn_types removed, Centipede added ...... [ ]
 P3.3  seasonal_relevance removed ...................... [ ]
 P3.4  Relationship maximums set ....................... [ ]
 P3.5  location_faqs answer → Textarea ................. [ ]
-P3.6  Page IDs verified — 291 = ______, 292 = ______ .. [ ]
+P3.6  291 = Atlanta, 292 = Hoschton .................. [x] confirmed
+      286 = About, 287 = Contact verified? ............ [ ]
       Any third page with Location Page Details?       [    ]
 P3.7  REST enabled on new groups ...................... [ ]
 
