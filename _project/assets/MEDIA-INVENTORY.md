@@ -69,6 +69,72 @@ and density are the subject.
   best "what good turf actually looks like" image in the set — it shows the outcome the treatments
   produce rather than the house.
 
+### PIT-06 — Stand-on turf machine mid-job
+`suggested filename:` `pride-in-turf-stand-on-aeration-machine-front-lawn.jpg`
+
+Yellow Wright "Stinger" stand-on turf machine parked on a treated front lawn, brick homes and a
+driveway behind. Small dark soil cores are scattered across the grass.
+
+- **Alt text:** "Pride In Turf stand-on turf machine on a residential front lawn with fresh soil cores visible"
+- **Use:** Core Aeration service page — hero or process section. The visible cores are what make this
+  image do real work: they show the treatment, not just the equipment.
+- **Confirm first:** whether the attachment fitted here is the aerator or something else. If it isn't
+  the aerator, the image still works as general equipment but must not sit under aeration copy.
+
+### PIT-07 — Ride-on spreader-sprayer beside treated turf
+`suggested filename:` `pride-in-turf-ride-on-spreader-sprayer-lawn-treatment.jpg`
+
+Z-Spray ride-on spreader-sprayer at the edge of frame, dense uniform turf filling the foreground,
+brick home behind. Shot low so the turf reads as the subject and the rig as context.
+
+- **Alt text:** "Pride In Turf ride-on spreader-sprayer beside a dense, uniformly green treated lawn"
+- **Use:** Lawn fertilization and weed control service pages; Warm/Cool/Split Season program heroes.
+  This is the single best "treatment in progress" still in the set — equipment and result in one
+  frame.
+
+### PIT-08 — Fleet at the shop
+`suggested filename:` `pride-in-turf-service-fleet-at-shop.jpg`
+
+Branded fleet staged outside the facility on an overcast morning: a wrapped Chevrolet Silverado, an
+Isuzu flatbed marked Tree & Shrub Care carrying spray tanks and hose reels, and a third rig by the
+open bay. Wraps list lawn fertilization, weed control, core aeration, overseeding, tree and shrub
+care, and mosquito and pest control, with the phone number and domain.
+
+- **Alt text:** "Pride In Turf branded service trucks staged outside the company shop"
+- **Use:** About section 3 (local roots and branch model) — **this is the strongest operational-proof
+  image supplied.** A real facility with a real fleet is the kind of evidence competitor About pages
+  in the benchmark were missing. Also works on branch pages.
+- **Check before publishing:** the services listed on the wrap must match the approved public service
+  list. The wrap is legible at full size, so it functions as on-page copy. A partial license plate and
+  a DOT number are visible — the DOT number is legally required to be displayed and is public, but
+  crop or blur the plate if you'd rather not have it indexed.
+
+### PIT-09 — Topdressing a large property
+`suggested filename:` `pride-in-turf-topdressing-large-property.jpg`
+
+A technician walking behind an Earth & Turf topdresser, spreading material in a broad band along a
+paved edge. Striped turf to the left, service vehicle at right.
+
+- **Alt text:** "Pride In Turf technician operating a topdresser to spread material across a large turf area"
+- **Use:** Aeration and overseeding support imagery; soil amendment content. Pairs with the golf
+  course walkthrough video (PIT-V2).
+- **Two things to settle first:** the technician is identifiable, so confirm consent. And this looks
+  like a golf course or large commercial property — do not use it in a way that implies golf course
+  or commercial maintenance is an offered service unless that's confirmed against the coding sheet.
+
+### PIT-10 — Team training session
+`suggested filename:` `pride-in-turf-team-training-session.jpg`
+
+Four team members in the shop around a laptop showing a magnified turf pest or weed identification
+image. One person takes notes on a legal pad; a senior team member leads the discussion. Backpack
+sprayers hang on the wall, product bags and equipment stacked behind.
+
+- **Alt text:** "Pride In Turf team members in a training session reviewing turf pest identification"
+- **Use:** **About section 7 (training, credentials, and how the team works)** — this closes what was
+  an open gap. It is a genuine, unstaged depiction of the technical training the section claims, which
+  is exactly what "use only verified claims" asks for.
+- **Consent required:** four identifiable faces. Get each person's agreement before this goes public.
+
 ---
 
 ## Video
@@ -102,26 +168,40 @@ license plates, or house numbers are identifiable.
 
 ---
 
-## Gaps this set does not cover
+## Coverage and remaining gaps
 
-Three template sections need photography that isn't here:
+The second batch closed three of the four gaps in the first assessment.
 
-1. **Team headshots — blocks About section 6.** There are no people photos in the still set. The
-   `team-members` records need a `headshot` each: square crop, minimum 800×800, consistent framing and
-   background. Frame-grabs from the videos are a poor substitute — motion blur and inconsistent
-   lighting will show badly in a grid. A single session with everyone against the same background is
-   worth doing properly.
+| Need | Status |
+|---|---|
+| Operational proof / local roots (About §3) | **Covered** — PIT-08 |
+| Training and how the team works (About §7) | **Covered** — PIT-10 |
+| Treatment-in-progress imagery for service pages | **Covered** — PIT-06, PIT-07, PIT-09 |
+| Team headshots (About §6) | **Still open** |
+| Before-and-after pairs | **Still open** |
+| Problem-state photography (Service §2) | **Still open** |
 
-2. **Before-and-after pairs — the `before_after` group stays empty without them.** Every image here
-   is an "after." A pair needs the *same lawn from the same position* before and after treatment,
-   plus an accurate timeframe. Without genuine pairs the module simply won't render, which is the
-   correct behavior — but it means Service section 7 and Program section 8 lose their strongest proof
-   element.
+**Team headshots — still blocks About section 6.** PIT-10 shows the team working, which is better
+proof than a headshot grid for section 7, but the `team-members` records each need their own
+`headshot`: square crop, minimum 800×800, consistent framing and background. Cropping faces out of
+PIT-10 won't work — mixed angles and shop lighting look bad in a grid. One session against a
+single background.
 
-3. **Problem-state photography.** Service Single section 2 describes symptoms — weeds, disease, grub
-   damage, thinning. Photos of actual problem lawns would carry that section far better than stock
-   or than another healthy-lawn image. Field techs could capture these on a phone during normal
-   diagnosis visits at effectively no cost.
+**Before-and-after pairs — the `before_after` group stays empty without them.** Every image supplied
+is an "after." A pair needs the *same lawn from the same position* before and after treatment, plus
+an accurate timeframe. Without genuine pairs the module won't render, which is correct behavior — but
+Service section 7 and Program section 8 lose their strongest proof element.
+
+**Problem-state photography.** Service section 2 describes symptoms — weeds, disease, grub damage,
+thinning. Photos of real problem lawns would carry that section far better than another healthy-lawn
+image. Techs could capture these on a phone during normal diagnosis visits at no cost. PIT-10 hints
+at this: the pest identification image on the laptop screen is the kind of visual that section wants.
+
+### Consent still to confirm
+
+Faces are identifiable in **PIT-09** (one technician) and **PIT-10** (four people). Confirm each
+person agrees to appear on the public site before either is published. The videos likely need the
+same check — PIT-V1 and PIT-V3/V4 are described as featuring team members.
 
 ---
 

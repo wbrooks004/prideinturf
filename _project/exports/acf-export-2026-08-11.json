@@ -2243,8 +2243,8 @@
             },
             {
                 "key": "field_6a7adf2ab1280",
-                "label": "Related Program",
-                "name": "related_program",
+                "label": "Related Programs",
+                "name": "related_programs",
                 "aria-label": "",
                 "type": "relationship",
                 "instructions": "",
@@ -2522,98 +2522,27 @@
         "ai_description": ""
     },
     {
-        "key": "group_6a7adf9037265",
-        "title": "Reviews",
-        "fields": [
-            {
-                "key": "field_6a7adf9174d22",
-                "label": "Related Program",
-                "name": "related_program",
-                "aria-label": "",
-                "type": "relationship",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "post_type": [
-                    "lawn-care-programs"
-                ],
-                "post_status": "",
-                "taxonomy": "",
-                "filters": [
-                    "search",
-                    "post_type"
-                ],
-                "return_format": "object",
-                "min": "",
-                "max": 3,
-                "allow_in_bindings": 0,
-                "elements": "",
-                "bidirectional": 0,
-                "bidirectional_target": []
-            },
-            {
-                "key": "field_6a7b4f04f4380",
-                "label": "Related Service",
-                "name": "related_service",
-                "aria-label": "",
-                "type": "relationship",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "post_type": [
-                    "lawn-services"
-                ],
-                "post_status": "",
-                "taxonomy": "",
-                "filters": [
-                    "search",
-                    "post_type"
-                ],
-                "return_format": "object",
-                "min": "",
-                "max": 3,
-                "allow_in_bindings": 0,
-                "elements": "",
-                "bidirectional": 0,
-                "bidirectional_target": []
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "reviews"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": "",
-        "active": true,
-        "description": "",
-        "show_in_rest": 0,
-        "display_title": "",
-        "allow_ai_access": false,
-        "ai_description": ""
-    },
-    {
         "key": "group_6264655b7ef18",
         "title": "Reviews",
         "fields": [
+            {
+                "key": "field_6a7b5e97411d7",
+                "label": "Info",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
             {
                 "key": "field_626465da55adb",
                 "label": "Reviewer Name",
@@ -2731,11 +2660,11 @@
                 "new_lines": ""
             },
             {
-                "key": "field_6a24eea7f492a",
-                "label": "Related Service",
-                "name": "related_service",
+                "key": "field_6a7b5eb7aa444",
+                "label": "Relationships",
+                "name": "",
                 "aria-label": "",
-                "type": "relationship",
+                "type": "tab",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -2744,21 +2673,9 @@
                     "class": "",
                     "id": ""
                 },
-                "post_type": [
-                    "lawn-services"
-                ],
-                "post_status": "",
-                "taxonomy": "",
-                "filters": [
-                    "post_type"
-                ],
-                "return_format": "object",
-                "min": "",
-                "max": "",
-                "allow_in_bindings": 0,
-                "elements": "",
-                "bidirectional": 0,
-                "bidirectional_target": []
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
             },
             {
                 "key": "field_6a24ef1c6391d",
@@ -2789,6 +2706,85 @@
                 "elements": "",
                 "bidirectional": 0,
                 "bidirectional_target": []
+            },
+            {
+                "key": "field_6a24eea7f492a",
+                "label": "Related Service",
+                "name": "related_service",
+                "aria-label": "",
+                "type": "relationship",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "lawn-services"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "post_type"
+                ],
+                "return_format": "object",
+                "min": "",
+                "max": "",
+                "allow_in_bindings": 0,
+                "elements": "",
+                "bidirectional": 0,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_6a7b5e2a411d6",
+                "label": "Related Program",
+                "name": "related_program",
+                "aria-label": "",
+                "type": "relationship",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "lawn-care-programs"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "search",
+                    "post_type"
+                ],
+                "return_format": "object",
+                "min": "",
+                "max": 3,
+                "allow_in_bindings": 0,
+                "elements": "",
+                "bidirectional": 0,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_6a7b5edaaa445",
+                "label": "Display",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
             },
             {
                 "key": "field_6a24ef4d6391e",
@@ -3864,7 +3860,30 @@
                 "collapsed": "",
                 "button_label": "Add Row",
                 "rows_per_page": 20,
-                "sub_fields": []
+                "sub_fields": [
+                    {
+                        "key": "field_6a7b5f2d02104",
+                        "label": "Point",
+                        "name": "point",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_6a7b460fd84c5"
+                    }
+                ]
             },
             {
                 "key": "field_6a7b462fd84c6",
@@ -7008,14 +7027,14 @@
         "description": "",
         "public": false,
         "hierarchical": false,
-        "exclude_from_search": false,
-        "publicly_queryable": true,
+        "exclude_from_search": true,
+        "publicly_queryable": false,
         "show_ui": true,
         "show_in_menu": true,
         "admin_menu_parent": "",
         "show_in_admin_bar": true,
         "show_in_nav_menus": true,
-        "show_in_rest": true,
+        "show_in_rest": false,
         "rest_base": "",
         "rest_namespace": "wp\/v2",
         "rest_controller_class": "WP_REST_Posts_Controller",
@@ -7187,7 +7206,7 @@
         "public": false,
         "hierarchical": false,
         "exclude_from_search": false,
-        "publicly_queryable": true,
+        "publicly_queryable": false,
         "show_ui": true,
         "show_in_menu": true,
         "admin_menu_parent": "",
