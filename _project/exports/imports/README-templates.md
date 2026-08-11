@@ -1,14 +1,17 @@
-# Single Templates — Lawn Service & Lawn Care Program
+# Page & Single Templates — Service, Program, About, Contact
 
 Each template ships in **two formats**, because Bricks has two separate doors and they are not
 interchangeable:
 
-| File | How to use it |
-|---|---|
-| `single-lawn-service.json` | **Bricks → Templates → Import** |
-| `single-lawn-service.clipboard.json` | **Ctrl/Cmd + V** in the builder's structure panel |
-| `single-lawn-care-program.json` | **Bricks → Templates → Import** |
-| `single-lawn-care-program.clipboard.json` | **Ctrl/Cmd + V** in the builder's structure panel |
+| Template | Import file | Paste file | Applies to |
+|---|---|---|---|
+| Lawn Service Single | `single-lawn-service.json` | `single-lawn-service.clipboard.json` | post type `lawn-services` |
+| Lawn Care Program Single | `single-lawn-care-program.json` | `single-lawn-care-program.clipboard.json` | post type `lawn-care-programs` |
+| About Us | `page-about.json` | `page-about.clipboard.json` | page **286** |
+| Contact | `page-contact.json` | `page-contact.clipboard.json` | page **287** |
+
+Import files go through **Bricks → Templates → Import**. Paste files go in with **Ctrl/Cmd + V** in
+the builder's structure panel.
 
 **Pasting an `Import` file will silently fail.** Bricks' paste handler validates
 `"source": "bricksCopiedElements"` and reads classes from `globalClasses`; the import format has
@@ -33,17 +36,12 @@ staging is HTTPS, so that shouldn't bite here.
 > (`/*`) and whitelists `/_project/` and `/themes/bricks-child/` — anything dropped in `bricks-json/`
 > is untracked unless force-added, which is how the header and footer exports got there.
 
-| File | Type | Applies to |
-|---|---|---|
-| `single-lawn-service.json` | `single` | Post type `lawn-services` |
-| `single-lawn-care-program.json` | `single` | Post type `lawn-care-programs` |
-
-Both carry the **same 26 global classes with the same ids and names**, so importing the second one
-after the first merges rather than duplicating. Import order doesn't matter.
+All four carry the **same 26 global classes with the same ids and names**, so each import merges
+rather than duplicating. Import order doesn't matter.
 
 Built against the ACF field names verified in `_project/exports/acf-export-2026-08-11.json`. Every
-`{acf_*}` tag and every loop source in both files was checked against that export — **107 tags, zero
-unverified**. Field-name variances from the original spec (`desired_outcome`, `public_display_name`,
+`{acf_*}` tag and every loop source in all four files was checked against that export —
+**204 references, zero unverified**. Field-name variances from the original spec (`desired_outcome`, `public_display_name`,
 `contact_options`, …) are bound as they actually exist, per
 `_project/docs/ACF-VERIFICATION-2026-08-11.md`.
 
@@ -65,8 +63,27 @@ unverified**. Field-name variances from the original spec (`desired_outcome`, `p
 | 9 | Service FAQs | Program FAQs |
 | 10 | Final evaluation CTA | Final program CTA |
 
-Both hit the brief's standard: **10 primary sections, 1 H1, 9 H2**, plus one supporting module that
-isn't counted.
+| # | About Us | Contact |
+|---:|---|---|
+| 1 | About hero | Contact hero |
+| — | Trust strip *(supporting module)* | — |
+| 2 | Company story | Contact options |
+| 3 | Local roots and branch model | WS Form |
+| 4 | Owner and leadership | What happens next |
+| 5 | Mission and values | Locations and service routing |
+| 6 | Meet the team | Contact FAQs and final reassurance |
+| 7 | Training, credentials, how the team works | |
+| 8 | Customer proof | |
+| 9 | Final CTA and careers bridge | |
+
+Every template hits the brief's standard:
+
+| Template | Sections | H1 | H2 | Brief target |
+|---|---:|---:|---:|---|
+| Service Single | 10 | 1 | 9 | 10 sections, 8–10 H2 |
+| Program Single | 10 | 1 | 9 | 10 sections, 8–9 H2 |
+| About Us | 9 | 1 | 8 | 9 sections, 7–8 H2 |
+| Contact | 6 | 1 | 5 | 6 sections, 4–5 H2 |
 
 ## Heading discipline
 
@@ -108,6 +125,49 @@ Notable gates:
   happens in each round.
 - **FAQ schema** uses the accordion's native `faqSchema`, which emits JSON-LD only for rendered items,
   and the whole section is gated on the repeater. Schema can never outrun visible copy.
+
+## Contact: the one edit you must make
+
+`page-contact.json` embeds the quote form with a shortcode:
+
+```
+[ws_form id="1"]
+```
+
+**That ID is a placeholder** — the form doesn't exist yet. Until you set the real ID, the page renders
+whatever form happens to be id 1, or nothing. The element is labelled
+**"WS FORM — SET THE FORM ID"** in the structure panel so it's easy to find.
+
+The reassurance panel beside the form states *"We review your details and get back to you within 24
+hours."* That's the confirmed commitment, and **the form's success message must use the same
+sentence** — one claim, stated identically in both places, so the page and the confirmation can never
+disagree.
+
+The form section carries `_cssId: "quote-form"`, so contact-method cards of type `quote` can link
+straight to `#quote-form`.
+
+## How branch cards find branches
+
+The two pages resolve branches differently, on purpose:
+
+- **About** uses the curated `branch_pages` relationship — you control which branches appear and in
+  what order.
+- **Contact** queries pages whose `street_address` is non-empty. No hardcoded page IDs, so a
+  staging-to-live promotion that changes IDs can't empty the section, and a service-area page can
+  never appear as a branch because it has no address to match on.
+
+Both render Atlanta, Hoschton, and Duluth today. Duluth's card will show its address and hours but no
+map or "view on Google" link until the coordinates and GBP URL arrive — see
+`_project/docs/LOCATION-MODEL-CORRECTION.md`.
+
+## Team cards
+
+About section 6 has two loops with mutually exclusive conditions: the curated
+`featured_team_members` relationship when it's populated, otherwise every `team-members` record with
+`is_active` on, ordered by `display_priority`. So the section works before anyone curates it, and
+turning a person off hides them everywhere without deleting the record.
+
+Names are H3. Job titles are styled text, never headings.
 
 ## Three things to verify in the builder
 
