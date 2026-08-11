@@ -33,7 +33,7 @@ Roles: page `--n-50`, card white, sunken `--n-100`, inverse `--n-900`. Surfaces:
 - **Buttons:** `.btn--primary` orange (main conversion: Get a Quote), `.btn--secondary` green (View Services / Learn More), `.btn--ghost` outline. Site CTA stack is fixed: Get a Quote / Call Now / Customer Portal.
 - **Cards** (BEM `__media/__body/__title/__text/__actions`): `.service-card` (standard, shadow M/2), `.program-card` (featured, shadow L, real app-counts, `--featured` variant). Title link is the primary target; whole card reads clickable via hover lift + focus.
 - **Before/after slider** (`.ba`): the page's signature interaction — draggable/keyboard range revealing struggling→healthy turf.
-- **Season calendar** diagram; **branch/service-area** list encoding the location model (Atlanta/Hoschton branch, Duluth service-area).
+- **Season calendar** diagram; **branch/service-area** list encoding the location model (Atlanta, Hoschton, and Duluth branches; other cities service-area).
 
 ## ACSS / Bricks port
 
