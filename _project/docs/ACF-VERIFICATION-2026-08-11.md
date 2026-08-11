@@ -3,8 +3,9 @@
 Checked `_project/exports/acf-export-2026-08-11.json` (27 items: 16 field groups, 5 post types,
 6 options pages) against `ACF-BUILD-INSTRUCTIONS.md`.
 
-**Most of it landed correctly.** Six items need fixing before I build templates — two of them block,
-and one is a location-model violation that matters beyond this build.
+**Most of it landed correctly.** F1 has since been withdrawn — Duluth is a legitimate branch and that
+configuration was right. F2 and F3 were fixed in the follow-up export. F4 is partly fixed. F5, F6,
+and F7 remain open and none of them block template work.
 
 ---
 
@@ -30,29 +31,17 @@ and one is a location-model violation that matters beyond this build.
 
 ---
 
-## F1 — Duluth (293) now has branch fields — **fix first**
+## F1 — WITHDRAWN. Duluth is a branch; this was not a defect
 
-`Location Page Details` is bound to pages **291, 292, and 293**. In the previous export it was 291 and
-292 only. Page 293 is Duluth.
+`Location Page Details` is bound to pages **291, 292, and 293**, page 293 being Duluth.
 
-That group carries `street_address`, `city`, `state`, `zipcode`, `google_map_embed_url`,
-`google_business_profile_url`, `directions_link`, and `office_hours`. Its presence on a page is the
-mechanism that lets a NAP block, a map pin, and `LocalBusiness` schema render there.
+I originally reported this as a location-model violation, on the basis that `PRODUCT.md` and the brief
+both stated Duluth was service-area only. **The client confirmed on 2026-08-11 that Duluth is a real
+branch.** The documentation was wrong, not the ACF configuration. No change is needed here — the
+binding to 293 is correct and should stay.
 
-Duluth is a service area, not a branch. `PRODUCT.md` states the branch/service-area split is "a
-factual/SEO commitment, not a design choice," and the brief repeats it three times. Publishing an
-office address or `LocalBusiness` schema for a location that has no office is a false business claim,
-and it's the kind that gets a Google Business Profile actioned.
-
-**Fix:** ACF → Field Groups → Location Page Details → Location Rules → delete the `Page is equal to
-293` rule. Leave 291 and 292.
-
-Then check whether anything was already entered on page 293 — if an address got typed in, clear it.
-The postmeta survives the location-rule change; it just stops being visible.
-
-**If Duluth genuinely needs a page**, it needs a *service-area* field set — areas served, local
-service copy, links to the branch that covers it — with no address, no hours, no map, no NAP. Tell me
-and I'll spec it as a separate group. It must not reuse this one.
+See `LOCATION-MODEL-CORRECTION.md` for the corrected three-branch model and the follow-on field work
+it creates.
 
 ## F2 — Two `related_service` fields on Reviews — **blocks the build**
 

@@ -52,8 +52,10 @@ mobile menu, so Get a Quote stays the only visible CTA on small screens.
 
 ## Location model
 
-Per the restructure rule, only **Atlanta** and **Hoschton** get NAP blocks in the footer. **Duluth
-appears as a service-area link only** — no address, no phone, so it isn't treated as a branch entity.
+**Corrected 2026-08-11:** Atlanta, Hoschton, and **Duluth** are all branches. The footer currently
+gives NAP blocks to Atlanta and Hoschton only, with Duluth as a plain link — that is now incomplete.
+Duluth needs its own NAP block once the branch address, phone, and hours are supplied. See
+`_project/docs/LOCATION-MODEL-CORRECTION.md`.
 
 ## Before this looks right
 

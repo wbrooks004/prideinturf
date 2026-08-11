@@ -115,7 +115,7 @@ it as it should be displayed — "Chris Bailey", not "bailey-chris" or "Chris Ba
 | 1 | Job Title | `job_title` | Text | Required. This renders as plain text under the name — **never as a heading**. |
 | 2 | Headshot | `headshot` | Image | Return: **Image Array**. Preview: Medium. Library: All. |
 | 3 | Short Bio | `short_bio` | Textarea | Rows 3. Character limit **280**. New lines: Automatically add `<br>`. |
-| 4 | Branch | `branch` | Select | Choices `atlanta : Atlanta` and `hoschton : Hoschton`. **Multiple: Yes**, Return: Value. No null. |
+| 4 | Branch | `branch` | Select | Choices `atlanta : Atlanta`, `hoschton : Hoschton`, `duluth : Duluth`. **Multiple: Yes**, Return: Value. No null. |
 | 5 | Team Group | `team_group` | Select | Choices `leadership : Leadership`, `office : Office Staff`, `consultant : Lawn Care Consultant`, `technician : Technician`. Single. Return: Value. |
 | 6 | Credentials or Specialty | `credentials` | Repeater | Layout Table. Max **4**. One sub-field: `credential` (Text). |
 | 7 | Display Priority | `display_priority` | Number | Default `10`. Min 1. Instruction: "Lower numbers appear first." |
@@ -126,12 +126,12 @@ Group settings: Position `acf_after_title`, Label Placement `Top`, **Show In RES
 
 Notes that matter for the build:
 
-- The lowercase `atlanta` / `hoschton` values deliberately match the existing
+- The lowercase `atlanta` / `hoschton` / `duluth` values deliberately match the
   `branch_to_feature_this_service` choices on Service Details, so one branch-filter rule works
   everywhere.
 - `is_active` + `display_priority` are what let the About template render a stable, ordered grid
   without you having to reorder posts.
-- Do not add a "Duluth" branch choice. Duluth is a service area, not a branch.
+- **Corrected 2026-08-11:** Duluth *is* a branch. Add a third choice `duluth : Duluth`. See `LOCATION-MODEL-CORRECTION.md`.
 
 **Photo standard:** square crop, minimum 800×800, consistent background and framing across the whole
 team. Mixed crops are the single fastest way to make a team grid look unprofessional. If you don't
@@ -258,7 +258,7 @@ Add in this order:
 |---|---|---|---|---|
 | 3. Local roots | Local Roots Heading | `local_roots_heading` | Text | |
 | 3. Local roots | Local Roots Text | `local_roots_text` | WYSIWYG | Basic toolbar, no media button |
-| 3. Local roots | Branch Pages | `branch_pages` | Relationship | Post Type: **Page**. Max **2**. Instruction: "Atlanta and Hoschton only. Duluth is a service area and must never be added here." |
+| 3. Local roots | Branch Pages | `branch_pages` | Relationship | Post Type: **Page**. Max **3**. Instruction: "The three branches only: Atlanta, Hoschton, Duluth." |
 | 6. Meet the Team | Team Section Heading | `team_section_heading` | Text | |
 | 6. Meet the Team | Team Section Text | `team_section_text` | Textarea | |
 | 6. Meet the Team | Featured Team Members | `featured_team_members` | Relationship | Post Type: **Team Members**. Return: Post Object. Max **12**. |
@@ -467,9 +467,10 @@ preserve IDs — the fields silently detach and the page renders empty.
 
 1. **Verify the remaining IDs.** Open each page and confirm the expected field group appears:
    286 = About, 287 = Contact.
-2. **Confirm no third page carries Location Page Details.** Duluth must not have branch fields,
-   because the presence of that group is what would let a NAP block and LocalBusiness schema render on
-   a non-branch page. This is the location-model guardrail, enforced at the data layer.
+2. **Corrected 2026-08-11:** Location Page Details correctly covers pages 291, 292, and **293**
+   (Duluth), all three being real branches. The guardrail still holds for any *fourth* city: no page
+   outside these three may carry this group, because its presence is what lets a NAP block and
+   LocalBusiness schema render.
 
 Note on how the templates will use this: branch cards resolve off the location record's own
 `location_display_name` / `city` values, **not** off hardcoded page IDs. The mapping above sets card

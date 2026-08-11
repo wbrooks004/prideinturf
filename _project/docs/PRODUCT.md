@@ -25,7 +25,7 @@ Success on a visit = a submitted **online quote / lead request (WS Form Pro)**. 
 A multi-location Metro Atlanta lawn-care provider with a deliberately structured public architecture:
 
 - A season-driven catalog of programs and services (warm/cool/split lawn care, fungicide programs, pest control, aeration, tree & shrub, add-ons) rather than a flat service list.
-- A branch vs. service-area distinction that is a factual/SEO commitment, not a design choice: **Atlanta** and **Hoschton** are branches (branch pages, branch schema, office NAP); **Duluth** is service-area only and must never inherit branch schema, NAP, or branch entity data.
+- A branch vs. service-area distinction that is a factual/SEO commitment, not a design choice: **Atlanta**, **Hoschton**, and **Duluth** are branches (branch pages, branch schema, office NAP). Any city outside those three is service-area only and must never inherit branch schema, NAP, or branch entity data. (Corrected 2026-08-11 — earlier revisions wrongly listed Duluth as service-area only. See `LOCATION-MODEL-CORRECTION.md`.)
 
 The differentiator a neighboring lawn company could not truthfully copy is this specific location entity model and the approved program catalog tied to it.
 
@@ -48,7 +48,7 @@ The differentiator a neighboring lawn company could not truthfully copy is this 
 - `locations` and `service-areas` — separate CPTs, marked future expansion in the content-model doc.
 - Homepage content driven by a Homepage Content ACF group (hero, intro, featured programs, featured services, featured reviews, CTA, company updates). Content originates from ACF/WordPress; editable content is never hardcoded.
 
-**Templates:** global components (site header/footer, mobile nav, announcement bar, breadcrumbs, global quote CTA, review/service/program/branch/blog cards, WS Form wrapper, pagination, empty query-loop state) and page templates (homepage, standard, about, contact, careers, referral, branch, service-area city, blog archive, single blog) plus dynamic templates for the CPTs above. The `branch-page` template is allowed only for Atlanta and Hoschton; Duluth uses the service-area city-page template.
+**Templates:** global components (site header/footer, mobile nav, announcement bar, breadcrumbs, global quote CTA, review/service/program/branch/blog cards, WS Form wrapper, pagination, empty query-loop state) and page templates (homepage, standard, about, contact, careers, referral, branch, service-area city, blog archive, single blog) plus dynamic templates for the CPTs above. The `branch-page` template is allowed for Atlanta, Hoschton, and Duluth; other cities use the service-area city-page template.
 
 **Services catalog:** the approved **Coding Sheet** is authoritative for what services/programs may be published (codes such as L8, CLC, SLC, LS; add-ons BAP, BFP, FFP, ZP, PG, TSP; pest control MO, FT, AW, FAC, GRP, GRC, LPC; service add-ons TST, CAS, LAS, etc.). Nothing may be published as an active offer if it is absent from the approved coding sheet; retired services must not be linked or shown as active.
 
@@ -79,12 +79,12 @@ Superseded / anti-reference:
 - The Etch-era docs (`Pride In Turf Project/docs/project-overview.md` naming Etch WP, "Etch native whenever possible") and the `etch-html-css-importer` skill are **anti-reference for the builder decision** — the builder is Bricks. Their non-builder product/content facts (objectives, content model, catalog) still hold.
 - The ACF export (`acf-export-2026-07-27.json`) must NOT be used to determine business truth. Existing production pages, design exports, generated content, and Frames templates never override approved architecture.
 
-Absences future work must not fabricate: pricing/quotes, customer counts, licensing/insurance claims, deployment or performance benchmarks, and any branch/location data for cities other than the approved Atlanta/Hoschton branches and Duluth service area.
+Absences future work must not fabricate: pricing/quotes, customer counts, licensing/insurance claims, deployment or performance benchmarks, and any branch/location data for cities other than the approved Atlanta, Hoschton, and Duluth branches. The Duluth NAP is not yet supplied and must not be approximated.
 
 ## Product Principles
 
 1. **Approved source-of-truth beats anything that already exists.** Legacy URLs, old templates, ACF exports, design exports, and generated content are evidence, not truth — verify against the governance master and its designated authoritative files.
-2. **Location truth is sacred.** Only Atlanta and Hoschton are branches; Duluth is service-area only. Never create false branch pages or leak branch schema/NAP to non-branch locations.
+2. **Location truth is sacred.** Atlanta, Hoschton, and Duluth are branches. Never create false branch pages or leak branch schema/NAP to non-branch locations.
 3. **Publish only approved offers.** Nothing ships as an active service/program unless it is on the approved coding sheet; retired services are never shown as active.
 4. **Reusable, dynamic, component-based.** No duplicated structures that could be reusable components; ACF/query-loop-driven content over hardcoded content; ACSS-first with no arbitrary design values.
 5. **Protect production and SEO integrity.** Work local → staging → production; permanent redirects for permanent moves; don't churn live URLs for cosmetics.
