@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
+"""Pride In Turf — Lawn Service Single template. Run from anywhere:
+    python3 _project/builders/build_service.py
+"""
+import os, sys
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
 from pit_common import *
-exec(open('service_sections.py', encoding='utf-8').read())
+exec(open(os.path.join(HERE, 'service_sections.py'), encoding='utf-8').read())
 emit({
     "name": "pit-single-lawn-service",
     "title": "PIT — Single: Lawn Service",
@@ -14,4 +20,4 @@ emit({
     "global_classes": list(CLASSES.values()),
     "globalVariables": [],
     "globalVariablesCategories": []},
-    "/home/user/prideinturf/bricks-json/single-lawn-service.json")
+    "/home/user/prideinturf/_project/exports/imports/single-lawn-service.json")

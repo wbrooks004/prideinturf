@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Pride In Turf — Lawn Care Program Single template."""
+"""Pride In Turf — Lawn Care Program Single template. Run from anywhere:
+    python3 _project/builders/build_program.py
+"""
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from pit_common import *
 
 # ================================================================ 1 — HERO + SNAPSHOT
@@ -329,4 +333,4 @@ emit({
     "global_classes": list(CLASSES.values()),
     "globalVariables": [],
     "globalVariablesCategories": []},
-    "/home/user/prideinturf/bricks-json/single-lawn-care-program.json")
+    "/home/user/prideinturf/_project/exports/imports/single-lawn-care-program.json")
