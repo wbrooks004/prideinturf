@@ -9,6 +9,7 @@ interchangeable:
 | Lawn Care Program Single | `single-lawn-care-program.json` | `single-lawn-care-program.clipboard.json` | post type `lawn-care-programs` |
 | About Us | `page-about.json` | `page-about.clipboard.json` | page **286** |
 | Contact | `page-contact.json` | `page-contact.clipboard.json` | page **287** |
+| Branch | `page-branch.json` | `page-branch.clipboard.json` | pages **291, 292, 293** |
 
 Import files go through **Bricks → Templates → Import**. Paste files go in with **Ctrl/Cmd + V** in
 the builder's structure panel.
@@ -36,12 +37,12 @@ staging is HTTPS, so that shouldn't bite here.
 > (`/*`) and whitelists `/_project/` and `/themes/bricks-child/` — anything dropped in `bricks-json/`
 > is untracked unless force-added, which is how the header and footer exports got there.
 
-All four carry the **same 26 global classes with the same ids and names**, so each import merges
+All five carry the **same 26 global classes with the same ids and names**, so each import merges
 rather than duplicating. Import order doesn't matter.
 
 Built against the ACF field names verified in `_project/exports/acf-export-2026-08-11.json`. Every
 `{acf_*}` tag and every loop source in all four files was checked against that export —
-**204 references, zero unverified**. Field-name variances from the original spec (`desired_outcome`, `public_display_name`,
+**247 references, zero unverified**. Field-name variances from the original spec (`desired_outcome`, `public_display_name`,
 `contact_options`, …) are bound as they actually exist, per
 `_project/docs/ACF-VERIFICATION-2026-08-11.md`.
 
@@ -84,6 +85,7 @@ Every template hits the brief's standard:
 | Program Single | 10 | 1 | 9 | 10 sections, 8–9 H2 |
 | About Us | 9 | 1 | 8 | 9 sections, 7–8 H2 |
 | Contact | 6 | 1 | 5 | 6 sections, 4–5 H2 |
+| Branch | 8 | 1 | 7 | not in the brief — sized to match About |
 
 ## Heading discipline
 
@@ -125,6 +127,47 @@ Notable gates:
   happens in each round.
 - **FAQ schema** uses the accordion's native `faqSchema`, which emits JSON-LD only for rendered items,
   and the whole section is gated on the repeater. Schema can never outrun visible copy.
+
+## Branch: one template, three pages
+
+`page-branch.json` is condition-bound to pages **291 (Atlanta), 292 (Hoschton), 293 (Duluth)** and
+renders each one entirely from its own `Location Page Details` record. There is no per-branch
+markup anywhere in it.
+
+That's deliberate, and it's the reason there is one file rather than three. Three near-identical
+templates would mean every future change gets made three times and drifts by the second one —
+`PRODUCT.md` principle 4 rules it out. If a branch ever needs a genuinely different *layout* (not
+different content), the right move is a condition inside this template, not a fork of it.
+
+**What each branch shows today**
+
+| | Atlanta | Hoschton | Duluth |
+|---|:--:|:--:|:--:|
+| Address, hours, phone | ✅ | ✅ | ✅ |
+| Areas served | ✅ | ✅ | ✅ |
+| Map embed | ✅ | ✅ | — no embed URL on file |
+| "View on Google" | ✅ | ✅ | — no GBP URL on file |
+| Branch summary copy | ✅ | ✅ | — none written |
+
+Duluth's page renders correctly with the three gaps simply absent — no empty map frame, no dead
+link. Fill in `google_map_embed_url`, `google_business_profile_url`, and `location_short_summary`
+and they appear with no template change.
+
+**One field format to check.** `google_map_embed_url` must hold **only the `src` URL**, not the whole
+`<iframe>` tag. The business info document supplies Atlanta's map as a full iframe — if that got
+pasted into the field wholesale, the map will not render. Strip it to the URL inside `src="…"`.
+
+**Schema.** This template does not hand-roll `LocalBusiness` JSON-LD. RankMath is installed and is the
+right place to configure it per page, using the confirmed NAP. Leave Duluth's `geo` and `sameAs` empty
+until coordinates and a GBP URL exist — a partial schema block is valid, a guessed one is not.
+
+**Programs section.** There's no branch-to-program relationship in ACF and none is needed: programs
+are offered company-wide, so the section lists published programs by `display_priority`. If a program
+ever becomes branch-specific, that becomes a real relationship rather than a hardcoded list.
+
+**Hero image.** The `Page Hero` group is *not* assigned to 291/292/293, so branch heroes build from
+`location_display_name` and `location_short_summary`. The template already includes a conditional
+hero image — assign `Page Hero` to those three pages and it starts rendering, no template change.
 
 ## Contact: the one edit you must make
 
