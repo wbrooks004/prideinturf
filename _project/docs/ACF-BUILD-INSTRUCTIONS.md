@@ -308,9 +308,14 @@ manually" requirement, made mechanical: phone comes from `main_phone_number`, em
 portal from `client_portal_url`, all on Business Info. You control the card copy; the destinations
 stay centralized.
 
-On the response-time promise in section 4: only fill `step_text` with a specific timeframe
-("within one business day") if that's an actual operational commitment. If it isn't, describe the step
-without a number and we lose nothing.
+**Response-time promise — confirmed: within 24 hours.** This is a verified operational commitment, so
+section 4's second step and the WS Form success message will both state it. Wording will be "We'll
+review your details and reach out within 24 hours" — one claim, stated identically in both places, so
+the page and the confirmation never disagree.
+
+One thing to confirm when you fill this in: whether 24 hours holds for a **weekend** submission. If
+Sunday requests are actually answered Monday, the honest wording is "within one business day" and I'll
+use that instead. Say nothing and I'll build it as a flat 24 hours as given.
 
 ## P2.3 Service Details — outcome statement and before/after
 
@@ -496,7 +501,8 @@ P1.7  Product decision: A / B / C / defer ............. [ ]
 P2.1  About Page Content additions .................... [ ]
       Leadership model: SINGLE OWNER ................... [x] confirmed
 P2.2  Contact Page Content additions .................. [ ]
-      Verified response-time promise, or none?         [    ]
+      Response time: WITHIN 24 HOURS .................. [x] confirmed
+      Does 24h hold on weekends? ...................... [    ]
 P2.3  Service Details outcome + before_after ........... [ ]
 P2.4  Program Details rounds + before_after ............ [ ]
 
