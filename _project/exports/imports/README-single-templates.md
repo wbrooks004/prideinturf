@@ -1,7 +1,33 @@
 # Single Templates — Lawn Service & Lawn Care Program
 
-Two Bricks **template exports**, in `_project/exports/imports/`. Import via
-**Bricks → Templates → Import** (one file at a time, or both in a zip).
+Each template ships in **two formats**, because Bricks has two separate doors and they are not
+interchangeable:
+
+| File | How to use it |
+|---|---|
+| `single-lawn-service.json` | **Bricks → Templates → Import** |
+| `single-lawn-service.clipboard.json` | **Ctrl/Cmd + V** in the builder's structure panel |
+| `single-lawn-care-program.json` | **Bricks → Templates → Import** |
+| `single-lawn-care-program.clipboard.json` | **Ctrl/Cmd + V** in the builder's structure panel |
+
+**Pasting an `Import` file will silently fail.** Bricks' paste handler validates
+`"source": "bricksCopiedElements"` and reads classes from `globalClasses`; the import format has
+neither — it uses `global_classes` and a `type` field instead. Same element tree, different wrapper.
+
+**Use the Import files if you can** — import creates a real template with its post-type condition
+already attached, so it starts rendering on every lawn service or program immediately. Pasting drops
+the elements into whatever page you have open and you'd have to set the template type and conditions
+by hand.
+
+### Pasting, step by step
+
+1. Open the `.clipboard.json` file and copy the **entire contents** to your clipboard.
+2. In the Bricks builder, click into the **structure panel** (not the canvas).
+3. Press **Ctrl/Cmd + V**.
+
+If nothing happens: the paste target has to be the structure panel, the JSON has to be complete from
+the first `{` to the last `}`, and some browsers block programmatic clipboard reads over plain HTTP —
+staging is HTTPS, so that shouldn't bite here.
 
 > These live under `_project/` deliberately. The repo's `.gitignore` ignores everything at root
 > (`/*`) and whitelists `/_project/` and `/themes/bricks-child/` — anything dropped in `bricks-json/`

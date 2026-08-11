@@ -1,0 +1,2987 @@
+{
+  "content": [
+    {
+      "id": "e00001",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "e00002"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "pitsec"
+        ],
+        "_cssClasses": "surface-hero",
+        "_background": {
+          "color": {
+            "raw": "var(--base-ultra-light)"
+          }
+        }
+      },
+      "label": "1 · Program Hero and Snapshot"
+    },
+    {
+      "id": "e00002",
+      "name": "container",
+      "parent": "e00001",
+      "children": [
+        "e00003",
+        "e00013"
+      ],
+      "settings": {
+        "_display": "grid",
+        "_gridTemplateColumns": "1.1fr 0.9fr",
+        "_columnGap": "var(--space-xl)",
+        "_rowGap": "var(--space-l)",
+        "_alignItems": "center",
+        "_gridTemplateColumns:tablet_portrait": "1fr"
+      },
+      "label": "Hero Grid"
+    },
+    {
+      "id": "e00003",
+      "name": "block",
+      "parent": "e00002",
+      "children": [
+        "e00004",
+        "e00005",
+        "e00006",
+        "e00007",
+        "e00008",
+        "e00009"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--space-s)"
+      },
+      "label": "Hero Copy"
+    },
+    {
+      "id": "e00004",
+      "name": "text-basic",
+      "parent": "e00003",
+      "children": [],
+      "settings": {
+        "text": "{acf_hero_eyebrow}",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "piteyb"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_hero_eyebrow}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Eyebrow"
+    },
+    {
+      "id": "e00005",
+      "name": "heading",
+      "parent": "e00003",
+      "children": [],
+      "settings": {
+        "tag": "h1",
+        "_typography": {
+          "font-size": "var(--h1)",
+          "font-weight": "var(--font-weight-heading)",
+          "line-height": "var(--line-height-heading)",
+          "letter-spacing": "var(--letter-spacing-heading)",
+          "color": {
+            "raw": "var(--text-dark)"
+          }
+        },
+        "text": "{acf_hero_heading}",
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_hero_heading}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "H1 — hero override"
+    },
+    {
+      "id": "e00006",
+      "name": "heading",
+      "parent": "e00003",
+      "children": [],
+      "settings": {
+        "tag": "h1",
+        "_typography": {
+          "font-size": "var(--h1)",
+          "font-weight": "var(--font-weight-heading)",
+          "line-height": "var(--line-height-heading)",
+          "letter-spacing": "var(--letter-spacing-heading)",
+          "color": {
+            "raw": "var(--text-dark)"
+          }
+        },
+        "text": "{acf_public_program_name}",
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_hero_heading}",
+              "compare": "empty"
+            },
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_public_program_name}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "H1 — public program name"
+    },
+    {
+      "id": "e00007",
+      "name": "heading",
+      "parent": "e00003",
+      "children": [],
+      "settings": {
+        "tag": "h1",
+        "_typography": {
+          "font-size": "var(--h1)",
+          "font-weight": "var(--font-weight-heading)",
+          "line-height": "var(--line-height-heading)",
+          "letter-spacing": "var(--letter-spacing-heading)",
+          "color": {
+            "raw": "var(--text-dark)"
+          }
+        },
+        "text": "{post_title}",
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_hero_heading}",
+              "compare": "empty"
+            },
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_public_program_name}",
+              "compare": "empty"
+            }
+          ]
+        ]
+      },
+      "label": "H1 — post title"
+    },
+    {
+      "id": "e00008",
+      "name": "text",
+      "parent": "e00003",
+      "children": [],
+      "settings": {
+        "text": "{acf_hero_intro}",
+        "_cssGlobalClasses": [
+          "pitled"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_hero_intro}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Hero Intro"
+    },
+    {
+      "id": "e00009",
+      "name": "block",
+      "parent": "e00003",
+      "children": [
+        "e00010",
+        "e00011",
+        "e00012"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitact"
+        ]
+      },
+      "label": "CTA Buttons"
+    },
+    {
+      "id": "e00010",
+      "name": "button",
+      "parent": "e00009",
+      "children": [],
+      "settings": {
+        "text": "{acf_primary_cta_label @fallback:'Request a Free Quote'}",
+        "tag": "a",
+        "size": "lg",
+        "_cssClasses": "btn--accent",
+        "link": {
+          "type": "meta",
+          "useDynamicData": "{acf_primary_cta_link}"
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_primary_cta_link}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Quote CTA (page)"
+    },
+    {
+      "id": "e00011",
+      "name": "button",
+      "parent": "e00009",
+      "children": [],
+      "settings": {
+        "text": "{acf_default_quote_cta_button_label @fallback:'Request a Free Quote'}",
+        "tag": "a",
+        "size": "lg",
+        "_cssClasses": "btn--accent",
+        "link": {
+          "type": "external",
+          "url": "/contact/"
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_primary_cta_link}",
+              "compare": "empty"
+            }
+          ]
+        ]
+      },
+      "label": "Quote CTA (global)"
+    },
+    {
+      "id": "e00012",
+      "name": "button",
+      "parent": "e00009",
+      "children": [],
+      "settings": {
+        "text": "{acf_phone_cta_label @fallback:'Call 833.388.8873'}",
+        "tag": "a",
+        "size": "lg",
+        "_cssClasses": "btn--primary",
+        "link": {
+          "type": "external",
+          "url": "tel:{acf_main_phone_number}"
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_main_phone_number}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Phone CTA"
+    },
+    {
+      "id": "e00013",
+      "name": "block",
+      "parent": "e00002",
+      "children": [
+        "e00014"
+      ],
+      "settings": {},
+      "label": "Hero Media"
+    },
+    {
+      "id": "e00014",
+      "name": "image",
+      "parent": "e00013",
+      "children": [],
+      "settings": {
+        "image": {
+          "useDynamicData": "{acf_hero_image}",
+          "size": "large"
+        },
+        "_cssGlobalClasses": [
+          "pitmed"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_hero_image}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Hero Image"
+    },
+    {
+      "id": "e00015",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "e00016"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "pitsct"
+        ],
+        "_background": {
+          "color": {
+            "raw": "var(--white)"
+          }
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_program_type}",
+              "compare": "empty_not"
+            }
+          ],
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_application_count}",
+              "compare": "empty_not"
+            }
+          ],
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_turf_type}",
+              "compare": "empty_not"
+            }
+          ],
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_application_schedule}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Program Snapshot (supporting module)"
+    },
+    {
+      "id": "e00016",
+      "name": "container",
+      "parent": "e00015",
+      "children": [
+        "e00017"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitshl"
+        ]
+      },
+      "label": "Shell"
+    },
+    {
+      "id": "e00017",
+      "name": "block",
+      "parent": "e00016",
+      "children": [
+        "e00018",
+        "e00021",
+        "e00024",
+        "e00027"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitgr4"
+        ]
+      },
+      "label": "Snapshot Grid"
+    },
+    {
+      "id": "e00018",
+      "name": "div",
+      "parent": "e00017",
+      "children": [
+        "e00019",
+        "e00020"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitspi"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_program_type}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Snapshot — Program type"
+    },
+    {
+      "id": "e00019",
+      "name": "text-basic",
+      "parent": "e00018",
+      "children": [],
+      "settings": {
+        "text": "Program type",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "pitspl"
+        ]
+      },
+      "label": "Label"
+    },
+    {
+      "id": "e00020",
+      "name": "text-basic",
+      "parent": "e00018",
+      "children": [],
+      "settings": {
+        "text": "{acf_program_type}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitspv"
+        ]
+      },
+      "label": "Value"
+    },
+    {
+      "id": "e00021",
+      "name": "div",
+      "parent": "e00017",
+      "children": [
+        "e00022",
+        "e00023"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitspi"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_turf_type}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Snapshot — Turf types"
+    },
+    {
+      "id": "e00022",
+      "name": "text-basic",
+      "parent": "e00021",
+      "children": [],
+      "settings": {
+        "text": "Turf types",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "pitspl"
+        ]
+      },
+      "label": "Label"
+    },
+    {
+      "id": "e00023",
+      "name": "text-basic",
+      "parent": "e00021",
+      "children": [],
+      "settings": {
+        "text": "{acf_turf_type}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitspv"
+        ]
+      },
+      "label": "Value"
+    },
+    {
+      "id": "e00024",
+      "name": "div",
+      "parent": "e00017",
+      "children": [
+        "e00025",
+        "e00026"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitspi"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_application_count}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Snapshot — Applications"
+    },
+    {
+      "id": "e00025",
+      "name": "text-basic",
+      "parent": "e00024",
+      "children": [],
+      "settings": {
+        "text": "Applications",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "pitspl"
+        ]
+      },
+      "label": "Label"
+    },
+    {
+      "id": "e00026",
+      "name": "text-basic",
+      "parent": "e00024",
+      "children": [],
+      "settings": {
+        "text": "{acf_application_count}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitspv"
+        ]
+      },
+      "label": "Value"
+    },
+    {
+      "id": "e00027",
+      "name": "div",
+      "parent": "e00017",
+      "children": [
+        "e00028",
+        "e00029"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitspi"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_application_schedule}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Snapshot — Schedule"
+    },
+    {
+      "id": "e00028",
+      "name": "text-basic",
+      "parent": "e00027",
+      "children": [],
+      "settings": {
+        "text": "Schedule",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "pitspl"
+        ]
+      },
+      "label": "Label"
+    },
+    {
+      "id": "e00029",
+      "name": "text-basic",
+      "parent": "e00027",
+      "children": [],
+      "settings": {
+        "text": "{acf_application_schedule}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitspv"
+        ]
+      },
+      "label": "Value"
+    },
+    {
+      "id": "e00030",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "e00031"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "pitsec"
+        ],
+        "_cssClasses": "surface-subtle-grid",
+        "_background": {
+          "color": {
+            "raw": "var(--neutral-ultra-light)"
+          }
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_program_overview_text}",
+              "compare": "empty_not"
+            }
+          ],
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_ideal_for}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "2 · Program Overview and Ideal Fit"
+    },
+    {
+      "id": "e00031",
+      "name": "container",
+      "parent": "e00030",
+      "children": [
+        "e00032"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitshl"
+        ]
+      },
+      "label": "Shell"
+    },
+    {
+      "id": "e00032",
+      "name": "block",
+      "parent": "e00031",
+      "children": [
+        "e00033",
+        "e00039"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitgr2"
+        ],
+        "_alignItems": "flex-start",
+        "_columnGap": "var(--space-xl)"
+      },
+      "label": "Split"
+    },
+    {
+      "id": "e00033",
+      "name": "block",
+      "parent": "e00032",
+      "children": [
+        "e00034",
+        "e00035",
+        "e00036"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--space-s)"
+      },
+      "label": "Overview"
+    },
+    {
+      "id": "e00034",
+      "name": "heading",
+      "parent": "e00033",
+      "children": [],
+      "settings": {
+        "tag": "h2",
+        "text": "{acf_program_overview_heading @fallback:'What this program does'}",
+        "_cssGlobalClasses": [
+          "pithed"
+        ]
+      },
+      "label": "Overview Heading"
+    },
+    {
+      "id": "e00035",
+      "name": "text",
+      "parent": "e00033",
+      "children": [],
+      "settings": {
+        "text": "{acf_program_overview_text}",
+        "_typography": {
+          "font-size": "var(--text-m)",
+          "color": {
+            "raw": "var(--text-dark)"
+          }
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_program_overview_text}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Overview Text"
+    },
+    {
+      "id": "e00036",
+      "name": "div",
+      "parent": "e00033",
+      "children": [
+        "e00037",
+        "e00038"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitspi"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_not_designed_for}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Not Designed For"
+    },
+    {
+      "id": "e00037",
+      "name": "text-basic",
+      "parent": "e00036",
+      "children": [],
+      "settings": {
+        "text": "What this program does not cover",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "pitspl"
+        ]
+      },
+      "label": "Label"
+    },
+    {
+      "id": "e00038",
+      "name": "text-basic",
+      "parent": "e00036",
+      "children": [],
+      "settings": {
+        "text": "{acf_not_designed_for}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitspv"
+        ]
+      },
+      "label": "Value"
+    },
+    {
+      "id": "e00039",
+      "name": "block",
+      "parent": "e00032",
+      "children": [
+        "e00040",
+        "e00041"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--space-xs)",
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_ideal_for}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Ideal For"
+    },
+    {
+      "id": "e00040",
+      "name": "heading",
+      "parent": "e00039",
+      "children": [],
+      "settings": {
+        "tag": "h3",
+        "text": "Ideal for",
+        "_cssGlobalClasses": [
+          "pitctt"
+        ]
+      },
+      "label": "Ideal For Title"
+    },
+    {
+      "id": "e00041",
+      "name": "block",
+      "parent": "e00039",
+      "children": [
+        "e00042"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_ideal_for",
+          "posts_per_page": "5"
+        },
+        "_cssGlobalClasses": [
+          "pittck"
+        ]
+      },
+      "label": "Ideal For Loop"
+    },
+    {
+      "id": "e00042",
+      "name": "text-basic",
+      "parent": "e00041",
+      "children": [],
+      "settings": {
+        "text": "{acf_ideal_for_item}",
+        "tag": "span"
+      },
+      "label": "Ideal For Item"
+    },
+    {
+      "id": "e00043",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "e00044"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "pitsec"
+        ],
+        "_background": {
+          "color": {
+            "raw": "var(--white)"
+          }
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_included_services}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "3 · What Is Included"
+    },
+    {
+      "id": "e00044",
+      "name": "container",
+      "parent": "e00043",
+      "children": [
+        "e00045",
+        "e00046"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitshl"
+        ]
+      },
+      "label": "Shell"
+    },
+    {
+      "id": "e00045",
+      "name": "heading",
+      "parent": "e00044",
+      "children": [],
+      "settings": {
+        "tag": "h2",
+        "text": "What is included in this program",
+        "_cssGlobalClasses": [
+          "pithed"
+        ]
+      }
+    },
+    {
+      "id": "e00046",
+      "name": "block",
+      "parent": "e00044",
+      "children": [
+        "e00047"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitgr3"
+        ]
+      },
+      "label": "Included Grid"
+    },
+    {
+      "id": "e00047",
+      "name": "block",
+      "parent": "e00046",
+      "children": [
+        "e00048",
+        "e00049",
+        "e00050",
+        "e00051"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_included_services",
+          "posts_per_page": "6"
+        },
+        "_cssGlobalClasses": [
+          "pitcrd"
+        ]
+      },
+      "label": "Included Service Loop"
+    },
+    {
+      "id": "e00048",
+      "name": "image",
+      "parent": "e00047",
+      "children": [],
+      "settings": {
+        "image": {
+          "useDynamicData": "{acf_service_icon}",
+          "size": "medium"
+        },
+        "_width": "48px",
+        "_height": "48px",
+        "_objectFit": "contain",
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_service_icon}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Service Icon"
+    },
+    {
+      "id": "e00049",
+      "name": "heading",
+      "parent": "e00047",
+      "children": [],
+      "settings": {
+        "tag": "h3",
+        "text": "{acf_public_service_name @fallback:'{post_title}'}",
+        "_cssGlobalClasses": [
+          "pitctt"
+        ]
+      },
+      "label": "Service Title"
+    },
+    {
+      "id": "e00050",
+      "name": "text-basic",
+      "parent": "e00047",
+      "children": [],
+      "settings": {
+        "text": "{acf_service_summary}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitctx"
+        ]
+      },
+      "label": "Service Summary"
+    },
+    {
+      "id": "e00051",
+      "name": "text-link",
+      "parent": "e00047",
+      "children": [],
+      "settings": {
+        "text": "View service",
+        "link": {
+          "type": "external",
+          "url": "{post_url}"
+        },
+        "_typography": {
+          "font-size": "var(--text-s)",
+          "font-weight": "600",
+          "color": {
+            "raw": "var(--primary-dark)"
+          }
+        }
+      },
+      "label": "Service Link"
+    },
+    {
+      "id": "e00052",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "e00053"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "pitsec"
+        ],
+        "_cssClasses": "surface-subtle-grid",
+        "_background": {
+          "color": {
+            "raw": "var(--neutral-ultra-light)"
+          }
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_treatment_rounds}",
+              "compare": "empty_not"
+            }
+          ],
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_application_schedule}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "4 · Annual Treatment Schedule"
+    },
+    {
+      "id": "e00053",
+      "name": "container",
+      "parent": "e00052",
+      "children": [
+        "e00054",
+        "e00055",
+        "e00060"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitshl"
+        ]
+      },
+      "label": "Shell"
+    },
+    {
+      "id": "e00054",
+      "name": "heading",
+      "parent": "e00053",
+      "children": [],
+      "settings": {
+        "tag": "h2",
+        "text": "How the program runs through the year",
+        "_cssGlobalClasses": [
+          "pithed"
+        ]
+      }
+    },
+    {
+      "id": "e00055",
+      "name": "block",
+      "parent": "e00053",
+      "children": [
+        "e00056"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitgr3"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_treatment_rounds}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Round Grid"
+    },
+    {
+      "id": "e00056",
+      "name": "block",
+      "parent": "e00055",
+      "children": [
+        "e00057",
+        "e00058",
+        "e00059"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_treatment_rounds",
+          "posts_per_page": "12"
+        },
+        "_cssGlobalClasses": [
+          "pitcrd"
+        ]
+      },
+      "label": "Treatment Round Loop"
+    },
+    {
+      "id": "e00057",
+      "name": "text-basic",
+      "parent": "e00056",
+      "children": [],
+      "settings": {
+        "text": "{acf_treatment_rounds_round_timing}",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "pitstn"
+        ]
+      },
+      "label": "Round Timing"
+    },
+    {
+      "id": "e00058",
+      "name": "heading",
+      "parent": "e00056",
+      "children": [],
+      "settings": {
+        "tag": "h3",
+        "text": "{acf_treatment_rounds_round_label}",
+        "_cssGlobalClasses": [
+          "pitctt"
+        ]
+      },
+      "label": "Round Label"
+    },
+    {
+      "id": "e00059",
+      "name": "text-basic",
+      "parent": "e00056",
+      "children": [],
+      "settings": {
+        "text": "{acf_treatment_rounds_round_focus}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitctx"
+        ]
+      },
+      "label": "Round Focus"
+    },
+    {
+      "id": "e00060",
+      "name": "text-basic",
+      "parent": "e00053",
+      "children": [],
+      "settings": {
+        "text": "This program includes {acf_application_count} applications. {acf_application_schedule}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitled"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_treatment_rounds}",
+              "compare": "empty"
+            },
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_application_schedule}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Summary Schedule (fallback)"
+    },
+    {
+      "id": "e00061",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "e00062"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "pitsec"
+        ],
+        "_background": {
+          "color": {
+            "raw": "var(--white)"
+          }
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_program_features}",
+              "compare": "empty_not"
+            }
+          ],
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_related_products}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "5 · Program Features and Treatment Approach"
+    },
+    {
+      "id": "e00062",
+      "name": "container",
+      "parent": "e00061",
+      "children": [
+        "e00063",
+        "e00064",
+        "e00068"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitshl"
+        ]
+      },
+      "label": "Shell"
+    },
+    {
+      "id": "e00063",
+      "name": "heading",
+      "parent": "e00062",
+      "children": [],
+      "settings": {
+        "tag": "h2",
+        "text": "How this program is built",
+        "_cssGlobalClasses": [
+          "pithed"
+        ]
+      }
+    },
+    {
+      "id": "e00064",
+      "name": "block",
+      "parent": "e00062",
+      "children": [
+        "e00065"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitgr3"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_program_features}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Feature Grid"
+    },
+    {
+      "id": "e00065",
+      "name": "block",
+      "parent": "e00064",
+      "children": [
+        "e00066",
+        "e00067"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_program_features",
+          "posts_per_page": "6"
+        },
+        "_cssGlobalClasses": [
+          "pitcrd"
+        ]
+      },
+      "label": "Feature Loop"
+    },
+    {
+      "id": "e00066",
+      "name": "heading",
+      "parent": "e00065",
+      "children": [],
+      "settings": {
+        "tag": "h3",
+        "text": "{acf_program_features_feature_title}",
+        "_cssGlobalClasses": [
+          "pitctt"
+        ]
+      },
+      "label": "Feature Title"
+    },
+    {
+      "id": "e00067",
+      "name": "text-basic",
+      "parent": "e00065",
+      "children": [],
+      "settings": {
+        "text": "{acf_program_features_feature_text}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitctx"
+        ]
+      },
+      "label": "Feature Text"
+    },
+    {
+      "id": "e00068",
+      "name": "block",
+      "parent": "e00062",
+      "children": [
+        "e00069",
+        "e00070"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--space-s)",
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_related_products}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Products"
+    },
+    {
+      "id": "e00069",
+      "name": "text-basic",
+      "parent": "e00068",
+      "children": [],
+      "settings": {
+        "text": "Products and treatment types used",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "pitspl"
+        ]
+      },
+      "label": "Products Label"
+    },
+    {
+      "id": "e00070",
+      "name": "block",
+      "parent": "e00068",
+      "children": [
+        "e00071"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitgr3"
+        ]
+      },
+      "label": "Product Grid"
+    },
+    {
+      "id": "e00071",
+      "name": "block",
+      "parent": "e00070",
+      "children": [
+        "e00072",
+        "e00073",
+        "e00074",
+        "e00075"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_related_products",
+          "posts_per_page": "3"
+        },
+        "_cssGlobalClasses": [
+          "pitcrd"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_approved_for_publication:value}",
+              "compare": "==",
+              "value": "1"
+            },
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_approved_summary}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Product Loop"
+    },
+    {
+      "id": "e00072",
+      "name": "text-basic",
+      "parent": "e00071",
+      "children": [],
+      "settings": {
+        "text": "{acf_product_category}",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "pitspl"
+        ]
+      },
+      "label": "Product Category"
+    },
+    {
+      "id": "e00073",
+      "name": "heading",
+      "parent": "e00071",
+      "children": [],
+      "settings": {
+        "tag": "h3",
+        "text": "{acf_public_display_name @fallback:'{post_title}'}",
+        "_cssGlobalClasses": [
+          "pitctt"
+        ]
+      },
+      "label": "Product Name"
+    },
+    {
+      "id": "e00074",
+      "name": "text-basic",
+      "parent": "e00071",
+      "children": [],
+      "settings": {
+        "text": "{acf_approved_summary}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitctx"
+        ]
+      },
+      "label": "Approved Summary"
+    },
+    {
+      "id": "e00075",
+      "name": "text-basic",
+      "parent": "e00071",
+      "children": [],
+      "settings": {
+        "text": "{acf_required_qualification}",
+        "tag": "p",
+        "_typography": {
+          "font-size": "var(--text-xs)",
+          "color": {
+            "raw": "var(--text-dark-muted)"
+          }
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_required_qualification}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Required Qualification"
+    },
+    {
+      "id": "e00076",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "e00077"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "pitsec"
+        ],
+        "_background": {
+          "color": {
+            "raw": "var(--accent-ultra-light)"
+          }
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_recommended_add_ons}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "6 · Recommended Add-Ons"
+    },
+    {
+      "id": "e00077",
+      "name": "container",
+      "parent": "e00076",
+      "children": [
+        "e00078",
+        "e00079",
+        "e00080"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitshl"
+        ]
+      },
+      "label": "Shell"
+    },
+    {
+      "id": "e00078",
+      "name": "heading",
+      "parent": "e00077",
+      "children": [],
+      "settings": {
+        "tag": "h2",
+        "text": "Optional add-ons for this program",
+        "_cssGlobalClasses": [
+          "pithed"
+        ]
+      }
+    },
+    {
+      "id": "e00079",
+      "name": "text-basic",
+      "parent": "e00077",
+      "children": [],
+      "settings": {
+        "text": "These are not included in the program. They are added only when the lawn needs them.",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitled"
+        ]
+      },
+      "label": "Add-On Disclaimer"
+    },
+    {
+      "id": "e00080",
+      "name": "block",
+      "parent": "e00077",
+      "children": [
+        "e00081"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitgr2"
+        ]
+      },
+      "label": "Add-On Grid"
+    },
+    {
+      "id": "e00081",
+      "name": "block",
+      "parent": "e00080",
+      "children": [
+        "e00082",
+        "e00083",
+        "e00084",
+        "e00085"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_recommended_add_ons",
+          "posts_per_page": "4"
+        },
+        "_cssGlobalClasses": [
+          "pitcrd"
+        ]
+      },
+      "label": "Add-On Loop"
+    },
+    {
+      "id": "e00082",
+      "name": "text-basic",
+      "parent": "e00081",
+      "children": [],
+      "settings": {
+        "text": "Optional add-on",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "pitspl"
+        ]
+      },
+      "label": "Add-On Label"
+    },
+    {
+      "id": "e00083",
+      "name": "heading",
+      "parent": "e00081",
+      "children": [],
+      "settings": {
+        "tag": "h3",
+        "text": "{acf_public_service_name @fallback:'{post_title}'}",
+        "_cssGlobalClasses": [
+          "pitctt"
+        ]
+      },
+      "label": "Add-On Title"
+    },
+    {
+      "id": "e00084",
+      "name": "text-basic",
+      "parent": "e00081",
+      "children": [],
+      "settings": {
+        "text": "{acf_service_summary}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitctx"
+        ]
+      },
+      "label": "Add-On Summary"
+    },
+    {
+      "id": "e00085",
+      "name": "text-link",
+      "parent": "e00081",
+      "children": [],
+      "settings": {
+        "text": "View add-on",
+        "link": {
+          "type": "external",
+          "url": "{post_url}"
+        },
+        "_typography": {
+          "font-size": "var(--text-s)",
+          "font-weight": "600",
+          "color": {
+            "raw": "var(--primary-dark)"
+          }
+        }
+      },
+      "label": "Add-On Link"
+    },
+    {
+      "id": "e00086",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "e00087"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "pitsec"
+        ],
+        "_background": {
+          "color": {
+            "raw": "var(--white)"
+          }
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_related_programs}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "7 · Compare Other Programs"
+    },
+    {
+      "id": "e00087",
+      "name": "container",
+      "parent": "e00086",
+      "children": [
+        "e00088",
+        "e00089"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitshl"
+        ]
+      },
+      "label": "Shell"
+    },
+    {
+      "id": "e00088",
+      "name": "heading",
+      "parent": "e00087",
+      "children": [],
+      "settings": {
+        "tag": "h2",
+        "text": "How this compares to our other programs",
+        "_cssGlobalClasses": [
+          "pithed"
+        ]
+      }
+    },
+    {
+      "id": "e00089",
+      "name": "block",
+      "parent": "e00087",
+      "children": [
+        "e00090"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitgr3"
+        ]
+      },
+      "label": "Program Grid"
+    },
+    {
+      "id": "e00090",
+      "name": "block",
+      "parent": "e00089",
+      "children": [
+        "e00091",
+        "e00092",
+        "e00093",
+        "e00094",
+        "e00095"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_related_programs",
+          "posts_per_page": "3"
+        },
+        "_cssGlobalClasses": [
+          "pitcrd"
+        ]
+      },
+      "label": "Program Card Loop"
+    },
+    {
+      "id": "e00091",
+      "name": "text-basic",
+      "parent": "e00090",
+      "children": [],
+      "settings": {
+        "text": "{acf_card_eyebrow @fallback:'Lawn Care Program'}",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "piteyb"
+        ]
+      },
+      "label": "Program Eyebrow"
+    },
+    {
+      "id": "e00092",
+      "name": "heading",
+      "parent": "e00090",
+      "children": [],
+      "settings": {
+        "tag": "h3",
+        "text": "{acf_public_program_name @fallback:'{post_title}'}",
+        "_cssGlobalClasses": [
+          "pitctt"
+        ]
+      },
+      "label": "Program Title"
+    },
+    {
+      "id": "e00093",
+      "name": "text-basic",
+      "parent": "e00090",
+      "children": [],
+      "settings": {
+        "text": "{acf_card_summary}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitctx"
+        ]
+      },
+      "label": "Program Summary"
+    },
+    {
+      "id": "e00094",
+      "name": "text-basic",
+      "parent": "e00090",
+      "children": [],
+      "settings": {
+        "text": "{acf_application_count} applications · {acf_turf_type}",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "pitspl"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_application_count}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Program Meta"
+    },
+    {
+      "id": "e00095",
+      "name": "text-link",
+      "parent": "e00090",
+      "children": [],
+      "settings": {
+        "text": "Compare this program",
+        "link": {
+          "type": "external",
+          "url": "{post_url}"
+        },
+        "_typography": {
+          "font-size": "var(--text-s)",
+          "font-weight": "600",
+          "color": {
+            "raw": "var(--primary-dark)"
+          }
+        }
+      },
+      "label": "Program Link"
+    },
+    {
+      "id": "e00096",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "e00097"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "pitsec"
+        ],
+        "_cssClasses": "surface-proof",
+        "_background": {
+          "color": {
+            "raw": "var(--base-ultra-dark)"
+          }
+        }
+      },
+      "label": "8 · Program Results and Reviews"
+    },
+    {
+      "id": "e00097",
+      "name": "container",
+      "parent": "e00096",
+      "children": [
+        "e00098",
+        "e00099",
+        "e00104",
+        "e00113"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitshl"
+        ]
+      },
+      "label": "Shell"
+    },
+    {
+      "id": "e00098",
+      "name": "heading",
+      "parent": "e00097",
+      "children": [],
+      "settings": {
+        "tag": "h2",
+        "text": "Results from this program",
+        "_cssGlobalClasses": [
+          "pithed",
+          "pithdl"
+        ]
+      }
+    },
+    {
+      "id": "e00099",
+      "name": "block",
+      "parent": "e00097",
+      "children": [
+        "e00100"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitgr3"
+        ]
+      },
+      "label": "Review Grid"
+    },
+    {
+      "id": "e00100",
+      "name": "block",
+      "parent": "e00099",
+      "children": [
+        "e00101",
+        "e00102",
+        "e00103"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "post",
+          "post_type": [
+            "reviews"
+          ],
+          "posts_per_page": "3",
+          "orderby": "meta_value_num",
+          "meta_key": "display_priority",
+          "order": "ASC",
+          "meta_query": [
+            {
+              "id": "mqprg1",
+              "key": "related_program",
+              "value": "\"{post_id}\"",
+              "compare": "LIKE"
+            }
+          ]
+        },
+        "_cssGlobalClasses": [
+          "pitrvc"
+        ]
+      },
+      "label": "Review Loop"
+    },
+    {
+      "id": "e00101",
+      "name": "text-basic",
+      "parent": "e00100",
+      "children": [],
+      "settings": {
+        "text": "{acf_review_text}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitrvt"
+        ]
+      },
+      "label": "Review Text"
+    },
+    {
+      "id": "e00102",
+      "name": "text-basic",
+      "parent": "e00100",
+      "children": [],
+      "settings": {
+        "text": "{acf_reviewer_name}",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "pitrvn"
+        ]
+      },
+      "label": "Reviewer Name"
+    },
+    {
+      "id": "e00103",
+      "name": "text-basic",
+      "parent": "e00100",
+      "children": [],
+      "settings": {
+        "text": "{acf_reviewer_location} · {acf_review_source}",
+        "tag": "span",
+        "_cssGlobalClasses": [
+          "pitrvm"
+        ]
+      },
+      "label": "Reviewer Meta"
+    },
+    {
+      "id": "e00104",
+      "name": "block",
+      "parent": "e00097",
+      "children": [
+        "e00105",
+        "e00112"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--space-s)",
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_before_after_before_image}",
+              "compare": "empty_not"
+            },
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_before_after_after_image}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Before / After"
+    },
+    {
+      "id": "e00105",
+      "name": "block",
+      "parent": "e00104",
+      "children": [
+        "e00106",
+        "e00109"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitgr2"
+        ]
+      },
+      "label": "BA Grid"
+    },
+    {
+      "id": "e00106",
+      "name": "div",
+      "parent": "e00105",
+      "children": [
+        "e00107",
+        "e00108"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--space-xxs)"
+      },
+      "label": "Before"
+    },
+    {
+      "id": "e00107",
+      "name": "text-basic",
+      "parent": "e00106",
+      "children": [],
+      "settings": {
+        "text": "Before",
+        "tag": "span",
+        "_typography": {
+          "font-size": "var(--text-xs)",
+          "font-weight": "700",
+          "text-transform": "uppercase",
+          "letter-spacing": "var(--letter-spacing-eyebrow)",
+          "color": {
+            "raw": "var(--text-light-muted)"
+          }
+        }
+      },
+      "label": "Before Label"
+    },
+    {
+      "id": "e00108",
+      "name": "image",
+      "parent": "e00106",
+      "children": [],
+      "settings": {
+        "image": {
+          "useDynamicData": "{acf_before_after_before_image}",
+          "size": "large"
+        },
+        "_cssGlobalClasses": [
+          "pitmed"
+        ]
+      },
+      "label": "Before Image"
+    },
+    {
+      "id": "e00109",
+      "name": "div",
+      "parent": "e00105",
+      "children": [
+        "e00110",
+        "e00111"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--space-xxs)"
+      },
+      "label": "After"
+    },
+    {
+      "id": "e00110",
+      "name": "text-basic",
+      "parent": "e00109",
+      "children": [],
+      "settings": {
+        "text": "After",
+        "tag": "span",
+        "_typography": {
+          "font-size": "var(--text-xs)",
+          "font-weight": "700",
+          "text-transform": "uppercase",
+          "letter-spacing": "var(--letter-spacing-eyebrow)",
+          "color": {
+            "raw": "var(--text-light-muted)"
+          }
+        }
+      },
+      "label": "After Label"
+    },
+    {
+      "id": "e00111",
+      "name": "image",
+      "parent": "e00109",
+      "children": [],
+      "settings": {
+        "image": {
+          "useDynamicData": "{acf_before_after_after_image}",
+          "size": "large"
+        },
+        "_cssGlobalClasses": [
+          "pitmed"
+        ]
+      },
+      "label": "After Image"
+    },
+    {
+      "id": "e00112",
+      "name": "text-basic",
+      "parent": "e00104",
+      "children": [],
+      "settings": {
+        "text": "{acf_before_after_caption} ({acf_before_after_timeframe})",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitltx"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_before_after_caption}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "BA Caption"
+    },
+    {
+      "id": "e00113",
+      "name": "text-basic",
+      "parent": "e00097",
+      "children": [],
+      "settings": {
+        "text": "{acf_guarantee_statement}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitltx"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_guarantee_statement}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Guarantee"
+    },
+    {
+      "id": "e00114",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "e00115"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "pitsec"
+        ],
+        "_cssClasses": "surface-subtle-grid",
+        "_background": {
+          "color": {
+            "raw": "var(--neutral-ultra-light)"
+          }
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_program_faqs}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "9 · Program FAQs"
+    },
+    {
+      "id": "e00115",
+      "name": "container",
+      "parent": "e00114",
+      "children": [
+        "e00116",
+        "e00117"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitshl"
+        ]
+      },
+      "label": "Shell"
+    },
+    {
+      "id": "e00116",
+      "name": "heading",
+      "parent": "e00115",
+      "children": [],
+      "settings": {
+        "tag": "h2",
+        "text": "Frequently asked questions",
+        "_cssGlobalClasses": [
+          "pithed"
+        ]
+      }
+    },
+    {
+      "id": "e00117",
+      "name": "accordion-nested",
+      "parent": "e00115",
+      "children": [
+        "e00118"
+      ],
+      "settings": {
+        "expandFirstItem": true,
+        "independentToggle": true,
+        "faqSchema": true,
+        "_widthMax": "var(--content-width-narrow)"
+      },
+      "label": "FAQ Accordion"
+    },
+    {
+      "id": "e00118",
+      "name": "block",
+      "parent": "e00117",
+      "children": [
+        "e00119",
+        "e00122"
+      ],
+      "settings": {
+        "hasLoop": true,
+        "query": {
+          "objectType": "acf_program_faqs",
+          "posts_per_page": "6"
+        }
+      },
+      "label": "FAQ Item Loop"
+    },
+    {
+      "id": "e00119",
+      "name": "block",
+      "parent": "e00118",
+      "children": [
+        "e00120",
+        "e00121"
+      ],
+      "settings": {
+        "_hidden": {
+          "_cssClasses": "accordion-title-wrapper"
+        },
+        "_direction": "row",
+        "_justifyContent": "space-between",
+        "_alignItems": "center"
+      },
+      "label": "FAQ Title Wrapper"
+    },
+    {
+      "id": "e00120",
+      "name": "heading",
+      "parent": "e00119",
+      "children": [],
+      "settings": {
+        "tag": "h3",
+        "text": "{acf_program_faqs_question}",
+        "_typography": {
+          "font-size": "var(--text-l)",
+          "font-weight": "600",
+          "color": {
+            "raw": "var(--text-dark)"
+          }
+        }
+      },
+      "label": "FAQ Question"
+    },
+    {
+      "id": "e00121",
+      "name": "icon",
+      "parent": "e00119",
+      "children": [],
+      "settings": {
+        "icon": {
+          "library": "themify",
+          "icon": "ti-angle-down"
+        },
+        "isAccordionIcon": true
+      },
+      "label": "FAQ Icon"
+    },
+    {
+      "id": "e00122",
+      "name": "block",
+      "parent": "e00118",
+      "children": [
+        "e00123"
+      ],
+      "settings": {
+        "_hidden": {
+          "_cssClasses": "accordion-content-wrapper"
+        }
+      },
+      "label": "FAQ Content Wrapper"
+    },
+    {
+      "id": "e00123",
+      "name": "text",
+      "parent": "e00122",
+      "children": [],
+      "settings": {
+        "text": "{acf_program_faqs_answer}",
+        "_typography": {
+          "font-size": "var(--text-m)",
+          "color": {
+            "raw": "var(--text-dark-muted)"
+          }
+        }
+      },
+      "label": "FAQ Answer"
+    },
+    {
+      "id": "e00124",
+      "name": "section",
+      "parent": 0,
+      "children": [
+        "e00125"
+      ],
+      "settings": {
+        "tag": "section",
+        "_cssGlobalClasses": [
+          "pitsec"
+        ],
+        "_cssClasses": "surface-dark-cta",
+        "_background": {
+          "color": {
+            "raw": "var(--base-ultra-dark)"
+          }
+        }
+      },
+      "label": "10 · Final Program CTA"
+    },
+    {
+      "id": "e00125",
+      "name": "container",
+      "parent": "e00124",
+      "children": [
+        "e00126",
+        "e00127",
+        "e00128",
+        "e00132"
+      ],
+      "settings": {
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--space-s)",
+        "_alignItems": "center",
+        "_textAlign": "center",
+        "_widthMax": "var(--content-width-narrow)",
+        "_margin": {
+          "left": "auto",
+          "right": "auto"
+        }
+      },
+      "label": "CTA Shell"
+    },
+    {
+      "id": "e00126",
+      "name": "heading",
+      "parent": "e00125",
+      "children": [],
+      "settings": {
+        "tag": "h2",
+        "text": "{acf_default_quote_cta_heading @fallback:'Start this program on your lawn'}",
+        "_cssGlobalClasses": [
+          "pithed",
+          "pithdl"
+        ]
+      },
+      "label": "CTA Heading"
+    },
+    {
+      "id": "e00127",
+      "name": "text-basic",
+      "parent": "e00125",
+      "children": [],
+      "settings": {
+        "text": "{acf_default_quote_cta_text}",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitltx"
+        ],
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_default_quote_cta_text}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "CTA Text"
+    },
+    {
+      "id": "e00128",
+      "name": "block",
+      "parent": "e00125",
+      "children": [
+        "e00129",
+        "e00130",
+        "e00131"
+      ],
+      "settings": {
+        "_cssGlobalClasses": [
+          "pitact"
+        ]
+      },
+      "label": "CTA Buttons"
+    },
+    {
+      "id": "e00129",
+      "name": "button",
+      "parent": "e00128",
+      "children": [],
+      "settings": {
+        "text": "{acf_primary_cta_label @fallback:'Request a Free Quote'}",
+        "tag": "a",
+        "size": "lg",
+        "_cssClasses": "btn--accent",
+        "link": {
+          "type": "meta",
+          "useDynamicData": "{acf_primary_cta_link}"
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_primary_cta_link}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Quote CTA (page)"
+    },
+    {
+      "id": "e00130",
+      "name": "button",
+      "parent": "e00128",
+      "children": [],
+      "settings": {
+        "text": "{acf_default_quote_cta_button_label @fallback:'Request a Free Quote'}",
+        "tag": "a",
+        "size": "lg",
+        "_cssClasses": "btn--accent",
+        "link": {
+          "type": "external",
+          "url": "/contact/"
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_primary_cta_link}",
+              "compare": "empty"
+            }
+          ]
+        ]
+      },
+      "label": "Quote CTA (global)"
+    },
+    {
+      "id": "e00131",
+      "name": "button",
+      "parent": "e00128",
+      "children": [],
+      "settings": {
+        "text": "{acf_phone_cta_label @fallback:'Call 833.388.8873'}",
+        "tag": "a",
+        "size": "lg",
+        "_cssClasses": "btn--primary",
+        "link": {
+          "type": "external",
+          "url": "tel:{acf_main_phone_number}"
+        },
+        "_conditions": [
+          [
+            {
+              "key": "dynamic_data",
+              "dynamic_data": "{acf_main_phone_number}",
+              "compare": "empty_not"
+            }
+          ]
+        ]
+      },
+      "label": "Phone CTA"
+    },
+    {
+      "id": "e00132",
+      "name": "text-basic",
+      "parent": "e00125",
+      "children": [],
+      "settings": {
+        "text": "Ask about {acf_public_program_name @fallback:'{post_title}'} when you get in touch.",
+        "tag": "p",
+        "_cssGlobalClasses": [
+          "pitrvm"
+        ]
+      },
+      "label": "Program Identity Hint"
+    }
+  ],
+  "source": "bricksCopiedElements",
+  "sourceUrl": "https://prideinturf.com",
+  "version": "2.3.6",
+  "globalClasses": [
+    {
+      "id": "pitsec",
+      "name": "pit-section",
+      "settings": {
+        "_padding": {
+          "top": "var(--section-space-m)",
+          "bottom": "var(--section-space-m)"
+        }
+      }
+    },
+    {
+      "id": "pitsct",
+      "name": "pit-section--tight",
+      "settings": {
+        "_padding": {
+          "top": "var(--space-l)",
+          "bottom": "var(--space-l)"
+        }
+      }
+    },
+    {
+      "id": "pitshl",
+      "name": "pit-shell",
+      "settings": {
+        "_width": "100%",
+        "_widthMax": "var(--content-width)",
+        "_margin": {
+          "left": "auto",
+          "right": "auto"
+        },
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--space-l)"
+      }
+    },
+    {
+      "id": "pithed",
+      "name": "pit-section__title",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--h2)",
+          "font-weight": "var(--font-weight-heading)",
+          "line-height": "var(--line-height-heading)",
+          "letter-spacing": "var(--letter-spacing-heading)",
+          "color": {
+            "raw": "var(--text-dark)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pithdl",
+      "name": "pit-section__title--light",
+      "settings": {
+        "_typography": {
+          "color": {
+            "raw": "var(--text-light)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitled",
+      "name": "pit-section__lead",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-l)",
+          "color": {
+            "raw": "var(--text-dark-muted)"
+          }
+        },
+        "_widthMax": "65ch"
+      }
+    },
+    {
+      "id": "piteyb",
+      "name": "pit-eyebrow",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-xs)",
+          "font-weight": "600",
+          "text-transform": "uppercase",
+          "letter-spacing": "var(--letter-spacing-eyebrow)",
+          "color": {
+            "raw": "var(--primary-dark)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitgr3",
+      "name": "pit-grid-3",
+      "settings": {
+        "_display": "grid",
+        "_gridTemplateColumns": "repeat(3, minmax(0, 1fr))",
+        "_columnGap": "var(--grid-gap)",
+        "_rowGap": "var(--grid-gap)",
+        "_gridTemplateColumns:tablet_portrait": "repeat(2, minmax(0, 1fr))",
+        "_gridTemplateColumns:mobile_landscape": "1fr"
+      }
+    },
+    {
+      "id": "pitgr2",
+      "name": "pit-grid-2",
+      "settings": {
+        "_display": "grid",
+        "_gridTemplateColumns": "repeat(2, minmax(0, 1fr))",
+        "_columnGap": "var(--grid-gap)",
+        "_rowGap": "var(--grid-gap)",
+        "_gridTemplateColumns:mobile_landscape": "1fr"
+      }
+    },
+    {
+      "id": "pitgr4",
+      "name": "pit-grid-4",
+      "settings": {
+        "_display": "grid",
+        "_gridTemplateColumns": "repeat(4, minmax(0, 1fr))",
+        "_columnGap": "var(--grid-gap)",
+        "_rowGap": "var(--space-s)",
+        "_gridTemplateColumns:tablet_portrait": "repeat(2, minmax(0, 1fr))",
+        "_gridTemplateColumns:mobile_portrait": "1fr"
+      }
+    },
+    {
+      "id": "pitcrd",
+      "name": "pit-card",
+      "settings": {
+        "_background": {
+          "color": {
+            "raw": "var(--white)"
+          }
+        },
+        "_border": {
+          "width": {
+            "top": "1px",
+            "right": "1px",
+            "bottom": "1px",
+            "left": "1px"
+          },
+          "style": "solid",
+          "color": {
+            "raw": "var(--neutral-light)"
+          },
+          "radius": {
+            "top": "var(--radius-m)",
+            "right": "var(--radius-m)",
+            "bottom": "var(--radius-m)",
+            "left": "var(--radius-m)"
+          }
+        },
+        "_boxShadow": {
+          "values": {
+            "offsetX": "0",
+            "offsetY": "1px",
+            "blur": "3px",
+            "spread": "0"
+          },
+          "color": {
+            "raw": "rgba(35, 31, 32, .08)"
+          }
+        },
+        "_padding": {
+          "top": "1.5rem",
+          "right": "1.5rem",
+          "bottom": "1.5rem",
+          "left": "1.5rem"
+        },
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--space-xs)"
+      }
+    },
+    {
+      "id": "pitcrf",
+      "name": "pit-card--featured",
+      "settings": {
+        "_padding": {
+          "top": "2rem",
+          "right": "2rem",
+          "bottom": "2rem",
+          "left": "2rem"
+        },
+        "_boxShadow": {
+          "values": {
+            "offsetX": "0",
+            "offsetY": "4px",
+            "blur": "12px",
+            "spread": "0"
+          },
+          "color": {
+            "raw": "rgba(35, 31, 32, .12)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitctt",
+      "name": "pit-card__title",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--h3)",
+          "font-weight": "var(--font-weight-heading)",
+          "line-height": "var(--line-height-heading)",
+          "color": {
+            "raw": "var(--text-dark)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitctx",
+      "name": "pit-card__text",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-m)",
+          "color": {
+            "raw": "var(--text-dark-muted)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitact",
+      "name": "pit-actions",
+      "settings": {
+        "_display": "flex",
+        "_direction": "row",
+        "_columnGap": "var(--space-s)",
+        "_rowGap": "var(--space-xs)",
+        "_flexWrap": "wrap",
+        "_alignItems": "center"
+      }
+    },
+    {
+      "id": "pittck",
+      "name": "pit-ticklist__item",
+      "settings": {
+        "_display": "flex",
+        "_direction": "row",
+        "_columnGap": "var(--space-xs)",
+        "_alignItems": "flex-start",
+        "_typography": {
+          "font-size": "var(--text-m)",
+          "color": {
+            "raw": "var(--text-dark)"
+          }
+        },
+        "_padding": {
+          "top": "var(--space-xxs)",
+          "bottom": "var(--space-xxs)"
+        },
+        "_border": {
+          "width": {
+            "bottom": "1px"
+          },
+          "style": "solid",
+          "color": {
+            "raw": "var(--neutral-ultra-light)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitstn",
+      "name": "pit-step__number",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-s)",
+          "font-weight": "700",
+          "color": {
+            "raw": "var(--primary-dark)"
+          },
+          "letter-spacing": "var(--letter-spacing-eyebrow)"
+        }
+      }
+    },
+    {
+      "id": "pitspi",
+      "name": "pit-spec__item",
+      "settings": {
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--space-xxs)",
+        "_padding": {
+          "left": "var(--space-s)"
+        },
+        "_border": {
+          "width": {
+            "left": "3px"
+          },
+          "style": "solid",
+          "color": {
+            "raw": "var(--primary)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitspl",
+      "name": "pit-spec__label",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-xs)",
+          "font-weight": "600",
+          "text-transform": "uppercase",
+          "letter-spacing": "var(--letter-spacing-eyebrow)",
+          "color": {
+            "raw": "var(--text-dark-muted)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitspv",
+      "name": "pit-spec__value",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-m)",
+          "color": {
+            "raw": "var(--text-dark)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitrvc",
+      "name": "review-card",
+      "settings": {
+        "_background": {
+          "color": {
+            "raw": "rgba(255, 255, 255, .06)"
+          }
+        },
+        "_border": {
+          "width": {
+            "top": "1px",
+            "right": "1px",
+            "bottom": "1px",
+            "left": "1px"
+          },
+          "style": "solid",
+          "color": {
+            "raw": "rgba(255, 255, 255, .16)"
+          },
+          "radius": {
+            "top": "var(--radius-m)",
+            "right": "var(--radius-m)",
+            "bottom": "var(--radius-m)",
+            "left": "var(--radius-m)"
+          }
+        },
+        "_padding": {
+          "top": "1.5rem",
+          "right": "1.5rem",
+          "bottom": "1.5rem",
+          "left": "1.5rem"
+        },
+        "_display": "flex",
+        "_direction": "column",
+        "_rowGap": "var(--space-xs)"
+      }
+    },
+    {
+      "id": "pitrvt",
+      "name": "review-card__text",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-m)",
+          "color": {
+            "raw": "var(--text-light)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitrvn",
+      "name": "review-card__name",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-s)",
+          "font-weight": "600",
+          "color": {
+            "raw": "var(--text-light)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitrvm",
+      "name": "review-card__meta",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-xs)",
+          "color": {
+            "raw": "var(--text-light-muted)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitltx",
+      "name": "pit-text--light",
+      "settings": {
+        "_typography": {
+          "font-size": "var(--text-m)",
+          "color": {
+            "raw": "var(--text-light-muted)"
+          }
+        }
+      }
+    },
+    {
+      "id": "pitmed",
+      "name": "pit-media",
+      "settings": {
+        "_border": {
+          "radius": {
+            "top": "var(--radius-l)",
+            "right": "var(--radius-l)",
+            "bottom": "var(--radius-l)",
+            "left": "var(--radius-l)"
+          }
+        },
+        "_objectFit": "cover",
+        "_aspectRatio": "4/3",
+        "_width": "100%"
+      }
+    }
+  ],
+  "globalElements": []
+}

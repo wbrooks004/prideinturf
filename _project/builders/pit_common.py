@@ -191,10 +191,30 @@ def quote_buttons(parent, prefix, light=False):
 
 
 def emit(template, out):
-    """Write + validate a template export."""
+    """Write + validate a template export, plus a clipboard-format twin.
+
+    Two different doors into Bricks:
+      * <name>.json           -> Bricks > Templates > Import  (template export format)
+      * <name>.clipboard.json -> Ctrl/Cmd+V in the builder    (bricksCopiedElements)
+    Paste validation checks `source`, and the class key is camelCase there,
+    so the same tree has to be wrapped differently for each.
+    """
     import json, re
     with open(out, "w", encoding="utf-8") as f:
         json.dump(template, f, indent=2, ensure_ascii=False)
+
+    nodes_for_clip = template.get("content") or template.get("header") or template.get("footer")
+    clipboard = {
+        "content": nodes_for_clip,
+        "source": "bricksCopiedElements",
+        "sourceUrl": "https://prideinturf.com",
+        "version": "2.3.6",
+        "globalClasses": template["global_classes"],
+        "globalElements": [],
+    }
+    clip_out = out.replace(".json", ".clipboard.json")
+    with open(clip_out, "w", encoding="utf-8") as f:
+        json.dump(clipboard, f, indent=2, ensure_ascii=False)
     nodes = template.get("content") or template.get("header") or template.get("footer")
     ids = [n["id"] for n in nodes]
     assert len(ids) == len(set(ids)), "duplicate ids"
@@ -220,4 +240,5 @@ def emit(template, out):
           f"  h1={cnt('h1')} h2={cnt('h2')} h3={cnt('h3')}  loops={len(loops)}")
     for r in roots:
         print("    §", r.get("label"))
+    print(f"    paste copy -> {clip_out}")
     return template
