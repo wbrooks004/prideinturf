@@ -103,7 +103,7 @@ s3g = el(nid(), "block", s3c, {"_cssGlobalClasses": [C_GRID3],
     "_conditions": [[notempty("{acf_branch_pages}")]]}, "Branch Grid")
 s3l = el(nid(), "block", s3g, {
     "hasLoop": True, "query": {"objectType": "acf_branch_pages", "posts_per_page": "3"},
-    "_cssGlobalClasses": [C_CARD]}, "Location Card Loop")
+    "_cssGlobalClasses": [C_CARD, C_BRANCHCARD]}, "Location Card Loop")
 el(nid(), "text-basic", s3l, {"text": "Branch", "tag": "span",
     "_cssGlobalClasses": [C_SPECLBL]}, "Branch Label")
 el(nid(), "heading", s3l, {"tag": "h3",
@@ -207,7 +207,7 @@ s6g = el(nid(), "block", s6c, {"_cssGlobalClasses": [C_GRID4],
 s6l = el(nid(), "block", s6g, {
     "hasLoop": True,
     "query": {"objectType": "acf_featured_team_members", "posts_per_page": "12"},
-    "_cssGlobalClasses": [C_CARD]}, "Team Loop (curated)")
+    "_cssGlobalClasses": [C_CARD, C_TEAMCARD]}, "Team Loop (curated)")
 team_card(s6l, "Team")
 
 # Fallback: every active team member, ordered by display_priority.
@@ -219,7 +219,7 @@ s6lf = el(nid(), "block", s6gf, {
               "orderby": "meta_value_num", "meta_key": "display_priority", "order": "ASC",
               "meta_query": [{"id": "mqtm01", "key": "is_active", "value": "1",
                               "compare": "="}]},
-    "_cssGlobalClasses": [C_CARD]}, "Team Loop (auto)")
+    "_cssGlobalClasses": [C_CARD, C_TEAMCARD]}, "Team Loop (auto)")
 team_card(s6lf, "Team auto")
 
 # ================================================================ 7 — TRAINING & CREDENTIALS

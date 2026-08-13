@@ -84,7 +84,7 @@ s2g = el(nid(), "block", s2c, {"_cssGlobalClasses": [C_GRID3]}, "Service Grid")
 s2l = el(nid(), "block", s2g, {
     "hasLoop": True,
     "query": {"objectType": "acf_featured_lawn_services", "posts_per_page": "6"},
-    "_cssGlobalClasses": [C_CARD]}, "Service Card Loop")
+    "_cssGlobalClasses": [C_CARD, C_SERVICECARD]}, "Service Card Loop")
 el(nid(), "image", s2l, {"image": {"useDynamicData": "{acf_service_icon}", "size": "medium"},
     "_width": "48px", "_height": "48px", "_objectFit": "contain",
     "_conditions": [[notempty("{acf_service_icon}")]]}, "Service Icon")
@@ -114,7 +114,7 @@ s3l = el(nid(), "block", s3g, {
               "posts_per_page": "3", "orderby": "meta_value_num",
               "meta_key": "display_priority", "order": "ASC",
               "post_status": ["publish"]},
-    "_cssGlobalClasses": [C_CARD]}, "Program Card Loop")
+    "_cssGlobalClasses": [C_CARD, C_PROGRAMCARD]}, "Program Card Loop")
 el(nid(), "text-basic", s3l, {"text": "{acf_card_eyebrow @fallback:'Lawn Care Program'}",
     "tag": "span", "_cssGlobalClasses": [C_EYEBROW]}, "Program Eyebrow")
 el(nid(), "heading", s3l, {"tag": "h3",
@@ -159,7 +159,7 @@ h2(s5c, "b", "Visit this branch")
 s5g = el(nid(), "block", s5c, {"_cssGlobalClasses": [C_GRID2],
     "_alignItems": "flex-start", "_columnGap": "var(--space-xl)"}, "Visit Split")
 
-s5d = el(nid(), "block", s5g, {"_cssGlobalClasses": [C_CARD, C_CARDFEAT]}, "NAP Card")
+s5d = el(nid(), "block", s5g, {"_cssGlobalClasses": [C_CARD, C_CARDFEAT, C_BRANCHCARD]}, "NAP Card")
 el(nid(), "heading", s5d, {"tag": "h3",
     "text": "{acf_location_display_name @fallback:'{post_title}'}",
     "_cssGlobalClasses": [C_CARDTTL]}, "Branch Name")

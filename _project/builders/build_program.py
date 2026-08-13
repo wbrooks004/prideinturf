@@ -102,7 +102,7 @@ h2(s3c, "p", "What is included in this program")
 s3g = el(nid(), "block", s3c, {"_cssGlobalClasses": [C_GRID3]}, "Included Grid")
 s3l = el(nid(), "block", s3g, {
     "hasLoop": True, "query": {"objectType": "acf_included_services", "posts_per_page": "6"},
-    "_cssGlobalClasses": [C_CARD]}, "Included Service Loop")
+    "_cssGlobalClasses": [C_CARD, C_SERVICECARD]}, "Included Service Loop")
 el(nid(), "image", s3l, {
     "image": {"useDynamicData": "{acf_service_icon}", "size": "medium"},
     "_width": "48px", "_height": "48px", "_objectFit": "contain",
@@ -191,7 +191,7 @@ el(nid(), "text-basic", s6c, {
 s6g = el(nid(), "block", s6c, {"_cssGlobalClasses": [C_GRID2]}, "Add-On Grid")
 s6l = el(nid(), "block", s6g, {
     "hasLoop": True, "query": {"objectType": "acf_recommended_add_ons", "posts_per_page": "4"},
-    "_cssGlobalClasses": [C_CARD]}, "Add-On Loop")
+    "_cssGlobalClasses": [C_CARD, C_SERVICECARD]}, "Add-On Loop")
 el(nid(), "text-basic", s6l, {"text": "Optional add-on", "tag": "span",
     "_cssGlobalClasses": [C_SPECLBL]}, "Add-On Label")
 el(nid(), "heading", s6l, {"tag": "h3",
@@ -212,7 +212,7 @@ h2(s7c, "p", "How this compares to our other programs")
 s7g = el(nid(), "block", s7c, {"_cssGlobalClasses": [C_GRID3]}, "Program Grid")
 s7l = el(nid(), "block", s7g, {
     "hasLoop": True, "query": {"objectType": "acf_related_programs", "posts_per_page": "3"},
-    "_cssGlobalClasses": [C_CARD]}, "Program Card Loop")
+    "_cssGlobalClasses": [C_CARD, C_PROGRAMCARD]}, "Program Card Loop")
 el(nid(), "text-basic", s7l, {"text": "{acf_card_eyebrow @fallback:'Lawn Care Program'}",
     "tag": "span", "_cssGlobalClasses": [C_EYEBROW]}, "Program Eyebrow")
 el(nid(), "heading", s7l, {"tag": "h3",

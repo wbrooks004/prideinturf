@@ -155,7 +155,7 @@ s5l = el(nid(), "block", s5g, {
               "orderby": "menu_order title", "order": "ASC",
               "meta_query": [{"id": "mqbr01", "key": "street_address",
                               "value": "", "compare": "!="}]},
-    "_cssGlobalClasses": [C_CARD]}, "Branch Loop")
+    "_cssGlobalClasses": [C_CARD, C_BRANCHCARD]}, "Branch Loop")
 el(nid(), "heading", s5l, {"tag": "h3",
     "text": "{acf_location_display_name @fallback:'{post_title}'}",
     "_cssGlobalClasses": [C_CARDTTL]}, "Branch Name")

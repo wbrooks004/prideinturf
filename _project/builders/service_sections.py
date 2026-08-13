@@ -138,7 +138,7 @@ s6c = shell(s6, "svprog")
 h2(s6c, "svprog", "How this service fits your lawn care program")
 s6p = el(nid("svprog"), "block", s6c, {
     "hasLoop": True, "query": {"objectType": "acf_related_programs", "posts_per_page": "1"},
-    "_cssGlobalClasses": [C_CARD, C_CARDFEAT], "_widthMax": "42rem",
+    "_cssGlobalClasses": [C_CARD, C_CARDFEAT, C_PROGRAMCARD, C_PROGRAMFEAT], "_widthMax": "42rem",
     "_conditions": [[notempty("{acf_related_programs}")]]}, "Program Card Loop")
 el(nid("svprog"), "text-basic", s6p, {"text": "{acf_card_eyebrow @fallback:'Lawn Care Program'}",
     "tag": "span", "_cssGlobalClasses": [C_EYEBROW]}, "Program Eyebrow")
@@ -229,7 +229,7 @@ h2(s8c, "svrelt", "Related services")
 s8g = el(nid("svrelt"), "block", s8c, {"_cssGlobalClasses": [C_GRID3]}, "Service Grid")
 s8l = el(nid("svrelt"), "block", s8g, {
     "hasLoop": True, "query": {"objectType": "acf_related_services", "posts_per_page": "3"},
-    "_cssGlobalClasses": [C_CARD]}, "Service Card Loop")
+    "_cssGlobalClasses": [C_CARD, C_SERVICECARD]}, "Service Card Loop")
 el(nid("svrelt"), "image", s8l, {
     "image": {"useDynamicData": "{acf_service_icon}", "size": "medium"},
     "_width": "48px", "_height": "48px", "_objectFit": "contain",
